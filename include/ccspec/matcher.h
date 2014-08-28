@@ -11,7 +11,7 @@ class Matcher {
     Matcher(U);
 
     template <typename V>
-    void match(V expected_value);
+    bool match(V expected_value);
     U value();
 
   private:

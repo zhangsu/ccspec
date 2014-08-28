@@ -7,7 +7,8 @@ namespace ccspec {
 template <typename U>
 template <typename ConcreteMatcher, typename V>
 void ExpectationTarget<U>::to(Matcher<ConcreteMatcher, V> matcher) {
-    matcher.match(target_);
+    if (!matcher.match(target_))
+        throw "CCSpecException";
 }
 
 // Private methods.

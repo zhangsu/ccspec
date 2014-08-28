@@ -6,9 +6,8 @@ namespace ccspec {
 
 template <typename U>
 template <typename V>
-void Eq<U>::match(V expected_value) {
-    if (expected_value != this->value())
-        throw 1;
+bool Eq<U>::match(V expected_value) {
+    return expected_value == this->value();
 }
 
 // Private methods.
