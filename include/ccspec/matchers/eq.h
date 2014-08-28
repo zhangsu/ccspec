@@ -1,7 +1,7 @@
 #ifndef CCSPEC_MATCHERS_EQ_H_
 #define CCSPEC_MATCHERS_EQ_H_
 
-#include <matcher.h>
+#include <ccspec/matcher.h>
 
 namespace ccspec {
 

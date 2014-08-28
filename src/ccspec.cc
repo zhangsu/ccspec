@@ -1,5 +1,4 @@
-#include "expectation_target.h"
-#include "matchers/eq.h"
+#include <ccspec.h>
 
 using ccspec::expect;
 using ccspec::eq;

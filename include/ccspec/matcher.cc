@@ -1,6 +1,3 @@
-#include <iostream>
-using namespace std;
-
 namespace ccspec {
 
 // Protected methods.
