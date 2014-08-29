@@ -1,4 +1,5 @@
 #ifndef CCSPEC_H_
+#define CCSPEC_H_
 
 #include "ccspec/expectation_target.h"
 #include "ccspec/matcher.h"
