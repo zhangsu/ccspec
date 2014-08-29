@@ -4,8 +4,9 @@ FLAGS          = -Wall -Wextra
 CFLAGS         = $(FLAGS) -std=c++11 -c -Iinclude
 LFLAGS         = $(FLAGS)
 SRCDIR         = src/
+BINDIR         = bin/
 OUTPUTS        = $(CCSPECOUTPUT)
-CCSPECOUTPUT   = ccspec
+CCSPECOUTPUT   = $(BINDIR)ccspec
 CCSPECOBJECTS  = $(SRCDIR)ccspec.o
 
 ifeq ($(DEBUG),1)
@@ -19,8 +20,11 @@ endif
 
 all: $(OUTPUTS)
 
-$(CCSPECOUTPUT): $(CCSPECOBJECTS)
+$(CCSPECOUTPUT): $(CCSPECOBJECTS) bin/
 	$(LINKER) $(LFLAGS) $(CCSPECOBJECTS) -o $@
+
+bin/:
+	mkdir -p bin
 
 -include $(CCSPECOBJECTS:.o=.d)
 
@@ -28,4 +32,5 @@ $(CCSPECOUTPUT): $(CCSPECOBJECTS)
 	$(CC) -c -MMD $(CFLAGS) $< -o $@
 
 clean:
-	find -name '*.o' -o -name '*.d' -o -name '$(OUTPUTS)' | xargs rm -f
+	find . -name '*.o' -o -name '*.d' | xargs rm -f
+	rm -rf {bin,lib}
