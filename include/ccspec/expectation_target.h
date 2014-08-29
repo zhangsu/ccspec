@@ -1,5 +1,5 @@
-#ifndef CCSPEC_EXPECTATION_H_
-#define CCSPEC_EXPECTATION_H_
+#ifndef CCSPEC_EXPECTATION_TARGET_H_
+#define CCSPEC_EXPECTATION_TARGET_H_
 
 #include "matcher.h"
 
@@ -24,4 +24,4 @@ class ExpectationTarget {
 
 #include "expectation_target.cc"
 
-#endif // CCSPEC_EXPECTATION_H_
+#endif // CCSPEC_EXPECTATION_TARGET_H_
