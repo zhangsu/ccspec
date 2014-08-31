@@ -4,6 +4,7 @@
 #include <ccspec/matcher.h>
 
 namespace ccspec {
+namespace matchers {
 
 template <typename U>
 class Eq : public Matcher<Eq<U>, U> {
@@ -18,6 +19,7 @@ class Eq : public Matcher<Eq<U>, U> {
     friend Eq<T> eq(T);
 };
 
+} // namespace matchers
 } // namespace ccspec
 
 #include "eq.cc"

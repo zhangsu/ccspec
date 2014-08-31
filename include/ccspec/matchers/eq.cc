@@ -1,6 +1,7 @@
 #include <ccspec/matcher.h>
 
 namespace ccspec {
+namespace matchers {
 
 // Public methods.
 
@@ -22,4 +23,5 @@ Eq<U> eq(U value) {
     return Eq<U>(value);
 }
 
+} // namespace matchers
 } // namespace ccspec
