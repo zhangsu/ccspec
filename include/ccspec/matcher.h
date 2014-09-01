@@ -1,9 +1,15 @@
 #ifndef CCSPEC_MATCHER_H_
 #define CCSPEC_MATCHER_H_
 
-#include "expectation_target.h"
+#include <ccspec/expectation/expectation_target.h>
 
 namespace ccspec {
+namespace expectation {
+
+template <typename U>
+class ExpectationTarget;
+
+} // namespace expectation
 
 template <typename ConcreteMatcher, typename U>
 class Matcher {
@@ -18,7 +24,7 @@ class Matcher {
     U value_;
 
     template <typename V>
-    friend class ExpectationTarget;
+    friend class expectation::ExpectationTarget;
 };
 
 } // namespace ccspec

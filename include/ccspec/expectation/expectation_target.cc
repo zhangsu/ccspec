@@ -1,6 +1,15 @@
-#include "matcher.h"
+#include <ccspec/matcher.h>
 
 namespace ccspec {
+
+// Friend methods.
+
+template <typename V>
+expectation::ExpectationTarget<V> expect(V target) {
+    return expectation::ExpectationTarget<V>(target);
+}
+
+namespace expectation {
 
 // Public methods.
 
@@ -16,11 +25,5 @@ void ExpectationTarget<U>::to(Matcher<ConcreteMatcher, V> matcher) {
 template <typename U>
 ExpectationTarget<U>::ExpectationTarget(U target) : target_(target) {}
 
-// Friend methods.
-
-template <typename V>
-ExpectationTarget<V> expect(V target) {
-    return ExpectationTarget<V>(target);
-}
-
+} // namespace expectation
 } // namespace ccspec
