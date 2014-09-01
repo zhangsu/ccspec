@@ -5,8 +5,8 @@ namespace ccspec {
 // Friend methods.
 
 template <typename V>
-expectation::ExpectationTarget<V> expect(V target) {
-    return expectation::ExpectationTarget<V>(target);
+expectation::Target<V> expect(V target) {
+    return expectation::Target<V>(target);
 }
 
 namespace expectation {
@@ -15,7 +15,7 @@ namespace expectation {
 
 template <typename U>
 template <typename ConcreteMatcher, typename V>
-void ExpectationTarget<U>::to(Matcher<ConcreteMatcher, V> matcher) {
+void Target<U>::to(Matcher<ConcreteMatcher, V> matcher) {
     if (!matcher.match(target_))
         throw "CCSpecException";
 }
@@ -23,7 +23,7 @@ void ExpectationTarget<U>::to(Matcher<ConcreteMatcher, V> matcher) {
 // Private methods.
 
 template <typename U>
-ExpectationTarget<U>::ExpectationTarget(U target) : target_(target) {}
+Target<U>::Target(U target) : target_(target) {}
 
 } // namespace expectation
 } // namespace ccspec

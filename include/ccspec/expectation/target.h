@@ -7,33 +7,33 @@ namespace ccspec {
 namespace expectation {
 
 template <typename U>
-class ExpectationTarget;
+class Target;
 
 } // namespace expectation
 
 template <typename T>
-expectation::ExpectationTarget<T> expect(T);
+expectation::Target<T> expect(T);
 
 namespace expectation {
 
 template <typename U>
-class ExpectationTarget {
+class Target {
   public:
     template <typename ConcreteMatcher, typename V>
     void to(Matcher<ConcreteMatcher, V>);
 
   private:
-    ExpectationTarget(U);
+    Target(U);
 
     U target_;
 
     template <typename V>
-    friend ExpectationTarget<V> ccspec::expect(V);
+    friend Target<V> ccspec::expect(V);
 };
 
 } // namespace expectation
 } // namespace ccspec
 
-#include "expectation_target.cc"
+#include "target.cc"
 
 #endif // CCSPEC_EXPECTATION_TARGET_H_
