@@ -13,6 +13,8 @@ class ExampleGroup;
 
 typedef ExampleGroup* Creator(std::string desc, std::function<void ()> spec);
 
+extern std::stack<ExampleGroup*> groups_being_defined;
+
 class ExampleGroup {
   public:
     virtual ~ExampleGroup();
@@ -29,8 +31,6 @@ class ExampleGroup {
     friend Creator describe;
     friend Creator context;
 };
-
-extern std::stack<ExampleGroup*> groups_being_defined;
 
 Creator describe;
 Creator context;
