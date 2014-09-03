@@ -19,12 +19,11 @@ class ExampleGroup {
   public:
     virtual ~ExampleGroup();
 
-    void addChild(ExampleGroup*);
-
-  protected:
+  private:
     ExampleGroup(std::string desc);
 
-  private:
+    void addChild(ExampleGroup*);
+
     std::string desc_;
     std::list<ExampleGroup*> children_;
 

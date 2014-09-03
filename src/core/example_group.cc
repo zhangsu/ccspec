@@ -12,6 +12,21 @@ using std::string;
 
 stack<ExampleGroup*> groups_being_defined;
 
+// Public methods.
+
+ExampleGroup::~ExampleGroup() {
+    for (auto it = children_.begin(); it != children_.end(); ++it)
+        delete *it;
+}
+
+// Private methods.
+
+ExampleGroup::ExampleGroup(string desc) : desc_(desc) {}
+
+void ExampleGroup::addChild(ExampleGroup* example_group) {
+    children_.push_back(example_group);
+}
+
 // Friend methods.
 
 ExampleGroup* describe(string desc, function<void ()> spec) {
@@ -32,21 +47,6 @@ ExampleGroup* describe(string desc, function<void ()> spec) {
 ExampleGroup* context(string desc, function<void ()> spec) {
     return describe(desc, spec);
 }
-
-// Public methods.
-
-ExampleGroup::~ExampleGroup() {
-    for (auto it = children_.begin(); it != children_.end(); ++it)
-        delete *it;
-}
-
-void ExampleGroup::addChild(ExampleGroup* example_group) {
-    children_.push_back(example_group);
-}
-
-// Protected methods.
-
-ExampleGroup::ExampleGroup(string desc) : desc_(desc) {}
 
 } // namespace core
 } // namespace ccspec
