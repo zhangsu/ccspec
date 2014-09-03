@@ -19,6 +19,9 @@ class Eq : public Matcher<Eq<U>, U> {
     friend Eq<T> eq(T);
 };
 
+template <typename T>
+Eq<T> eq(T);
+
 } // namespace matchers
 } // namespace ccspec
 
