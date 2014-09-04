@@ -12,8 +12,6 @@ namespace core {
 
 class ExampleGroup;
 
-typedef ExampleGroup* Creator(std::string desc, std::function<void ()> spec);
-
 extern std::stack<ExampleGroup*> groups_being_defined;
 
 class ExampleGroup {
@@ -23,6 +21,9 @@ class ExampleGroup {
     void addExample(Example&);
 
   private:
+    typedef ExampleGroup* Creator(std::string desc,
+                                  std::function<void ()> spec);
+
     ExampleGroup(std::string desc);
 
     void addChild(ExampleGroup*);
@@ -35,8 +36,8 @@ class ExampleGroup {
     friend Creator context;
 };
 
-Creator describe;
-Creator context;
+ExampleGroup::Creator describe;
+ExampleGroup::Creator context;
 
 } // namespace core
 } // namespace ccspec
