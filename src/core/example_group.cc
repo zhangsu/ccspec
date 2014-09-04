@@ -19,6 +19,10 @@ ExampleGroup::~ExampleGroup() {
         delete *it;
 }
 
+void ExampleGroup::addExample(Example& example) {
+    examples_.push_back(example);
+}
+
 // Private methods.
 
 ExampleGroup::ExampleGroup(string desc) : desc_(desc) {}

@@ -5,6 +5,7 @@
 #include <list>
 #include <stack>
 #include <string>
+#include "example.h"
 
 namespace ccspec {
 namespace core {
@@ -19,6 +20,8 @@ class ExampleGroup {
   public:
     virtual ~ExampleGroup();
 
+    void addExample(Example&);
+
   private:
     ExampleGroup(std::string desc);
 
@@ -26,6 +29,7 @@ class ExampleGroup {
 
     std::string desc_;
     std::list<ExampleGroup*> children_;
+    std::list<Example> examples_;
 
     friend Creator describe;
     friend Creator context;

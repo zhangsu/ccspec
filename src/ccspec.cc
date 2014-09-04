@@ -2,19 +2,30 @@
 
 using ccspec::core::context;
 using ccspec::core::describe;
+using ccspec::core::it;
+using ccspec::core::example;
+using ccspec::core::specify;
 using ccspec::expect;
 using ccspec::matchers::eq;
 
 int main() {
-    auto example_group = describe("User", [] {
-        context("with email", [] {
+    auto example_group = describe("Integer", [] {
+        context("when positive", [] {
+            example("1 + 1 = 2", [] {
+                expect(1 + 1).to(eq(2));
+            });
+
+            it("has a positive product with itself", [] {
+                expect((42) * (42) > 0).to(eq(true));
+            });
         });
 
-        context("without email", [] {
+        context("when negative", [] {
+            specify("the product with itself is negative", [] {
+                expect((-42) * (-42) < 0).to(eq(true));
+            });
         });
     });
-
-    expect(1).to(eq(1.01));
 
     delete example_group;
 
