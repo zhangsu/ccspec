@@ -15,8 +15,8 @@ stack<ExampleGroup*> groups_being_defined;
 // Public methods.
 
 ExampleGroup::~ExampleGroup() {
-    for (auto it = children_.begin(); it != children_.end(); ++it)
-        delete *it;
+    for (auto& child : children_)
+        delete child;
 }
 
 void ExampleGroup::addExample(Example& example) {
