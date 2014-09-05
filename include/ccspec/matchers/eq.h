@@ -10,7 +10,7 @@ template <typename U>
 class Eq : public Matcher<Eq<U>, U> {
   public:
     template <typename V>
-    bool match(V expected_value);
+    bool match(V expected_value) const;
 
   private:
     Eq(U);

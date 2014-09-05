@@ -7,7 +7,7 @@ namespace matchers {
 
 template <typename U>
 template <typename V>
-bool Eq<U>::match(V expected_value) {
+bool Eq<U>::match(V expected_value) const {
     return expected_value == this->value();
 }
 

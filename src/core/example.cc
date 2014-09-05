@@ -10,7 +10,7 @@ using std::string;
 
 // Public methods.
 
-void Example::run() {
+void Example::run() const {
     spec_();
 }
 

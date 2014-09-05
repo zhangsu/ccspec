@@ -20,12 +20,12 @@ template <typename U>
 class Target {
   public:
     template <typename ConcreteMatcher, typename V>
-    void to(Matcher<ConcreteMatcher, V>);
+    void to(Matcher<ConcreteMatcher, V>) const;
 
   private:
     Target(U);
 
-    U target_;
+    const U target_;
 
     template <typename V>
     friend Target<V> ccspec::expect(V);

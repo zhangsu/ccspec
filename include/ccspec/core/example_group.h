@@ -28,7 +28,7 @@ class ExampleGroup {
 
     void addChild(ExampleGroup*);
 
-    std::string desc_;
+    const std::string desc_;
     std::list<ExampleGroup*> children_;
     std::list<Example> examples_;
 

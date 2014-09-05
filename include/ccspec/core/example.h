@@ -9,15 +9,15 @@ namespace core {
 
 class Example {
   public:
-    void run();
+    void run() const;
 
   private:
     typedef Example Creator(std::string desc, std::function<void ()> spec);
 
     Example(std::string desc, std::function<void ()> spec);
 
-    std::string desc_;
-    std::function<void ()> spec_;
+    const std::string desc_;
+    const std::function<void ()> spec_;
 
     friend Creator it;
     friend Creator example;

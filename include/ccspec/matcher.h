@@ -7,15 +7,15 @@ template <typename ConcreteMatcher, typename U>
 class Matcher {
   public:
     template <typename V>
-    bool match(V expected_value);
+    bool match(V expected_value) const;
 
   protected:
     Matcher(U);
 
-    U value();
+    U value() const;
 
   private:
-    U value_;
+    const U value_;
 };
 
 } // namespace ccspec
