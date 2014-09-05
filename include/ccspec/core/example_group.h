@@ -19,6 +19,7 @@ class ExampleGroup {
     virtual ~ExampleGroup();
 
     void addExample(Example&);
+    void run();
 
   private:
     typedef ExampleGroup* Creator(std::string desc,

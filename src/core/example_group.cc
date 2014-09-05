@@ -23,6 +23,13 @@ void ExampleGroup::addExample(Example& example) {
     examples_.push_back(example);
 }
 
+void ExampleGroup::run() {
+    for (auto& example : examples_)
+        example.run();
+    for (auto child : children_)
+        child->run();
+}
+
 // Private methods.
 
 ExampleGroup::ExampleGroup(string desc) : desc_(desc) {}

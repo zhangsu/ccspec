@@ -21,11 +21,13 @@ int main() {
         });
 
         context("when negative", [] {
-            specify("the product with itself is negative", [] {
-                expect((-42) * (-42) < 0).to(eq(true));
+            specify("the product with its positive self is negative", [] {
+                expect((-42) * 42 < 0).to(eq(true));
             });
         });
     });
+
+    example_group->run();
 
     delete example_group;
 
