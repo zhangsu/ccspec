@@ -18,7 +18,7 @@ class ExampleGroup {
   public:
     virtual ~ExampleGroup();
 
-    void addExample(Example&);
+    void addExample(Example);
     void run();
 
   private:

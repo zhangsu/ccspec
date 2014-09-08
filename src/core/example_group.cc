@@ -19,7 +19,7 @@ ExampleGroup::~ExampleGroup() {
         delete child;
 }
 
-void ExampleGroup::addExample(Example& example) {
+void ExampleGroup::addExample(Example example) {
     examples_.push_back(example);
 }
 
