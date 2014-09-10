@@ -23,7 +23,7 @@ void ExampleGroup::addExample(Example example) {
     examples_.push_back(example);
 }
 
-void ExampleGroup::run() {
+void ExampleGroup::run() const {
     for (auto& example : examples_)
         example.run();
     for (auto child : children_)
@@ -34,7 +34,7 @@ void ExampleGroup::run() {
 
 ExampleGroup::ExampleGroup(string desc) : desc_(desc) {}
 
-void ExampleGroup::addChild(ExampleGroup* example_group) {
+void ExampleGroup::addChild(const ExampleGroup* example_group) {
     children_.push_back(example_group);
 }
 

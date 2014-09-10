@@ -19,7 +19,7 @@ class ExampleGroup {
     virtual ~ExampleGroup();
 
     void addExample(Example);
-    void run();
+    void run() const;
 
   private:
     typedef ExampleGroup* Creator(std::string desc,
@@ -27,10 +27,10 @@ class ExampleGroup {
 
     ExampleGroup(std::string desc);
 
-    void addChild(ExampleGroup*);
+    void addChild(const ExampleGroup*);
 
     const std::string desc_;
-    std::list<ExampleGroup*> children_;
+    std::list<const ExampleGroup*> children_;
     std::list<Example> examples_;
 
     friend Creator describe;
