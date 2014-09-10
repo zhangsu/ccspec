@@ -6,6 +6,7 @@
 #include <stack>
 #include <string>
 #include "example.h"
+#include "hooks.h"
 
 namespace ccspec {
 namespace core {
@@ -19,6 +20,7 @@ class ExampleGroup {
     virtual ~ExampleGroup();
 
     void addExample(Example);
+    void addBeforeEachHook(Hook hook);
     void run() const;
 
   private:
@@ -28,10 +30,12 @@ class ExampleGroup {
     ExampleGroup(std::string desc);
 
     void addChild(const ExampleGroup*);
+    void run(std::list<Hook>& beforeHooks) const;
 
     const std::string desc_;
     std::list<const ExampleGroup*> children_;
     std::list<Example> examples_;
+    std::list<Hook> before_each_hooks_;
 
     friend Creator describe;
     friend Creator context;
