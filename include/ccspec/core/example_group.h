@@ -27,7 +27,7 @@ class ExampleGroup {
     typedef ExampleGroup* Creator(std::string desc,
                                   std::function<void ()> spec);
 
-    ExampleGroup(std::string desc);
+    explicit ExampleGroup(std::string desc);
 
     void addChild(const ExampleGroup*);
     void run(std::list<Hook>& beforeHooks) const;

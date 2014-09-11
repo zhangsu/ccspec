@@ -10,7 +10,7 @@ class Matcher {
     bool match(V expected_value) const;
 
   protected:
-    Matcher(U);
+    explicit Matcher(U);
 
     U value() const;
 

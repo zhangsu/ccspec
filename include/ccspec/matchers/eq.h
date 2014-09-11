@@ -13,7 +13,7 @@ class Eq : public Matcher<Eq<U>, U> {
     bool match(V expected_value) const;
 
   private:
-    Eq(U);
+    explicit Eq(U);
 
     template <typename T>
     friend Eq<T> eq(T);

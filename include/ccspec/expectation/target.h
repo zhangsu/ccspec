@@ -23,7 +23,7 @@ class Target {
     void to(Matcher<ConcreteMatcher, V>) const;
 
   private:
-    Target(U);
+    explicit Target(U);
 
     const U target_;
 
