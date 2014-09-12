@@ -9,6 +9,8 @@ void before(std::string entity, Hook hook) {
     ExampleGroup* parent_group = groups_being_defined.top();
     if (entity == "each" || entity == "example")
         parent_group->addBeforeEachHook(hook);
+    else if (entity == "all" || entity == "context")
+        parent_group->addBeforeAllHook(hook);
     else
         throw "no such before hook type";
 }

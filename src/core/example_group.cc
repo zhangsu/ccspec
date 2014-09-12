@@ -31,6 +31,10 @@ void ExampleGroup::addBeforeEachHook(Hook hook) {
     before_each_hooks_.push_back(hook);
 }
 
+void ExampleGroup::addBeforeAllHook(Hook hook) {
+    before_all_hooks_.push_back(hook);
+}
+
 void ExampleGroup::run() const {
     list<Hook> before_each_hooks;
     run(before_each_hooks);
@@ -50,6 +54,8 @@ void ExampleGroup::run(list<Hook>& before_each_hooks) const {
         before_each_hooks_.begin(),
         before_each_hooks_.end()
     );
+    for (auto hook : before_all_hooks_)
+        hook();
     for (auto const& example : examples_) {
         for (auto hook : before_each_hooks)
             hook();

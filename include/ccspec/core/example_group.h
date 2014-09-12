@@ -21,6 +21,7 @@ class ExampleGroup {
 
     void addExample(Example);
     void addBeforeEachHook(Hook hook);
+    void addBeforeAllHook(Hook hook);
     void run() const;
 
   private:
@@ -30,12 +31,13 @@ class ExampleGroup {
     explicit ExampleGroup(std::string desc);
 
     void addChild(const ExampleGroup*);
-    void run(std::list<Hook>& beforeHooks) const;
+    void run(std::list<Hook>& before_each_hooks) const;
 
     const std::string desc_;
     std::list<const ExampleGroup*> children_;
     std::list<Example> examples_;
     std::list<Hook> before_each_hooks_;
+    std::list<Hook> before_all_hooks_;
 
     friend Creator describe;
     friend Creator context;

@@ -14,30 +14,41 @@ using ccspec::matchers::eq;
 
 int main() {
     auto example_group = describe("Integer", [] {
+        before("all", [] {
+            cout << "outer before all hook" << endl;
+        });
+
         before("each", [] {
-            cout << "top level before hook" << endl;
+            cout << "outer before each hook" << endl;
         });
 
         context("when positive", [] {
-            before("each", [] {
-                cout << "before each positive example" << endl;;
+            before("context", [] {
+                cout << "inner before all hook" << endl;
+            });
+
+            before("example", [] {
+                cout << "inner before each hook" << endl;;
             });
 
             example("1 + 1 = 2", [] {
+                cout << "exmaple" << endl;
                 expect(1 + 1).to(eq(2));
             });
 
             it("has a positive product with itself", [] {
+                cout << "exmaple" << endl;
                 expect((42) * (42) > 0).to(eq(true));
             });
         });
 
         context("when negative", [] {
             before("each", [] {
-                cout << "before each negative example" << endl;
+                cout << "inner before each hook" << endl;
             });
 
             specify("the product with its positive self is negative", [] {
+                cout << "exmaple" << endl;
                 expect((-42) * 42 < 0).to(eq(true));
             });
         });
