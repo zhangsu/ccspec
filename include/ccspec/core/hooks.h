@@ -9,8 +9,8 @@ namespace core {
 
 typedef std::function<void ()> Hook;
 
-void before(std::string entity, Hook hook);
-void after(std::string entity, Hook hook);
+void before(std::string scope, Hook hook);
+void after(std::string scope, Hook hook);
 
 } // namespace core
 } // namespace ccspec

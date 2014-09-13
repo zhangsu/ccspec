@@ -5,19 +5,19 @@
 namespace ccspec {
 namespace core {
 
-void before(std::string entity, Hook hook) {
+void before(std::string scope, Hook hook) {
     ExampleGroup* parent_group = groups_being_defined.top();
-    if (entity == "each" || entity == "example")
+    if (scope == "each" || scope == "example")
         parent_group->addBeforeEachHook(hook);
-    else if (entity == "all" || entity == "context")
+    else if (scope == "all" || scope == "context")
         parent_group->addBeforeAllHook(hook);
     else
         throw "no such before hook type";
 }
 
-void after(std::string entity, Hook hook) {
+void after(std::string scope, Hook hook) {
     ExampleGroup* parent_group = groups_being_defined.top();
-    if (entity == "each" || entity == "example")
+    if (scope == "each" || scope == "example")
         parent_group->addAfterEachHook(hook);
     else
         throw "no such before hook type";
