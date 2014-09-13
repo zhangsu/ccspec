@@ -35,9 +35,13 @@ void ExampleGroup::addBeforeAllHook(Hook hook) {
     before_all_hooks_.push_back(hook);
 }
 
+void ExampleGroup::addAfterEachHook(Hook hook) {
+    after_each_hooks_.push_back(hook);
+}
+
 void ExampleGroup::run() const {
-    list<Hook> before_each_hooks;
-    run(before_each_hooks);
+    list<Hook> before_each_hooks, after_each_hooks;
+    run(before_each_hooks, after_each_hooks);
 }
 
 // Private methods.
@@ -48,11 +52,17 @@ void ExampleGroup::addChild(const ExampleGroup* example_group) {
     children_.push_back(example_group);
 }
 
-void ExampleGroup::run(list<Hook>& before_each_hooks) const {
+void ExampleGroup::run(list<Hook>& before_each_hooks,
+                       list<Hook>& after_each_hooks) const {
     auto first_new_before_each = before_each_hooks.insert(
         before_each_hooks.end(),
         before_each_hooks_.begin(),
         before_each_hooks_.end()
+    );
+    auto first_new_after_each = after_each_hooks.insert(
+        after_each_hooks.end(),
+        after_each_hooks_.begin(),
+        after_each_hooks_.end()
     );
     for (auto hook : before_all_hooks_)
         hook();
@@ -60,10 +70,13 @@ void ExampleGroup::run(list<Hook>& before_each_hooks) const {
         for (auto hook : before_each_hooks)
             hook();
         example.run();
+        for (auto hook : after_each_hooks)
+            hook();
     }
     for (auto child : children_)
-        child->run(before_each_hooks);
+        child->run(before_each_hooks, after_each_hooks);
     before_each_hooks.erase(first_new_before_each, before_each_hooks.end());
+    after_each_hooks.erase(first_new_after_each, after_each_hooks.end());
 }
 
 // Friend methods.

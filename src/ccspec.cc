@@ -3,6 +3,7 @@
 
 using std::cout;
 using std::endl;
+using ccspec::core::after;
 using ccspec::core::before;
 using ccspec::core::context;
 using ccspec::core::describe;
@@ -51,6 +52,10 @@ int main() {
                 cout << "exmaple" << endl;
                 expect((-42) * 42 < 0).to(eq(true));
             });
+        });
+
+        after("each", [] {
+            cout << "outer after each" << endl;
         });
     });
 
