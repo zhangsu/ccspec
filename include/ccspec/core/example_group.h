@@ -23,6 +23,7 @@ class ExampleGroup {
     void addBeforeEachHook(Hook hook);
     void addBeforeAllHook(Hook hook);
     void addAfterEachHook(Hook hook);
+    void addAfterAllHook(Hook hook);
     void run() const;
 
   private:
@@ -41,6 +42,7 @@ class ExampleGroup {
     std::list<Hook> before_each_hooks_;
     std::list<Hook> before_all_hooks_;
     std::list<Hook> after_each_hooks_;
+    std::list<Hook> after_all_hooks_;
 
     friend Creator describe;
     friend Creator context;

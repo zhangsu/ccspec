@@ -57,6 +57,10 @@ int main() {
         after("each", [] {
             cout << "outer after each" << endl;
         });
+
+        after("all", [] {
+            cout << "outer after all hook" << endl;
+        });
     });
 
     example_group->run();

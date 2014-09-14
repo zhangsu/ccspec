@@ -39,6 +39,10 @@ void ExampleGroup::addAfterEachHook(Hook hook) {
     after_each_hooks_.push_back(hook);
 }
 
+void ExampleGroup::addAfterAllHook(Hook hook) {
+    after_all_hooks_.push_back(hook);
+}
+
 void ExampleGroup::run() const {
     list<Hook> before_each_hooks, after_each_hooks;
     run(before_each_hooks, after_each_hooks);
@@ -75,6 +79,8 @@ void ExampleGroup::run(list<Hook>& before_each_hooks,
     }
     for (auto child : children_)
         child->run(before_each_hooks, after_each_hooks);
+    for (auto hook : after_all_hooks_)
+        hook();
     before_each_hooks.erase(first_new_before_each, before_each_hooks.end());
     after_each_hooks.erase(first_new_after_each, after_each_hooks.end());
 }
