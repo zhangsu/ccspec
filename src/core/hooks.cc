@@ -22,7 +22,7 @@ void after(std::string scope, Hook hook) {
     else if (scope == "all" || scope == "context")
         parent_group->addAfterAllHook(hook);
     else
-        throw "no such before hook type";
+        throw "no such after hook type";
 }
 
 } // namespace core
