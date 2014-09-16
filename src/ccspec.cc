@@ -16,20 +16,20 @@ using ccspec::matchers::eq;
 int main() {
     auto example_group = describe("Integer", [] {
         before("all", [] {
-            cout << "outer before all hook" << endl;
+            cout << "outer before all" << endl;
         });
 
         before("each", [] {
-            cout << "outer before each hook" << endl;
+            cout << "outer before each" << endl;
         });
 
         context("when positive", [] {
             before("context", [] {
-                cout << "inner before all hook" << endl;
+                cout << "inner before all" << endl;
             });
 
             before("example", [] {
-                cout << "inner before each hook" << endl;;
+                cout << "inner before each" << endl;;
             });
 
             example("1 + 1 = 2", [] {
@@ -45,7 +45,7 @@ int main() {
 
         context("when negative", [] {
             before("each", [] {
-                cout << "inner before each hook" << endl;
+                cout << "inner before each" << endl;
             });
 
             specify("the product with its positive self is negative", [] {
@@ -59,7 +59,7 @@ int main() {
         });
 
         after("all", [] {
-            cout << "outer after all hook" << endl;
+            cout << "outer after all" << endl;
         });
     });
 
