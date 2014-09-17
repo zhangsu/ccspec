@@ -25,6 +25,14 @@ void after(std::string scope, Hook hook) {
         throw "no such after hook type";
 }
 
+void around(std::string scope, AroundHook hook) {
+    ExampleGroup* parent_group = groups_being_defined.top();
+    if (scope == "each" || scope == "example")
+        parent_group->addAroundHook(hook);
+    else
+        throw "no such around hook type";
+}
+
 } // namespace core
 } // namespace ccspec
 

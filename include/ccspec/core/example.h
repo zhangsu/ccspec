@@ -2,7 +2,9 @@
 #define CCSPEC_CORE_EXAMPLE_H_
 
 #include <functional>
+#include <list>
 #include <string>
+#include "hooks.h"
 
 namespace ccspec {
 namespace core {
@@ -10,6 +12,7 @@ namespace core {
 class Example {
   public:
     void run() const;
+    void run(const std::list<AroundHook>) const;
 
   private:
     typedef Example Creator(std::string desc, std::function<void ()> spec);
@@ -18,6 +21,7 @@ class Example {
 
     const std::string desc_;
     const std::function<void ()> spec_;
+    mutable std::list<AroundHook> around_hooks_;
 
     friend Creator it;
     friend Creator example;

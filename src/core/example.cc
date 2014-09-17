@@ -1,17 +1,31 @@
 #include <functional>
+#include <list>
 #include <ccspec/core/example.h>
 #include <ccspec/core/example_group.h>
+#include <ccspec/core/hooks.h>
 
 namespace ccspec {
 namespace core {
 
 using std::function;
+using std::list;
 using std::string;
 
 // Public methods.
 
 void Example::run() const {
-    spec_();
+    if (around_hooks_.empty()) {
+        spec_();
+    } else {
+        AroundHook around_hook = around_hooks_.front();
+        around_hooks_.pop_front();
+        around_hook(*this);
+    }
+}
+
+void Example::run(const list<AroundHook> around_hooks) const {
+    around_hooks_ = around_hooks;
+    run();
 }
 
 // Private methods.

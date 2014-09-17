@@ -7,10 +7,14 @@
 namespace ccspec {
 namespace core {
 
+class Example;
+
 typedef std::function<void ()> Hook;
+typedef std::function<void (const Example&)> AroundHook;
 
 void before(std::string scope, Hook hook);
 void after(std::string scope, Hook hook);
+void around(std::string scope, AroundHook hook);
 
 } // namespace core
 } // namespace ccspec
