@@ -23,7 +23,7 @@ void Example::run() const {
     }
 }
 
-void Example::run(const list<AroundHook> around_hooks) const {
+void Example::run(list<AroundHook> around_hooks) const {
     around_hooks_ = around_hooks;
     run();
 }

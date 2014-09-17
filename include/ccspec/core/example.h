@@ -12,7 +12,7 @@ namespace core {
 class Example {
   public:
     void run() const;
-    void run(const std::list<AroundHook>) const;
+    void run(std::list<AroundHook>) const;
 
   private:
     typedef Example Creator(std::string desc, std::function<void ()> spec);
