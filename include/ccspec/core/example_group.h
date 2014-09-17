@@ -35,7 +35,8 @@ class ExampleGroup {
 
     void addChild(const ExampleGroup*);
     void run(std::list<Hook>& before_each_hooks,
-             std::list<Hook>& after_each_hooks) const;
+             std::list<Hook>& after_each_hooks,
+             std::list<AroundHook>&) const;
 
     const std::string desc_;
     std::list<const ExampleGroup*> children_;
