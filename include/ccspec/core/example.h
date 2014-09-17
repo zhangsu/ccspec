@@ -21,6 +21,10 @@ class Example {
 
     const std::string desc_;
     const std::function<void ()> spec_;
+    // This is marked as mutable as it is the only mutated member when running
+    // examples or example groups and the `run` member functions are const
+    // functions. See the implementation of Example#run for the reason of the
+    // mutation.
     mutable std::list<AroundHook> around_hooks_;
 
     friend Creator it;

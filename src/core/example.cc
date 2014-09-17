@@ -13,6 +13,14 @@ using std::string;
 
 // Public methods.
 
+// This function enables chaining of around hooks. Callers call this function
+// inside each around hook (lambda function), then this function calls the next
+// around hook in the chain.
+//
+// Since this function is nullary, in order to remember the state of which
+// around hook to execute next, the around hooks need to be stored in a member
+// variable `around_hooks_`. This also implies that `around_hooks_` must be
+// mutated in this function in order to transition to the next state.
 void Example::run() const {
     if (around_hooks_.empty()) {
         spec_();
