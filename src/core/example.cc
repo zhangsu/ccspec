@@ -23,7 +23,11 @@ using std::string;
 // mutated in this function in order to transition to the next state.
 void Example::run() const {
     if (around_hooks_.empty()) {
+        for (auto hook : *before_each_hooks_)
+            hook();
         spec_();
+        for (auto hook : *after_each_hooks_)
+            hook();
     } else {
         AroundHook around_hook = around_hooks_.front();
         around_hooks_.pop_front();
@@ -31,7 +35,11 @@ void Example::run() const {
     }
 }
 
-void Example::run(list<AroundHook> around_hooks) const {
+void Example::run(const list<Hook>* before_each_hooks,
+                  const list<Hook>* after_each_hooks,
+                  list<AroundHook> around_hooks) const {
+    before_each_hooks_ = before_each_hooks;
+    after_each_hooks_ = after_each_hooks;
     around_hooks_ = around_hooks;
     run();
 }

@@ -81,13 +81,8 @@ void ExampleGroup::run(list<Hook>& before_each_hooks,
     );
     for (auto hook : before_all_hooks_)
         hook();
-    for (auto const& example : examples_) {
-        for (auto hook : before_each_hooks)
-            hook();
-        example.run(around_hooks);
-        for (auto hook : after_each_hooks)
-            hook();
-    }
+    for (auto const& example : examples_)
+        example.run(&before_each_hooks, &after_each_hooks, around_hooks);
     for (auto child : children_)
         child->run(before_each_hooks, after_each_hooks, around_hooks);
     for (auto hook : after_all_hooks_)
