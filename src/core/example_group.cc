@@ -27,19 +27,19 @@ void ExampleGroup::addExample(Example example) {
     examples_.push_back(example);
 }
 
-void ExampleGroup::addBeforeEachHook(Hook hook) {
+void ExampleGroup::addBeforeEachHook(BeforeHook hook) {
     before_each_hooks_.push_back(hook);
 }
 
-void ExampleGroup::addBeforeAllHook(Hook hook) {
+void ExampleGroup::addBeforeAllHook(BeforeHook hook) {
     before_all_hooks_.push_back(hook);
 }
 
-void ExampleGroup::addAfterEachHook(Hook hook) {
+void ExampleGroup::addAfterEachHook(AfterHook hook) {
     after_each_hooks_.push_back(hook);
 }
 
-void ExampleGroup::addAfterAllHook(Hook hook) {
+void ExampleGroup::addAfterAllHook(AfterHook hook) {
     after_all_hooks_.push_back(hook);
 }
 
@@ -48,7 +48,8 @@ void ExampleGroup::addAroundHook(AroundHook hook) {
 }
 
 void ExampleGroup::run() const {
-    list<Hook> before_each_hooks, after_each_hooks;
+    list<BeforeHook> before_each_hooks;
+    list<AfterHook> after_each_hooks;
     list<AroundHook> around_hooks;
     run(before_each_hooks, after_each_hooks, around_hooks);
 }
@@ -61,8 +62,8 @@ void ExampleGroup::addChild(const ExampleGroup* example_group) {
     children_.push_back(example_group);
 }
 
-void ExampleGroup::run(list<Hook>& before_each_hooks,
-                       list<Hook>& after_each_hooks,
+void ExampleGroup::run(list<BeforeHook>& before_each_hooks,
+                       list<AfterHook>& after_each_hooks,
                        list<AroundHook>& around_hooks) const {
     auto first_new_before_each = before_each_hooks.insert(
         before_each_hooks.end(),

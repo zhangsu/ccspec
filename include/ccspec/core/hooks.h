@@ -9,12 +9,13 @@ namespace core {
 
 class Example;
 
-typedef std::function<void ()> Hook;
+typedef std::function<void ()> BeforeHook;
+typedef std::function<void ()> AfterHook;
 typedef std::function<void (const Example&)> AroundHook;
 
-void before(std::string scope, Hook hook);
-void after(std::string scope, Hook hook);
-void around(std::string scope, AroundHook hook);
+void before(std::string scope, BeforeHook);
+void after(std::string scope, AfterHook);
+void around(std::string scope, AroundHook);
 
 } // namespace core
 } // namespace ccspec

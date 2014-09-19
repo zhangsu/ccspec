@@ -20,10 +20,10 @@ class ExampleGroup {
     virtual ~ExampleGroup();
 
     void addExample(Example);
-    void addBeforeEachHook(Hook hook);
-    void addBeforeAllHook(Hook hook);
-    void addAfterEachHook(Hook hook);
-    void addAfterAllHook(Hook hook);
+    void addBeforeEachHook(BeforeHook hook);
+    void addBeforeAllHook(BeforeHook hook);
+    void addAfterEachHook(AfterHook hook);
+    void addAfterAllHook(AfterHook hook);
     void addAroundHook(AroundHook hook);
     void run() const;
 
@@ -34,17 +34,17 @@ class ExampleGroup {
     explicit ExampleGroup(std::string desc);
 
     void addChild(const ExampleGroup*);
-    void run(std::list<Hook>& before_each_hooks,
-             std::list<Hook>& after_each_hooks,
+    void run(std::list<BeforeHook>& before_each_hooks,
+             std::list<AfterHook>& after_each_hooks,
              std::list<AroundHook>&) const;
 
     const std::string desc_;
     std::list<const ExampleGroup*> children_;
     std::list<Example> examples_;
-    std::list<Hook> before_each_hooks_;
-    std::list<Hook> before_all_hooks_;
-    std::list<Hook> after_each_hooks_;
-    std::list<Hook> after_all_hooks_;
+    std::list<BeforeHook> before_each_hooks_;
+    std::list<BeforeHook> before_all_hooks_;
+    std::list<AfterHook> after_each_hooks_;
+    std::list<AfterHook> after_all_hooks_;
     std::list<AroundHook> around_hooks_;
 
     friend Creator describe;

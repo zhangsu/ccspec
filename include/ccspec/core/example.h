@@ -12,8 +12,8 @@ namespace core {
 class Example {
   public:
     void run() const;
-    void run(const std::list<Hook>* before_each_hooks,
-             const std::list<Hook>* after_each_hooks,
+    void run(const std::list<BeforeHook>* before_each_hooks,
+             const std::list<AfterHook>* after_each_hooks,
              std::list<AroundHook>) const;
 
   private:
@@ -35,8 +35,8 @@ class Example {
     // across different calls whereas the before and after each hooks can be
     // pointers to the original (constant) list passed by ExampleGroup.
     mutable std::list<AroundHook> around_hooks_;
-    mutable const std::list<Hook>* before_each_hooks_;
-    mutable const std::list<Hook>* after_each_hooks_;
+    mutable const std::list<BeforeHook>* before_each_hooks_;
+    mutable const std::list<AfterHook>* after_each_hooks_;
 
     friend Creator it;
     friend Creator example;

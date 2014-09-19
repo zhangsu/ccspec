@@ -35,8 +35,8 @@ void Example::run() const {
     }
 }
 
-void Example::run(const list<Hook>* before_each_hooks,
-                  const list<Hook>* after_each_hooks,
+void Example::run(const list<BeforeHook>* before_each_hooks,
+                  const list<AfterHook>* after_each_hooks,
                   list<AroundHook> around_hooks) const {
     before_each_hooks_ = before_each_hooks;
     after_each_hooks_ = after_each_hooks;
