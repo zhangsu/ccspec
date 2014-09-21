@@ -48,7 +48,7 @@ int main() {
 
             example("1 + 1 = 2", [] {
                 cout << "exmaple" << endl;
-                expect(1 + 1).to(eq(2));
+                expect(1 + 1).to(eq(3));
             });
 
             it("has a positive product with itself", [] {

@@ -1,4 +1,5 @@
 #include <ccspec/matcher.h>
+#include "exception.h"
 
 namespace ccspec {
 
@@ -17,7 +18,7 @@ template <typename U>
 template <typename ConcreteMatcher, typename V>
 void Target<U>::to(Matcher<ConcreteMatcher, V> matcher) const {
     if (!matcher.match(target_))
-        throw "CCSpecException";
+        throw expectation::Exception();
 }
 
 // Private methods.
