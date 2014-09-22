@@ -17,7 +17,13 @@ namespace expectation {
 template <typename U>
 template <typename ConcreteMatcher, typename V>
 void Target<U>::to(Matcher<ConcreteMatcher, V> matcher) const {
-    if (!matcher.match(target_))
+    bool matched;
+    try {
+        matched = matcher.match(target_);
+    } catch (...) {
+        throw expectation::Exception();
+    }
+    if (!matched)
         throw expectation::Exception();
 }
 
