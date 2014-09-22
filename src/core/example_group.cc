@@ -5,6 +5,7 @@
 #include <ccspec/core/example.h>
 #include <ccspec/core/example_group.h>
 #include <ccspec/core/hooks.h>
+#include <ccspec/expectation/exception.h>
 
 namespace ccspec {
 namespace core {
@@ -82,8 +83,12 @@ void ExampleGroup::run(list<BeforeHook>& before_each_hooks,
     );
     for (auto hook : before_all_hooks_)
         hook();
-    for (auto const& example : examples_)
-        example.run(&before_each_hooks, &after_each_hooks, around_hooks);
+    for (auto const& example : examples_) {
+        try {
+            example.run(&before_each_hooks, &after_each_hooks, around_hooks);
+        } catch (expectation::Exception& e) {
+        }
+    }
     for (auto child : children_)
         child->run(before_each_hooks, after_each_hooks, around_hooks);
     for (auto hook : after_all_hooks_)
