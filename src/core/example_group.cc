@@ -86,7 +86,7 @@ void ExampleGroup::run(list<BeforeHook>& before_each_hooks,
     for (auto const& example : examples_) {
         try {
             example.run(&before_each_hooks, &after_each_hooks, around_hooks);
-        } catch (expectation::Exception& e) {
+        } catch (const expectation::Exception& e) {
         }
     }
     for (auto child : children_)
