@@ -13,4 +13,3 @@ class Exception : public std::exception {
 } // namespace ccspec
 
 #endif // CCSPEC_EXPECTATION_EXCEPTION_H_
-
