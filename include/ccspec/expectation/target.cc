@@ -1,5 +1,8 @@
+#include <exception>
 #include <ccspec/matcher.h>
-#include "exception.h"
+#include "unexpected_throw.h"
+
+using std::exception;
 
 namespace ccspec {
 
@@ -20,8 +23,8 @@ void Target<U>::to(Matcher<ConcreteMatcher, V> matcher) const {
     bool matched;
     try {
         matched = matcher.match(target_);
-    } catch (...) {
-        throw expectation::Exception();
+    } catch (const exception& e) {
+        throw expectation::UnexpectedThrow(e);
     }
     if (!matched)
         throw expectation::Exception();

@@ -5,10 +5,11 @@ CFLAGS         = $(FLAGS) -std=c++11 -c -Iinclude
 LFLAGS         = $(FLAGS)
 SRCDIR         = src/
 SRCCOREDIR     = $(SRCDIR)core/
+SRCEXPECTATIONDIR = $(SRCDIR)expectation/
 BINDIR         = bin/
 OUTPUTS        = $(CCSPECOUTPUT)
 CCSPECOUTPUT   = $(BINDIR)ccspec
-CCSPECOBJECTS  = $(SRCDIR)ccspec.o $(addprefix $(SRCCOREDIR), example.o example_group.o hooks.o)
+CCSPECOBJECTS  = $(SRCDIR)ccspec.o $(addprefix $(SRCCOREDIR), example.o example_group.o hooks.o) $(addprefix $(SRCEXPECTATIONDIR), unexpected_throw.o)
 
 ifeq ($(DEBUG),1)
   FLAGS += -g
