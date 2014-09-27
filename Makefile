@@ -9,7 +9,9 @@ SRCEXPECTATIONDIR = $(SRCDIR)expectation/
 BINDIR            = bin/
 OUTPUTS           = $(CCSPECOUTPUT)
 CCSPECOUTPUT      = $(BINDIR)ccspec
-CCSPECOBJECTS     = $(SRCDIR)ccspec.o $(addprefix $(SRCCOREDIR), example.o example_group.o hooks.o) $(addprefix $(SRCEXPECTATIONDIR), unexpected_throw.o)
+CCSPECOBJECTS     = $(SRCDIR)ccspec.o\
+                    $(addprefix $(SRCCOREDIR), example.o example_group.o hooks.o)\
+                    $(addprefix $(SRCEXPECTATIONDIR), unexpected_throw.o)
 
 ifeq ($(DEBUG),1)
   FLAGS += -g
