@@ -1,6 +1,7 @@
 #include <exception>
 #include <ccspec/matcher.h>
 #include "unexpected_throw.h"
+#include "mismatch.h"
 
 using std::exception;
 
@@ -27,7 +28,7 @@ void Target<U>::to(Matcher<ConcreteMatcher, V> matcher) const {
         throw expectation::UnexpectedThrow(e);
     }
     if (!matched)
-        throw expectation::Exception();
+        throw expectation::Mismatch<ConcreteMatcher, V>(matcher);
 }
 
 // Private methods.
