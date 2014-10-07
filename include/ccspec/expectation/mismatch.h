@@ -1,6 +1,7 @@
 #ifndef CCSPEC_MISMATCH_H_
 #define CCSPEC_MISMATCH_H_
 
+#include <string>
 #include <ccspec/matcher.h>
 #include "exception.h"
 
@@ -11,6 +12,8 @@ template <typename ConcreteMatcher, typename U>
 class Mismatch : public Exception {
   public:
     explicit Mismatch(const Matcher<ConcreteMatcher, U>&);
+
+    virtual std::string toString();
 
   private:
     const Matcher<ConcreteMatcher, U>& matcher_;
