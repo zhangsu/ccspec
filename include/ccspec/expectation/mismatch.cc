@@ -7,8 +7,8 @@ namespace expectation {
 using std::string;
 
 template <typename ConcreteMatcher, typename U>
-Mismatch<ConcreteMatcher, U>::Mismatch(const Matcher<ConcreteMatcher, U>& matcher)
-    : matcher_(matcher) {}
+Mismatch<ConcreteMatcher, U>::Mismatch(
+    const Matcher<ConcreteMatcher, U>& matcher) : matcher_(matcher) {}
 
 template <typename ConcreteMatcher, typename U>
 string Mismatch<ConcreteMatcher, U>::toString() {
