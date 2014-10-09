@@ -4,9 +4,10 @@
 namespace ccspec {
 namespace expectation {
 
+using std::exception;
 using std::string;
 
-UnexpectedThrow::UnexpectedThrow(const std::exception& cause)
+UnexpectedThrow::UnexpectedThrow(const exception& cause)
     : cause_(cause) {}
 
 string UnexpectedThrow::toString() {
