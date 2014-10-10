@@ -3,8 +3,6 @@
 #include "unexpected_throw.h"
 #include "mismatch.h"
 
-using std::exception;
-
 namespace ccspec {
 
 // Friend methods.
@@ -24,7 +22,7 @@ void Target<U>::to(Matcher<ConcreteMatcher, V> matcher) const {
     bool matched;
     try {
         matched = matcher.match(target_);
-    } catch (const exception& e) {
+    } catch (const std::exception& e) {
         throw expectation::UnexpectedThrow(e);
     }
     if (!matched)
