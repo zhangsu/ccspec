@@ -12,7 +12,7 @@ class UnexpectedThrow : public Exception {
   public:
     explicit UnexpectedThrow(const std::exception& cause);
 
-    virtual std::string toString();
+    virtual std::string toString() const;
 
   private:
     const std::exception& cause_;

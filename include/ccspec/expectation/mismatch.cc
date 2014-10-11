@@ -9,7 +9,7 @@ Mismatch<ConcreteMatcher, U>::Mismatch(
     const Matcher<ConcreteMatcher, U>& matcher) : matcher_(matcher) {}
 
 template <typename ConcreteMatcher, typename U>
-std::string Mismatch<ConcreteMatcher, U>::toString() {
+std::string Mismatch<ConcreteMatcher, U>::toString() const {
     return "stub";
 }
 

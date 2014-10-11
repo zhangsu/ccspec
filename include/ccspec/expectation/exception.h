@@ -9,7 +9,7 @@ namespace expectation {
 
 class Exception : public std::exception {
   public:
-    virtual std::string toString() = 0;
+    virtual std::string toString() const = 0;
 };
 
 } // namespace expectation

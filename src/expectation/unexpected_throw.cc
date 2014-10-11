@@ -10,7 +10,7 @@ using std::string;
 UnexpectedThrow::UnexpectedThrow(const exception& cause)
     : cause_(cause) {}
 
-string UnexpectedThrow::toString() {
+string UnexpectedThrow::toString() const {
     return string("Unexpected exception: ") + cause_.what();
 }
 

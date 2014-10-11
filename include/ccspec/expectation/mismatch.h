@@ -13,7 +13,7 @@ class Mismatch : public Exception {
   public:
     explicit Mismatch(const Matcher<ConcreteMatcher, U>&);
 
-    virtual std::string toString();
+    virtual std::string toString() const;
 
   private:
     const Matcher<ConcreteMatcher, U>& matcher_;
