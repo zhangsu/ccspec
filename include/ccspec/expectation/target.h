@@ -20,7 +20,7 @@ template <typename U>
 class Target {
   public:
     template <typename ConcreteMatcher, typename V>
-    void to(Matcher<ConcreteMatcher, V>) const;
+    void to(const Matcher<ConcreteMatcher, V>&) const;
 
   private:
     explicit Target(U);

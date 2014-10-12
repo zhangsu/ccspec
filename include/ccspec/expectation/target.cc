@@ -18,7 +18,7 @@ namespace expectation {
 
 template <typename U>
 template <typename ConcreteMatcher, typename V>
-void Target<U>::to(Matcher<ConcreteMatcher, V> matcher) const {
+void Target<U>::to(const Matcher<ConcreteMatcher, V>& matcher) const {
     bool matched;
     try {
         matched = matcher.match(target_);
