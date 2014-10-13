@@ -1,6 +1,7 @@
 #ifndef CCSPEC_MATCHERS_EQ_H_
 #define CCSPEC_MATCHERS_EQ_H_
 
+#include <string>
 #include <ccspec/matcher.h>
 
 namespace ccspec {
@@ -11,6 +12,7 @@ class Eq : public Matcher<Eq<U>, U> {
   public:
     template <typename V>
     bool match(V expected_value) const;
+    virtual std::string toString() const;
 
   private:
     explicit Eq(U);

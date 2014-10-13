@@ -1,3 +1,5 @@
+#include <sstream>
+#include <string>
 #include <ccspec/matcher.h>
 
 namespace ccspec {
@@ -9,6 +11,13 @@ template <typename U>
 template <typename V>
 bool Eq<U>::match(V expected_value) const {
     return expected_value == this->value();
+}
+
+template <typename U>
+std::string Eq<U>::toString() const {
+    std::ostringstream s;
+    s << "should equal " << this->value();
+    return s.str();
 }
 
 // Private methods.
