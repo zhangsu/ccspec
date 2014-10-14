@@ -8,15 +8,16 @@
 namespace ccspec {
 namespace expectation {
 
-template <typename ConcreteMatcher, typename U>
+template <typename U, typename ConcreteMatcher, typename V>
 class Mismatch : public Exception {
   public:
-    explicit Mismatch(const Matcher<ConcreteMatcher, U>&);
+    explicit Mismatch(const U& value, const Matcher<ConcreteMatcher, V>&);
 
     virtual std::string toString() const;
 
   private:
-    const Matcher<ConcreteMatcher, U>& matcher_;
+    const U& value_;
+    const Matcher<ConcreteMatcher, V>& matcher_;
 };
 
 } // namespace expectation

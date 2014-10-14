@@ -1,6 +1,7 @@
 #ifndef CCSPEC_MATCHER_H_
 #define CCSPEC_MATCHER_H_
 
+#include <ostream>
 #include <string>
 
 namespace ccspec {
@@ -21,6 +22,9 @@ class Matcher {
   private:
     const U value_;
 };
+
+template <typename ConcreteMatcher, typename U>
+std::ostream& operator<<(std::ostream&, const Matcher<ConcreteMatcher, U>&);
 
 } // namespace ccspec
 

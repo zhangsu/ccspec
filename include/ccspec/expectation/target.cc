@@ -26,7 +26,7 @@ void Target<U>::to(const Matcher<ConcreteMatcher, V>& matcher) const {
         throw expectation::UnexpectedThrow(e);
     }
     if (!matched)
-        throw expectation::Mismatch<ConcreteMatcher, V>(matcher);
+        throw expectation::Mismatch<U, ConcreteMatcher, V>(target_, matcher);
 }
 
 // Private methods.

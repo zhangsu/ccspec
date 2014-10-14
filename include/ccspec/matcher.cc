@@ -1,3 +1,5 @@
+#include <ostream>
+
 namespace ccspec {
 
 // Public methods.
@@ -16,6 +18,13 @@ Matcher<ConcreteMatcher, U>::Matcher(U value) : value_(value) {}
 template <typename ConcreteMatcher, typename U>
 U Matcher<ConcreteMatcher, U>::value() const {
     return value_;
+}
+
+template <typename ConcreteMatcher, typename U>
+std::ostream& operator<<(std::ostream& stream,
+                         const Matcher<ConcreteMatcher, U>& matcher) {
+    stream << matcher.toString();
+    return stream;
 }
 
 } // namespace ccspec
