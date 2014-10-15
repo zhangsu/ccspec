@@ -25,7 +25,7 @@ class Target {
   private:
     explicit Target(U);
 
-    const U target_;
+    const U value_;
 
     template <typename V>
     friend Target<V> ccspec::expect(V);
