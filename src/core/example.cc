@@ -3,6 +3,7 @@
 #include <ccspec/core/example.h>
 #include <ccspec/core/example_group.h>
 #include <ccspec/core/hooks.h>
+#include <ccspec/expectation/exception.h>
 
 namespace ccspec {
 namespace core {
@@ -25,7 +26,10 @@ void Example::run() const {
     if (around_hooks_.empty()) {
         for (auto hook : *before_each_hooks_)
             hook();
-        spec_();
+        try {
+            spec_();
+        } catch (const expectation::Exception& e) {
+        }
         for (auto hook : *after_each_hooks_)
             hook();
     } else {
