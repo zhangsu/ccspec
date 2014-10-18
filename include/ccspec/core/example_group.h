@@ -20,11 +20,11 @@ class ExampleGroup {
     virtual ~ExampleGroup();
 
     void addExample(Example);
-    void addBeforeEachHook(BeforeHook hook);
-    void addBeforeAllHook(BeforeHook hook);
-    void addAfterEachHook(AfterHook hook);
-    void addAfterAllHook(AfterHook hook);
-    void addAroundHook(AroundHook hook);
+    void addBeforeEachHook(BeforeHook);
+    void addBeforeAllHook(BeforeHook);
+    void addAfterEachHook(AfterHook);
+    void addAfterAllHook(AfterHook);
+    void addAroundHook(AroundHook);
     void run() const;
 
   private:
