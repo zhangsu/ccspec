@@ -24,14 +24,18 @@ using std::string;
 // mutated in this function in order to transition to the next state.
 void Example::run() const {
     if (around_hooks_.empty()) {
-        for (auto hook : *before_each_hooks_)
-            hook();
+        if (before_each_hooks_ != nullptr) {
+            for (auto hook : *before_each_hooks_)
+                hook();
+        }
         try {
             spec_();
         } catch (const expectation::Exception& e) {
         }
-        for (auto hook : *after_each_hooks_)
-            hook();
+        if (after_each_hooks_ != nullptr) {
+            for (auto hook : *after_each_hooks_)
+                hook();
+        }
     } else {
         AroundHook around_hook = around_hooks_.front();
         around_hooks_.pop_front();
@@ -51,7 +55,10 @@ void Example::run(const list<BeforeHook>* before_each_hooks,
 // Private methods.
 
 Example::Example(string desc, std::function<void ()> spec)
-    : desc_(desc), spec_(spec) {}
+    : desc_(desc),
+      spec_(spec),
+      before_each_hooks_(nullptr),
+      after_each_hooks_(nullptr) {}
 
 // Friend methods.
 
