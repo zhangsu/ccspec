@@ -7,6 +7,7 @@
 #include <string>
 #include "example.h"
 #include "hooks.h"
+#include "reporter.h"
 
 namespace ccspec {
 namespace core {
@@ -25,7 +26,7 @@ class ExampleGroup {
     void addAfterEachHook(AfterHook);
     void addAfterAllHook(AfterHook);
     void addAroundHook(AroundHook);
-    void run() const;
+    void run(const Reporter&) const;
 
   private:
     typedef ExampleGroup* Creator(std::string desc,
@@ -34,7 +35,8 @@ class ExampleGroup {
     explicit ExampleGroup(std::string desc);
 
     void addChild(const ExampleGroup*);
-    void run(std::list<BeforeHook>& before_each_hooks,
+    void run(const Reporter&,
+             std::list<BeforeHook>& before_each_hooks,
              std::list<AfterHook>& after_each_hooks,
              std::list<AroundHook>&) const;
 

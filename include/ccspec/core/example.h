@@ -5,6 +5,7 @@
 #include <list>
 #include <string>
 #include "hooks.h"
+#include "reporter.h"
 
 namespace ccspec {
 namespace core {
@@ -12,7 +13,8 @@ namespace core {
 class Example {
   public:
     void run() const;
-    void run(const std::list<BeforeHook>* before_each_hooks,
+    void run(const Reporter*,
+             const std::list<BeforeHook>* before_each_hooks,
              const std::list<AfterHook>* after_each_hooks,
              std::list<AroundHook>) const;
 
@@ -32,9 +34,10 @@ class Example {
     // `run` can still be const functions while using them.
     //
     // `around_hooks_` need to be a copy because the `run` method modifies it
-    // across different calls whereas the before and after each hooks can be
-    // pointers to the original (constant) list passed by ExampleGroup.
+    // across different calls whereas other members can be pointers to the
+    // original constants passed by ExampleGroup.
     mutable std::list<AroundHook> around_hooks_;
+    mutable const Reporter* reporter_;
     mutable const std::list<BeforeHook>* before_each_hooks_;
     mutable const std::list<AfterHook>* after_each_hooks_;
 

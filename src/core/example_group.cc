@@ -5,6 +5,7 @@
 #include <ccspec/core/example.h>
 #include <ccspec/core/example_group.h>
 #include <ccspec/core/hooks.h>
+#include <ccspec/core/reporter.h>
 
 namespace ccspec {
 namespace core {
@@ -47,11 +48,11 @@ void ExampleGroup::addAroundHook(AroundHook hook) {
     around_hooks_.push_back(hook);
 }
 
-void ExampleGroup::run() const {
+void ExampleGroup::run(const Reporter& reporter) const {
     list<BeforeHook> before_each_hooks;
     list<AfterHook> after_each_hooks;
     list<AroundHook> around_hooks;
-    run(before_each_hooks, after_each_hooks, around_hooks);
+    run(reporter, before_each_hooks, after_each_hooks, around_hooks);
 }
 
 // Private methods.
@@ -62,7 +63,8 @@ void ExampleGroup::addChild(const ExampleGroup* example_group) {
     children_.push_back(example_group);
 }
 
-void ExampleGroup::run(list<BeforeHook>& before_each_hooks,
+void ExampleGroup::run(const Reporter& reporter,
+                       list<BeforeHook>& before_each_hooks,
                        list<AfterHook>& after_each_hooks,
                        list<AroundHook>& around_hooks) const {
     auto first_new_before_each = before_each_hooks.insert(
@@ -82,10 +84,12 @@ void ExampleGroup::run(list<BeforeHook>& before_each_hooks,
     );
     for (auto hook : before_all_hooks_)
         hook();
-    for (auto const& example : examples_)
-        example.run(&before_each_hooks, &after_each_hooks, around_hooks);
+    for (auto const& example : examples_) {
+        example.run(&reporter, &before_each_hooks, &after_each_hooks,
+                    around_hooks);
+    }
     for (auto child : children_)
-        child->run(before_each_hooks, after_each_hooks, around_hooks);
+        child->run(reporter, before_each_hooks, after_each_hooks, around_hooks);
     for (auto hook : after_all_hooks_)
         hook();
     around_hooks.erase(first_new_around, around_hooks.end());

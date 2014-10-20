@@ -12,6 +12,7 @@ using ccspec::core::it;
 using ccspec::core::example;
 using ccspec::core::specify;
 using ccspec::core::Example;
+using ccspec::core::Reporter;
 using ccspec::expect;
 using ccspec::matchers::eq;
 
@@ -77,7 +78,8 @@ int main() {
         });
     });
 
-    example_group->run();
+    Reporter reporter;
+    example_group->run(reporter);
 
     delete example_group;
 
