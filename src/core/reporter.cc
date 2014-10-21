@@ -12,4 +12,3 @@ void Reporter::exampleFailed(const Example& example) const {
 
 } // namespace core
 } // namespace ccspec
-
