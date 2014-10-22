@@ -1,14 +1,15 @@
+#include <exception>
 #include <functional>
 #include <list>
 #include <ccspec/core/example.h>
 #include <ccspec/core/example_group.h>
 #include <ccspec/core/hooks.h>
 #include <ccspec/core/reporter.h>
-#include <ccspec/expectation/exception.h>
 
 namespace ccspec {
 namespace core {
 
+using std::exception;
 using std::function;
 using std::list;
 using std::string;
@@ -38,8 +39,8 @@ void Example::run() const {
         try {
             spec_();
             reporter_->examplePassed(*this);
-        } catch (const expectation::Exception& e) {
-            reporter_->exampleFailed(*this);
+        } catch (const exception& e) {
+            reporter_->exampleFailed(*this, e);
         }
         for (auto hook : *after_each_hooks_)
             hook();
