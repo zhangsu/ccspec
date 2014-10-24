@@ -9,8 +9,8 @@ namespace core {
 
 class Reporter {
 public:
-    void examplePassed(const Example& example) const;
-    void exampleFailed(const Example& example, const std::exception&) const;
+    void examplePassed(const Example&) const;
+    void exampleFailed(const Example&, const std::exception&) const;
 };
 
 } // namespace core
