@@ -21,4 +21,3 @@ void around(std::string scope, AroundHook);
 } // namespace ccspec
 
 #endif // CCSPEC_CORE_HOOKS_H_
-

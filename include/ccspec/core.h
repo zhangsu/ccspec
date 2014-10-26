@@ -7,4 +7,3 @@
 #include "core/reporter.h"
 
 #endif // CCSPEC_CORE_H_
-
