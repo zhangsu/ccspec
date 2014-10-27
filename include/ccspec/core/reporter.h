@@ -8,7 +8,7 @@ namespace ccspec {
 namespace core {
 
 class Reporter {
-public:
+  public:
     void examplePassed(const Example&) const;
     void exampleFailed(const Example&, const std::exception&) const;
 };
