@@ -3,7 +3,7 @@
 
 #include <exception>
 #include <ostream>
-#include "example.h"
+#include "execution_result.h"
 
 namespace ccspec {
 namespace core {
@@ -12,8 +12,8 @@ class Formatter {
   public:
     explicit Formatter(std::ostream&);
 
-    void examplePassed(const Example&) const;
-    void exampleFailed(const Example&, const std::exception&) const;
+    void examplePassed(const ExecutionResult&) const;
+    void exampleFailed(const ExecutionResult&) const;
 
   protected:
     std::ostream& output_;

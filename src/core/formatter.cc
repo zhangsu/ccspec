@@ -1,6 +1,6 @@
 #include <exception>
 #include <ostream>
-#include <ccspec/core/example.h>
+#include <ccspec/core/execution_result.h>
 #include <ccspec/core/formatter.h>
 
 namespace ccspec {
@@ -11,14 +11,12 @@ using std::ostream;
 
 Formatter::Formatter(ostream& output) : output_(output) {}
 
-void Formatter::examplePassed(const Example& example) const {
-    (void) example;
+void Formatter::examplePassed(const ExecutionResult& execution_result) const {
+    (void) execution_result;
 }
 
-void Formatter::exampleFailed(const Example& example,
-                              const exception& exception) const {
-    (void) example;
-    (void) exception;
+void Formatter::exampleFailed(const ExecutionResult& execution_result) const {
+    (void) execution_result;
 }
 
 } // namespace core

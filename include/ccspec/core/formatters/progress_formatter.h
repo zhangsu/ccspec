@@ -2,7 +2,7 @@
 #define CCSPEC_CORE_FORMATTERS_PROGRESS_FORMATTER_H_
 
 #include <exception>
-#include <ccspec/core/example.h>
+#include <ccspec/core/execution_result.h>
 #include "text_formatter.h"
 
 namespace ccspec {
@@ -11,8 +11,8 @@ namespace formatters {
 
 class ProgressFormatter : public TextFormatter {
   public:
-    void examplePassed(const Example&) const;
-    void exampleFailed(const Example&, const std::exception&) const;
+    void examplePassed(const ExecutionResult&) const;
+    void exampleFailed(const ExecutionResult&) const;
 };
 
 } // namespace formatters

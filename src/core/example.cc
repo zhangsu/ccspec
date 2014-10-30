@@ -34,13 +34,16 @@ void Example::run() const {
     }
 
     if (around_hooks_.empty()) {
+        ExecutionResult execution_result;
+
         for (auto hook : *before_each_hooks_)
             hook();
         try {
             spec_();
-            reporter_->examplePassed(*this);
+            reporter_->examplePassed(execution_result);
         } catch (const exception& e) {
-            reporter_->exampleFailed(*this, e);
+            execution_result.set_exception(&e);
+            reporter_->exampleFailed(execution_result);
         }
         for (auto hook : *after_each_hooks_)
             hook();

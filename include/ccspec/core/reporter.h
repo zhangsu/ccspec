@@ -2,15 +2,15 @@
 #define CCSPEC_CORE_REPORTER_H_
 
 #include <exception>
-#include "example.h"
+#include "execution_result.h"
 
 namespace ccspec {
 namespace core {
 
 class Reporter {
   public:
-    void examplePassed(const Example&) const;
-    void exampleFailed(const Example&, const std::exception&) const;
+    void examplePassed(const ExecutionResult&) const;
+    void exampleFailed(const ExecutionResult&) const;
 };
 
 } // namespace core

@@ -10,8 +10,8 @@ BINDIR            = bin/
 OUTPUTS           = $(CCSPECOUTPUT)
 CCSPECOUTPUT      = $(BINDIR)ccspec
 CCSPECOBJECTS     = $(SRCDIR)ccspec.o\
-  $(addprefix $(SRCCOREDIR), example.o example_group.o formatter.o hooks.o\
-                             reporter.o)\
+  $(addprefix $(SRCCOREDIR), example.o example_group.o execution_result.o\
+                             formatter.o hooks.o reporter.o)\
   $(addprefix $(SRCCOREDIR)formatters/, progress_formatter.o text_formatter.o)\
   $(addprefix $(SRCEXPECTATIONDIR), unexpected_throw.o)
 
