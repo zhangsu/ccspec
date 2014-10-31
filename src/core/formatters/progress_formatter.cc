@@ -10,6 +10,8 @@ namespace formatters {
 using std::exception;
 using std::ostream;
 
+ProgressFormatter::ProgressFormatter(ostream& output) : TextFormatter(output) {}
+
 void ProgressFormatter::examplePassed(const ExecutionResult& execution_result)
     const {
     (void) execution_result;
