@@ -12,8 +12,8 @@ class Formatter {
   public:
     explicit Formatter(std::ostream&);
 
-    void examplePassed(const ExecutionResult&) const;
-    void exampleFailed(const ExecutionResult&) const;
+    virtual void examplePassed(const ExecutionResult&) const;
+    virtual void exampleFailed(const ExecutionResult&) const;
 
   protected:
     std::ostream& output_;

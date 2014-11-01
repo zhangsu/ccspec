@@ -14,8 +14,8 @@ class ProgressFormatter : public TextFormatter {
   public:
     explicit ProgressFormatter(std::ostream&);
 
-    void examplePassed(const ExecutionResult&) const;
-    void exampleFailed(const ExecutionResult&) const;
+    virtual void examplePassed(const ExecutionResult&) const;
+    virtual void exampleFailed(const ExecutionResult&) const;
 };
 
 } // namespace formatters
