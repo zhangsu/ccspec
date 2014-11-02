@@ -15,11 +15,15 @@ ProgressFormatter::ProgressFormatter(ostream& output) : TextFormatter(output) {}
 void ProgressFormatter::examplePassed(const ExecutionResult& execution_result)
     const {
     (void) execution_result;
+
+    output_ << '.';
 }
 
 void ProgressFormatter::exampleFailed(const ExecutionResult& execution_result)
     const {
     (void) execution_result;
+
+    output_ << 'F';
 }
 
 } // namespace formatters

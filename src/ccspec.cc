@@ -8,6 +8,7 @@ using ccspec::core::around;
 using ccspec::core::before;
 using ccspec::core::context;
 using ccspec::core::describe;
+using ccspec::core::formatters::ProgressFormatter;
 using ccspec::core::it;
 using ccspec::core::example;
 using ccspec::core::specify;
@@ -78,7 +79,8 @@ int main() {
         });
     });
 
-    Reporter reporter;
+    ProgressFormatter formatter(cout);
+    Reporter reporter(&formatter);
     example_group->run(reporter);
 
     delete example_group;
