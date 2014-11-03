@@ -9,7 +9,7 @@ namespace core {
 namespace formatters {
 
 class TextFormatter : public Formatter {
-  public:
+  protected:
     explicit TextFormatter(std::ostream&);
 };
 

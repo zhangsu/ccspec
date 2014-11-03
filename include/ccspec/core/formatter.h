@@ -10,12 +10,12 @@ namespace core {
 
 class Formatter {
   public:
-    explicit Formatter(std::ostream&);
-
     virtual void examplePassed(const ExecutionResult&) const;
     virtual void exampleFailed(const ExecutionResult&) const;
 
   protected:
+    explicit Formatter(std::ostream&);
+
     std::ostream& output_;
 };
 
