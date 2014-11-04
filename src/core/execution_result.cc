@@ -4,6 +4,8 @@
 namespace ccspec {
 namespace core {
 
+// Public methods.
+
 ExecutionResult::ExecutionResult()
     : exception_(nullptr) {}
 

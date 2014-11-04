@@ -5,6 +5,8 @@
 namespace ccspec {
 namespace expectation {
 
+// Public methods.
+
 template <typename U, typename ConcreteMatcher, typename V>
 Mismatch<U, ConcreteMatcher, V>::Mismatch(
     const U& value,

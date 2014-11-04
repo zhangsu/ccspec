@@ -9,7 +9,7 @@ namespace core {
 using std::exception;
 using std::ostream;
 
-Formatter::Formatter(ostream& output) : output_(output) {}
+// public methods.
 
 void Formatter::examplePassed(const ExecutionResult& execution_result) const {
     (void) execution_result;
@@ -18,6 +18,10 @@ void Formatter::examplePassed(const ExecutionResult& execution_result) const {
 void Formatter::exampleFailed(const ExecutionResult& execution_result) const {
     (void) execution_result;
 }
+
+// Protected methods.
+
+Formatter::Formatter(ostream& output) : output_(output) {}
 
 } // namespace core
 } // namespace ccspec

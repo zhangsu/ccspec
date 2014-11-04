@@ -7,6 +7,8 @@ namespace expectation {
 using std::exception;
 using std::string;
 
+// Public methods.
+
 UnexpectedThrow::UnexpectedThrow(const exception& cause)
     : cause_(cause) {}
 

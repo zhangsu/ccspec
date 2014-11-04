@@ -8,6 +8,8 @@ namespace formatters {
 
 using std::ostream;
 
+// Protected methods.
+
 TextFormatter::TextFormatter(ostream& output) : Formatter(output) {}
 
 } // namespace formatters

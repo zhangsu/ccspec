@@ -10,6 +10,8 @@ namespace core {
 using std::exception;
 using std::vector;
 
+// Public methods.
+
 Reporter::Reporter(const Formatter* formatter) : formatters_{formatter} {}
 
 Reporter::Reporter(const vector<const Formatter*> formatters)
