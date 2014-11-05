@@ -25,7 +25,7 @@ std::string Eq<U>::toString() const {
 template<typename U>
 Eq<U>::Eq(U value) : Matcher<Eq<U>, U>(value) {}
 
-// Friend methods.
+// Friend functions.
 
 template<typename U>
 Eq<U> eq(U value) {

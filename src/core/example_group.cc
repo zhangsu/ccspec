@@ -97,7 +97,7 @@ void ExampleGroup::run(const Reporter& reporter,
     before_each_hooks.erase(first_new_before_each, before_each_hooks.end());
 }
 
-// Friend methods.
+// Friend functions.
 
 ExampleGroup* describe(string desc, function<void ()> spec) {
     ExampleGroup* example_group = new ExampleGroup(desc);

@@ -5,7 +5,7 @@
 
 namespace ccspec {
 
-// Friend methods.
+// Friend functions.
 
 template <typename V>
 expectation::Target<V> expect(V value) {

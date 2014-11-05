@@ -74,7 +74,7 @@ Example::Example(string desc, std::function<void ()> spec)
       before_each_hooks_(nullptr),
       after_each_hooks_(nullptr) {}
 
-// Friend methods.
+// Friend functions.
 
 Example it(string desc, function<void ()> spec) {
     Example example = Example(desc, spec);
