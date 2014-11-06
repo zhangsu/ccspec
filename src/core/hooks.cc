@@ -35,4 +35,3 @@ void around(std::string scope, AroundHook hook) {
 
 } // namespace core
 } // namespace ccspec
-
