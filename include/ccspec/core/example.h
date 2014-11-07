@@ -13,7 +13,7 @@ namespace core {
 class Example {
   public:
     void run() const;
-    void run(const Reporter*,
+    void run(Reporter*,
              const std::list<BeforeHook>* before_each_hooks,
              const std::list<AfterHook>* after_each_hooks,
              std::list<AroundHook>) const;
@@ -37,7 +37,7 @@ class Example {
     // across different calls whereas other members can be pointers to the
     // original constants passed by ExampleGroup.
     mutable std::list<AroundHook> around_hooks_;
-    mutable const Reporter* reporter_;
+    mutable Reporter* reporter_;
     mutable const std::list<BeforeHook>* before_each_hooks_;
     mutable const std::list<AfterHook>* after_each_hooks_;
 

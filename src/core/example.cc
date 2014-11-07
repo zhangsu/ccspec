@@ -54,7 +54,7 @@ void Example::run() const {
     }
 }
 
-void Example::run(const Reporter* reporter,
+void Example::run(Reporter* reporter,
                   const list<BeforeHook>* before_each_hooks,
                   const list<AfterHook>* after_each_hooks,
                   list<AroundHook> around_hooks) const {

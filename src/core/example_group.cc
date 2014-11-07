@@ -48,7 +48,7 @@ void ExampleGroup::addAroundHook(AroundHook hook) {
     around_hooks_.push_back(hook);
 }
 
-void ExampleGroup::run(const Reporter& reporter) const {
+void ExampleGroup::run(Reporter& reporter) const {
     list<BeforeHook> before_each_hooks;
     list<AfterHook> after_each_hooks;
     list<AroundHook> around_hooks;
@@ -63,7 +63,7 @@ void ExampleGroup::addChild(const ExampleGroup* example_group) {
     children_.push_back(example_group);
 }
 
-void ExampleGroup::run(const Reporter& reporter,
+void ExampleGroup::run(Reporter& reporter,
                        list<BeforeHook>& before_each_hooks,
                        list<AfterHook>& after_each_hooks,
                        list<AroundHook>& around_hooks) const {
