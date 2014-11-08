@@ -27,11 +27,13 @@ class Example {
     const std::function<void ()> spec_;
     // These members are marked mutable becuase they are only used to implement
     // the special DSL used for around hooks. Users call the nullary `run`
-    // function on the example in around hooks, so all the hooks needed for
+    // method on the example in around hooks, so all the hooks needed for
     // each example need to be stored as member when the non-nullary `run`
-    // function is called (by ExampleGroup). These are not really state
-    // maintained by Example but rather by ExampleGroup, so functions like
-    // `run` can still be const functions while using them.
+    // method is called (by ExampleGroup). These are not really state
+    // maintained by Example but rather by ExampleGroup, so methods like
+    // `run` can still be const methods while using them. If not for
+    // implementing the DSL, they would be passed-in as arguments to the `run`
+    // method and can thus be mutated in a const `run` method.
     //
     // `around_hooks_` need to be a copy because the `run` method modifies it
     // across different calls whereas other members can be pointers to the
