@@ -2,6 +2,7 @@
 #define CCSPEC_CORE_FORMATTER_H_
 
 #include <exception>
+#include <list>
 #include <ostream>
 #include "execution_result.h"
 
@@ -12,6 +13,8 @@ class Formatter {
   public:
     virtual void examplePassed(const ExecutionResult&) const;
     virtual void exampleFailed(const ExecutionResult&) const;
+    virtual void startDump() const;
+    virtual void dumpFailures(std::list<const std::exception*> failures) const;
 
   protected:
     explicit Formatter(std::ostream&);

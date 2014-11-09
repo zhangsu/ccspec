@@ -28,6 +28,10 @@ void ProgressFormatter::exampleFailed(const ExecutionResult& execution_result)
     output_ << 'F';
 }
 
+void ProgressFormatter::startDump() const {
+    output_ << '\n';
+}
+
 } // namespace formatters
 } // namespace core
 } // namespace ccspec

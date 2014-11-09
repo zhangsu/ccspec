@@ -16,6 +16,7 @@ class ProgressFormatter : public TextFormatter {
 
     virtual void examplePassed(const ExecutionResult&) const;
     virtual void exampleFailed(const ExecutionResult&) const;
+    virtual void startDump() const;
 };
 
 } // namespace formatters
