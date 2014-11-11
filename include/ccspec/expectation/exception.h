@@ -9,6 +9,7 @@ namespace expectation {
 
 class Exception : public std::exception {
   public:
+    virtual const char* what() const noexcept;
     virtual std::string toString() const = 0;
 };
 
