@@ -10,10 +10,12 @@ using std::string;
 // Public methods.
 
 UnexpectedThrow::UnexpectedThrow(const exception& cause)
-    : cause_(cause) {}
+    : Exception(desc(cause)) {}
 
-string UnexpectedThrow::toString() const {
-    return string("Unexpected exception: ") + cause_.what();
+// Private methods.
+
+std::string UnexpectedThrow::desc(const std::exception& cause) {
+    return string("Unexpected exception: ") + cause.what();
 }
 
 } // namespace expectation

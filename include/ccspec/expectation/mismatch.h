@@ -13,11 +13,8 @@ class Mismatch : public Exception {
   public:
     explicit Mismatch(const U& value, const Matcher<ConcreteMatcher, V>&);
 
-    virtual std::string toString() const;
-
   private:
-    const U& value_;
-    const Matcher<ConcreteMatcher, V>& matcher_;
+    std::string desc(const U& value, const Matcher<ConcreteMatcher, V>&);
 };
 
 } // namespace expectation

@@ -12,10 +12,8 @@ class UnexpectedThrow : public Exception {
   public:
     explicit UnexpectedThrow(const std::exception& cause);
 
-    virtual std::string toString() const;
-
   private:
-    const std::exception& cause_;
+    std::string desc(const std::exception& cause);
 };
 
 } // namespace expectation
