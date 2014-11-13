@@ -4,16 +4,18 @@
 namespace ccspec {
 namespace core {
 
+using std::exception_ptr;
+
 // Public methods.
 
 ExecutionResult::ExecutionResult()
     : exception_(nullptr) {}
 
-const std::exception* ExecutionResult::exception() const {
+exception_ptr ExecutionResult::exception() const {
     return exception_;
 }
 
-void ExecutionResult::set_exception(const std::exception* exception) {
+void ExecutionResult::set_exception(exception_ptr exception) {
     exception_ = exception;
 }
 

@@ -7,7 +7,7 @@
 namespace ccspec {
 namespace core {
 
-using std::exception;
+using std::exception_ptr;
 using std::list;
 using std::ostream;
 
@@ -23,7 +23,7 @@ void Formatter::exampleFailed(const ExecutionResult& execution_result) const {
 
 void Formatter::startDump() const {}
 
-void Formatter::dumpFailures(list<const exception*> failures) const {
+void Formatter::dumpFailures(const list<exception_ptr>& failures) const {
     (void) failures;
 }
 

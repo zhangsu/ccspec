@@ -10,11 +10,11 @@ class ExecutionResult {
   public:
     ExecutionResult();
 
-    const std::exception* exception() const;
-    void set_exception(const std::exception*);
+    std::exception_ptr exception() const;
+    void set_exception(std::exception_ptr);
 
   private:
-    const std::exception* exception_;
+    std::exception_ptr exception_;
 };
 
 } // namespace core

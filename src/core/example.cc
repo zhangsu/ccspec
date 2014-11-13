@@ -9,6 +9,7 @@
 namespace ccspec {
 namespace core {
 
+using std::current_exception;
 using std::exception;
 using std::function;
 using std::list;
@@ -42,7 +43,7 @@ void Example::run() const {
             spec_();
             reporter_->examplePassed(execution_result);
         } catch (const exception& e) {
-            execution_result.set_exception(&e);
+            execution_result.set_exception(current_exception());
             reporter_->exampleFailed(execution_result);
         }
         for (auto hook : *after_each_hooks_)

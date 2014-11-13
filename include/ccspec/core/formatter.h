@@ -14,7 +14,8 @@ class Formatter {
     virtual void examplePassed(const ExecutionResult&) const;
     virtual void exampleFailed(const ExecutionResult&) const;
     virtual void startDump() const;
-    virtual void dumpFailures(std::list<const std::exception*> failures) const;
+    virtual void dumpFailures(
+        const std::list<std::exception_ptr>& failures) const;
 
   protected:
     explicit Formatter(std::ostream&);

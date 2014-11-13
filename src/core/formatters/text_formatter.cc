@@ -10,16 +10,23 @@ namespace core {
 namespace formatters {
 
 using std::exception;
+using std::exception_ptr;
 using std::list;
 using std::ostream;
 using std::endl;
+using std::rethrow_exception;
 
 // Public methods.
 
-void TextFormatter::dumpFailures(list<const exception*> failures) const {
+void TextFormatter::dumpFailures(const list<exception_ptr>& failures) const {
     output_ << "Failures:" << endl;
-    for (auto failure : failures)
-        output_ << failure->what() << endl;
+    for (auto failure : failures) {
+        try {
+            rethrow_exception(failure);
+        } catch (const exception& e) {
+            output_ << e.what() << endl;
+        }
+    }
 
 }
 

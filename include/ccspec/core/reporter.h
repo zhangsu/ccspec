@@ -24,7 +24,7 @@ class Reporter {
     void finish() const;
 
     const std::vector<const Formatter*> formatters_;
-    std::list<const std::exception*> failures_;
+    std::list<std::exception_ptr> failures_;
 };
 
 } // namespace core

@@ -12,7 +12,8 @@ namespace formatters {
 
 class TextFormatter : public Formatter {
   public:
-    virtual void dumpFailures(std::list<const std::exception*> failures) const;
+    virtual void dumpFailures(
+        const std::list<std::exception_ptr>& failures) const;
 
   protected:
     explicit TextFormatter(std::ostream&);
