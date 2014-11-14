@@ -1,4 +1,3 @@
-#include <exception>
 #include <vector>
 #include <ccspec/core/execution_result.h>
 #include <ccspec/core/formatter.h>
@@ -7,7 +6,6 @@
 namespace ccspec {
 namespace core {
 
-using std::exception;
 using std::vector;
 
 // Public methods.
