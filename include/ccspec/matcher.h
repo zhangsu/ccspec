@@ -12,7 +12,7 @@ class Matcher {
     template <typename V>
     bool match(V expected_value) const;
 
-    virtual std::string toString() const = 0;
+    virtual std::string desc() const = 0;
 
   protected:
     explicit Matcher(U);

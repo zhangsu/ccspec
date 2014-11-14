@@ -25,7 +25,7 @@ U Matcher<ConcreteMatcher, U>::value() const {
 template <typename ConcreteMatcher, typename U>
 std::ostream& operator<<(std::ostream& stream,
                          const Matcher<ConcreteMatcher, U>& matcher) {
-    stream << matcher.toString();
+    stream << matcher.desc();
     return stream;
 }
 

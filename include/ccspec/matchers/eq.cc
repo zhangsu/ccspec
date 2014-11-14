@@ -14,7 +14,7 @@ bool Eq<U>::match(V expected_value) const {
 }
 
 template <typename U>
-std::string Eq<U>::toString() const {
+std::string Eq<U>::desc() const {
     std::ostringstream s;
     s << "should equal " << this->value();
     return s.str();
