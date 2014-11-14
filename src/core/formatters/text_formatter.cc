@@ -1,7 +1,7 @@
 #include <exception>
+#include <iostream>
 #include <list>
 #include <ostream>
-#include <iostream>
 #include <ccspec/core/formatter.h>
 #include <ccspec/core/formatters/text_formatter.h>
 
@@ -9,11 +9,11 @@ namespace ccspec {
 namespace core {
 namespace formatters {
 
+using std::endl;
 using std::exception;
 using std::exception_ptr;
 using std::list;
 using std::ostream;
-using std::endl;
 using std::rethrow_exception;
 
 // Public methods.
