@@ -20,6 +20,8 @@ U Matcher<ConcreteMatcher, U>::value() const {
     return value_;
 }
 
+// Operators.
+
 template <typename ConcreteMatcher, typename U>
 std::ostream& operator<<(std::ostream& stream,
                          const Matcher<ConcreteMatcher, U>& matcher) {
