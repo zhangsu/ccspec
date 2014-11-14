@@ -14,7 +14,7 @@ UnexpectedThrow::UnexpectedThrow(const exception& cause)
 
 // Private methods.
 
-std::string UnexpectedThrow::desc(const std::exception& cause) {
+string UnexpectedThrow::desc(const exception& cause) {
     return string("Unexpected exception: ") + cause.what();
 }
 
