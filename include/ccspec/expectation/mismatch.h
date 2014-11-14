@@ -11,7 +11,7 @@ namespace expectation {
 template <typename U, typename ConcreteMatcher, typename V>
 class Mismatch : public Exception {
   public:
-    explicit Mismatch(const U& value, const Matcher<ConcreteMatcher, V>&);
+    Mismatch(const U& value, const Matcher<ConcreteMatcher, V>&);
 
   private:
     std::string desc(const U& value, const Matcher<ConcreteMatcher, V>&);
