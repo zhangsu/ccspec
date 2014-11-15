@@ -3,12 +3,12 @@
 
 #include <exception>
 #include <string>
-#include "exception.h"
+#include <ccspec/support/exception.h>
 
 namespace ccspec {
 namespace expectation {
 
-class UnexpectedThrow : public Exception {
+class UnexpectedThrow : public ccspec::support::Exception {
   public:
     explicit UnexpectedThrow(const std::exception& cause);
 

@@ -1,11 +1,13 @@
 #include <string>
 #include <ccspec/expectation/unexpected_throw.h>
+#include <ccspec/support/exception.h>
 
 namespace ccspec {
 namespace expectation {
 
 using std::exception;
 using std::string;
+using ccspec::support::Exception;
 
 // Public methods.
 

@@ -6,6 +6,7 @@ LFLAGS            = $(FLAGS)
 SRCDIR            = src/
 SRCCOREDIR        = $(SRCDIR)core/
 SRCEXPECTATIONDIR = $(SRCDIR)expectation/
+SRCSUPPORTDIR     = $(SRCDIR)support/
 BINDIR            = bin/
 OUTPUTS           = $(CCSPECOUTPUT)
 CCSPECOUTPUT      = $(BINDIR)ccspec
@@ -13,7 +14,8 @@ CCSPECOBJECTS     = $(SRCDIR)ccspec.o\
   $(addprefix $(SRCCOREDIR), example.o example_group.o execution_result.o\
                              formatter.o hooks.o reporter.o)\
   $(addprefix $(SRCCOREDIR)formatters/, progress_formatter.o text_formatter.o)\
-  $(addprefix $(SRCEXPECTATIONDIR), exception.o unexpected_throw.o)
+  $(addprefix $(SRCEXPECTATIONDIR), unexpected_throw.o)\
+  $(addprefix $(SRCSUPPORTDIR), exception.o)
 
 ifeq ($(DEBUG),1)
   FLAGS += -g

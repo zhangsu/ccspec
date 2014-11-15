@@ -1,11 +1,11 @@
-#ifndef CCSPEC_EXPECTATION_EXCEPTION_H_
-#define CCSPEC_EXPECTATION_EXCEPTION_H_
+#ifndef CCSPEC_SUPPORT_EXCEPTION_H_
+#define CCSPEC_SUPPORT_EXCEPTION_H_
 
 #include <exception>
 #include <string>
 
 namespace ccspec {
-namespace expectation {
+namespace support {
 
 class Exception : public std::exception {
   public:
@@ -19,7 +19,7 @@ class Exception : public std::exception {
     const std::string desc_;
 };
 
-} // namespace expectation
+} // namespace support
 } // namespace ccspec
 
-#endif // CCSPEC_EXPECTATION_EXCEPTION_H_
+#endif // CCSPEC_SUPPORT_EXCEPTION_H_

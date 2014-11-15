@@ -3,13 +3,13 @@
 
 #include <string>
 #include <ccspec/matcher.h>
-#include "exception.h"
+#include <ccspec/support/exception.h>
 
 namespace ccspec {
 namespace expectation {
 
 template <typename U, typename ConcreteMatcher, typename V>
-class Mismatch : public Exception {
+class Mismatch : public ccspec::support::Exception {
   public:
     Mismatch(const U& value, const Matcher<ConcreteMatcher, V>&);
 

@@ -1,8 +1,8 @@
 #include <string>
-#include <ccspec/expectation/exception.h>
+#include <ccspec/support/exception.h>
 
 namespace ccspec {
-namespace expectation {
+namespace support {
 
 using std::string;
 
@@ -20,5 +20,5 @@ const std::string& Exception::desc() const {
 
 Exception::Exception(string desc) : desc_(desc) {}
 
-} // namespace expectation
+} // namespace support
 } // namespace ccspec
