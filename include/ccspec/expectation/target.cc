@@ -1,6 +1,4 @@
-#include <exception>
 #include <ccspec/matcher.h>
-#include "unexpected_throw.h"
 #include "mismatch.h"
 
 namespace ccspec {
@@ -19,13 +17,7 @@ namespace expectation {
 template <typename U>
 template <typename ConcreteMatcher, typename V>
 void Target<U>::to(const Matcher<ConcreteMatcher, V>& matcher) const {
-    bool matched;
-    try {
-        matched = matcher.match(value_);
-    } catch (const std::exception& e) {
-        throw expectation::UnexpectedThrow(e);
-    }
-    if (!matched)
+    if (!matcher.match(value_))
         throw expectation::Mismatch<U, ConcreteMatcher, V>(value_, matcher);
 }
 

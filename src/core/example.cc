@@ -5,15 +5,20 @@
 #include <ccspec/core/example_group.h>
 #include <ccspec/core/hooks.h>
 #include <ccspec/core/reporter.h>
+#include <ccspec/core/unexpected_throw.h>
+#include <ccspec/support/exception.h>
 
 namespace ccspec {
 namespace core {
 
 using std::current_exception;
+using std::make_exception_ptr;
 using std::exception;
+using std::exception_ptr;
 using std::function;
 using std::list;
 using std::string;
+using ccspec::core::UnexpectedThrow;
 
 // Public methods.
 
@@ -36,15 +41,22 @@ void Example::run() const {
 
     if (around_hooks_.empty()) {
         ExecutionResult execution_result;
+        auto handleFailure = [&](exception_ptr e) {
+            execution_result.set_exception(e);
+            reporter_->exampleFailed(execution_result);
+        };
 
         for (auto hook : *before_each_hooks_)
             hook();
         try {
             spec_();
             reporter_->examplePassed(execution_result);
+        } catch (const ccspec::support::Exception& e) {
+            // The exception can only be a Mismatch as no other CCSpec
+            // exceptions should be thrown inside the spec of an example.
+            handleFailure(current_exception());
         } catch (const exception& e) {
-            execution_result.set_exception(current_exception());
-            reporter_->exampleFailed(execution_result);
+            handleFailure(make_exception_ptr(UnexpectedThrow(e)));
         }
         for (auto hook : *after_each_hooks_)
             hook();
