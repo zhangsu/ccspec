@@ -46,14 +46,14 @@ void Example::run() const {
             reporter_->exampleFailed(execution_result);
         };
 
-        for (auto hook : *before_each_hooks_)
-            hook();
         try {
+            for (auto hook : *before_each_hooks_)
+                hook();
             spec_();
             reporter_->examplePassed(execution_result);
         } catch (const ccspec::support::Exception& e) {
             // The exception can only be a Mismatch as no other CCSpec
-            // exceptions should be thrown inside the spec of an example.
+            // exceptions should be thrown inside the spec code.
             handleFailure(current_exception());
         } catch (const exception& e) {
             handleFailure(make_exception_ptr(UnexpectedThrow(e)));
