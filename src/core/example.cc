@@ -41,16 +41,24 @@ void Example::run() const {
 
     if (around_hooks_.empty()) {
         ExecutionResult execution_result;
-        catchException(execution_result, [this] {
-            for (auto hook : *before_each_hooks_)
-                hook();
-            spec_();
-        });
+        catchException(
+            [this] {
+                for (auto hook : *before_each_hooks_)
+                    hook();
+                spec_();
+            },
+            [&](exception_ptr e) { execution_result.set_exception(e); }
+        );
         // Continue running after each hooks regardless of execution result.
-        catchException(execution_result, [this] {
-            for (auto hook : *after_each_hooks_)
-                hook();
-        });
+        catchException(
+            [this] {
+                for (auto hook : *after_each_hooks_)
+                    hook();
+            },
+            [this](exception_ptr e) {
+                reporter_->afterEachHookFailed(e);
+            }
+        );
         finish(execution_result);
     } else {
         AroundHook around_hook = around_hooks_.front();
@@ -79,16 +87,18 @@ Example::Example(string desc, std::function<void ()> spec)
       before_each_hooks_(nullptr),
       after_each_hooks_(nullptr) {}
 
-void Example::catchException(ExecutionResult& execution_result,
-                             function<void()> func) const {
+void Example::catchException(
+    function<void()> func,
+    function<void(exception_ptr)> handleException
+) const {
     try {
         func();
     } catch (const ccspec::support::Exception& e) {
         // The exception can only be a Mismatch as no other CCSpec
         // exceptions should be thrown inside the spec code.
-        execution_result.set_exception(current_exception());
+        handleException(current_exception());
     } catch (const exception& e) {
-        execution_result.set_exception(make_exception_ptr(UnexpectedThrow(e)));
+        handleException(make_exception_ptr(UnexpectedThrow(e)));
     }
 }
 

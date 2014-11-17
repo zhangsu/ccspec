@@ -1,3 +1,4 @@
+#include <exception>
 #include <vector>
 #include <ccspec/core/execution_result.h>
 #include <ccspec/core/formatter.h>
@@ -6,6 +7,7 @@
 namespace ccspec {
 namespace core {
 
+using std::exception_ptr;
 using std::vector;
 
 // Public methods.
@@ -28,6 +30,11 @@ void Reporter::exampleFailed(const ExecutionResult& execution_result) {
     for (auto formatter : formatters_)
         formatter->exampleFailed(execution_result);
     failures_.push_back(execution_result.exception());
+}
+
+void Reporter::afterEachHookFailed(exception_ptr failure) {
+    for (auto formatter : formatters_)
+        formatter->afterEachHookFailed(failure);
 }
 
 // Private methods.

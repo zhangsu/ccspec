@@ -23,7 +23,9 @@ class Example {
 
     Example(std::string desc, std::function<void ()> spec);
 
-    void catchException(ExecutionResult&, std::function<void()> func) const;
+    void catchException(
+        std::function<void()> func,
+        std::function<void(std::exception_ptr)> handleException) const;
     void finish(const ExecutionResult&) const;
 
     const std::string desc_;
