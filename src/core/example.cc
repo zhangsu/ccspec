@@ -41,25 +41,17 @@ void Example::run() const {
 
     if (around_hooks_.empty()) {
         ExecutionResult execution_result;
-        auto handleFailure = [&](exception_ptr e) {
-            execution_result.set_exception(e);
-            reporter_->exampleFailed(execution_result);
-        };
-
-        try {
+        catchException(execution_result, [this] {
             for (auto hook : *before_each_hooks_)
                 hook();
             spec_();
-            reporter_->examplePassed(execution_result);
-        } catch (const ccspec::support::Exception& e) {
-            // The exception can only be a Mismatch as no other CCSpec
-            // exceptions should be thrown inside the spec code.
-            handleFailure(current_exception());
-        } catch (const exception& e) {
-            handleFailure(make_exception_ptr(UnexpectedThrow(e)));
-        }
-        for (auto hook : *after_each_hooks_)
-            hook();
+        });
+        // Continue running after each hooks regardless of execution result.
+        catchException(execution_result, [this] {
+            for (auto hook : *after_each_hooks_)
+                hook();
+        });
+        finish(execution_result);
     } else {
         AroundHook around_hook = around_hooks_.front();
         around_hooks_.pop_front();
@@ -86,6 +78,26 @@ Example::Example(string desc, std::function<void ()> spec)
       reporter_(nullptr),
       before_each_hooks_(nullptr),
       after_each_hooks_(nullptr) {}
+
+void Example::catchException(ExecutionResult& execution_result,
+                             function<void()> func) const {
+    try {
+        func();
+    } catch (const ccspec::support::Exception& e) {
+        // The exception can only be a Mismatch as no other CCSpec
+        // exceptions should be thrown inside the spec code.
+        execution_result.set_exception(current_exception());
+    } catch (const exception& e) {
+        execution_result.set_exception(make_exception_ptr(UnexpectedThrow(e)));
+    }
+}
+
+void Example::finish(const ExecutionResult& execution_result) const {
+    if (execution_result.exception())
+        reporter_->exampleFailed(execution_result);
+    else
+        reporter_->examplePassed(execution_result);
+}
 
 // Friend functions.
 

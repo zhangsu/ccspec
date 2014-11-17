@@ -23,6 +23,9 @@ class Example {
 
     Example(std::string desc, std::function<void ()> spec);
 
+    void catchException(ExecutionResult&, std::function<void()> func) const;
+    void finish(const ExecutionResult&) const;
+
     const std::string desc_;
     const std::function<void ()> spec_;
     // These members are marked mutable becuase they are only used to implement
