@@ -1,7 +1,4 @@
 #include <sstream>
-#include <string>
-#include <ccspec/expectation/mismatch.h>
-#include <ccspec/support/exception.h>
 
 namespace ccspec {
 namespace expectation {

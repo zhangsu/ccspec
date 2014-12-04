@@ -1,4 +1,3 @@
-#include <string>
 #include <ccspec/support/exception.h>
 
 namespace ccspec {

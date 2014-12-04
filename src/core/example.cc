@@ -1,10 +1,5 @@
-#include <exception>
-#include <functional>
-#include <list>
 #include <ccspec/core/example.h>
 #include <ccspec/core/example_group.h>
-#include <ccspec/core/hooks.h>
-#include <ccspec/core/reporter.h>
 #include <ccspec/core/unexpected_throw.h>
 #include <ccspec/support/exception.h>
 

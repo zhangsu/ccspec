@@ -1,4 +1,3 @@
-#include <exception>
 #include <ccspec/core/execution_result.h>
 
 namespace ccspec {

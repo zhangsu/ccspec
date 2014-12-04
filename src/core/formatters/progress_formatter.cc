@@ -1,6 +1,4 @@
-#include <ccspec/core/execution_result.h>
 #include <ccspec/core/formatters/progress_formatter.h>
-#include <ccspec/core/formatters/text_formatter.h>
 
 namespace ccspec {
 namespace core {

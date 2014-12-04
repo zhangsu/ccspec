@@ -1,4 +1,3 @@
-#include <string>
 #include <ccspec/core/hooks.h>
 #include <ccspec/core/example_group.h>
 

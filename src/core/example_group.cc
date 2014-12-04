@@ -1,11 +1,4 @@
-#include <functional>
-#include <list>
-#include <stack>
-#include <string>
-#include <ccspec/core/example.h>
 #include <ccspec/core/example_group.h>
-#include <ccspec/core/hooks.h>
-#include <ccspec/core/reporter.h>
 
 namespace ccspec {
 namespace core {

@@ -1,8 +1,4 @@
-#include <exception>
 #include <iostream>
-#include <list>
-#include <ostream>
-#include <ccspec/core/formatter.h>
 #include <ccspec/core/formatters/text_formatter.h>
 
 namespace ccspec {

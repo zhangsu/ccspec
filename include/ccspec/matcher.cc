@@ -1,5 +1,3 @@
-#include <ostream>
-
 namespace ccspec {
 
 // Public methods.

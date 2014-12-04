@@ -1,9 +1,11 @@
 #ifndef CCSPEC_CORE_EXAMPLE_H_
 #define CCSPEC_CORE_EXAMPLE_H_
 
+#include <exception>
 #include <functional>
 #include <list>
 #include <string>
+#include "execution_result.h"
 #include "hooks.h"
 #include "reporter.h"
 

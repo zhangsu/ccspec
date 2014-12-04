@@ -1,7 +1,3 @@
-#include <exception>
-#include <vector>
-#include <ccspec/core/execution_result.h>
-#include <ccspec/core/formatter.h>
 #include <ccspec/core/reporter.h>
 
 namespace ccspec {

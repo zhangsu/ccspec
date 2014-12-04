@@ -1,4 +1,3 @@
-#include <ccspec/matcher.h>
 #include "mismatch.h"
 
 namespace ccspec {
