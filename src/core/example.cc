@@ -28,21 +28,22 @@ using ccspec::core::UnexpectedThrow;
 void Example::run() const {
     if (reporter_ == nullptr ||
         before_each_hooks_ == nullptr ||
-        after_each_hooks_ == nullptr) {
+        after_each_hooks_ == nullptr ||
+        execution_result_ == nullptr) {
         // The required pointers should have been initialized by the overloaded
         // run function before this function is called.
         return;
     }
 
     if (around_hooks_.empty()) {
-        ExecutionResult execution_result;
         catchException(
             [this] {
                 for (auto hook : *before_each_hooks_)
                     hook();
                 spec_();
             },
-            [&](exception_ptr e) { execution_result.set_exception(e); }
+            // Save errors in before hook and example.
+            [&](exception_ptr e) { execution_result_->set_exception(e); }
         );
         // Continue running after each hooks regardless of execution result.
         catchException(
@@ -50,11 +51,17 @@ void Example::run() const {
                 for (auto hook : *after_each_hooks_)
                     hook();
             },
-            [this](exception_ptr e) {
-                reporter_->afterEachHookFailed(e);
+            [&](exception_ptr e) {
+                if (execution_result_->exception()) {
+                    // An error happened in a before hook or an example but
+                    // another is happening here in an after hook, report
+                    // separately.
+                    reporter_->afterEachHookFailed(e);
+                } else {
+                    execution_result_->set_exception(e);
+                }
             }
         );
-        finish(execution_result);
     } else {
         AroundHook around_hook = around_hooks_.front();
         around_hooks_.pop_front();
@@ -62,6 +69,8 @@ void Example::run() const {
     }
 }
 
+// Errors in around hooks are handled here so that only one error is caught
+// in a chain of around hooks.
 void Example::run(Reporter* reporter,
                   const list<BeforeHook>* before_each_hooks,
                   const list<AfterHook>* after_each_hooks,
@@ -70,7 +79,23 @@ void Example::run(Reporter* reporter,
     before_each_hooks_ = before_each_hooks;
     after_each_hooks_ = after_each_hooks;
     around_hooks_ = around_hooks;
-    run();
+    ExecutionResult execution_result;
+    execution_result_ = &execution_result;
+
+    catchException(
+        [this] { run(); },
+        [&](exception_ptr e) {
+            if (execution_result_->exception()) {
+                // An error happened in a before hook, an example or an
+                // after hook but another is happening here in an around
+                // hook, report separately.
+                reporter->aroundHookFailed(e);
+            } else {
+                execution_result.set_exception(e);
+            }
+        }
+    );
+    finish(execution_result);
 }
 
 // Private methods.

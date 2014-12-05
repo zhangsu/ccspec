@@ -14,6 +14,7 @@ class Formatter {
     virtual void examplePassed(const ExecutionResult&) const;
     virtual void exampleFailed(const ExecutionResult&) const;
     virtual void afterEachHookFailed(std::exception_ptr failure) const;
+    virtual void aroundHookFailed(std::exception_ptr failure) const;
     virtual void startDump() const;
     virtual void dumpFailures(
         const std::list<std::exception_ptr>& failures) const;

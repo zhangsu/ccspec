@@ -19,6 +19,11 @@ void TextFormatter::afterEachHookFailed(exception_ptr failure) const {
     outputException(failure);
 }
 
+void TextFormatter::aroundHookFailed(exception_ptr failure) const {
+    output_ << "An error occurred in an `around(:example)` hook" << endl;
+    outputException(failure);
+}
+
 void TextFormatter::dumpFailures(const list<exception_ptr>& failures) const {
     output_ << "Failures:" << endl;
     for (auto failure : failures)

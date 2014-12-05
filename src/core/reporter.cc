@@ -33,6 +33,11 @@ void Reporter::afterEachHookFailed(exception_ptr failure) {
         formatter->afterEachHookFailed(failure);
 }
 
+void Reporter::aroundHookFailed(exception_ptr failure) {
+    for (auto formatter : formatters_)
+        formatter->aroundHookFailed(failure);
+}
+
 // Private methods.
 
 void Reporter::finish() const {

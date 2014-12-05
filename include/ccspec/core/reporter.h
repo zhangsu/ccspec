@@ -20,6 +20,7 @@ class Reporter {
     void examplePassed(const ExecutionResult&);
     void exampleFailed(const ExecutionResult&);
     void afterEachHookFailed(std::exception_ptr failure);
+    void aroundHookFailed(std::exception_ptr failure);
 
   private:
     void finish() const;

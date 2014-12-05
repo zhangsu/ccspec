@@ -21,6 +21,10 @@ void Formatter::afterEachHookFailed(exception_ptr failure) const {
     (void) failure;
 }
 
+void Formatter::aroundHookFailed(exception_ptr failure) const {
+    (void) failure;
+}
+
 void Formatter::startDump() const {}
 
 void Formatter::dumpFailures(const list<exception_ptr>& failures) const {

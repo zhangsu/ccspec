@@ -40,7 +40,8 @@ class Example {
     // maintained by Example but rather by ExampleGroup, so methods like
     // `run` can still be const methods while using them. If not for
     // implementing the DSL, they would be passed-in as arguments to the `run`
-    // method and can thus be mutated in a const `run` method.
+    // method and can thus be mutated in a const `run` method. They should only
+    // be mutated in the run methods.
     //
     // `around_hooks_` need to be a copy because the `run` method modifies it
     // across different calls whereas other members can be pointers to the
@@ -49,6 +50,7 @@ class Example {
     mutable Reporter* reporter_;
     mutable const std::list<BeforeHook>* before_each_hooks_;
     mutable const std::list<AfterHook>* after_each_hooks_;
+    mutable ExecutionResult* execution_result_;
 
     friend Creator it;
     friend Creator example;
