@@ -96,6 +96,12 @@ void Example::run(Reporter* reporter,
         }
     );
     finish(execution_result);
+
+    reporter_ = nullptr;
+    before_each_hooks_ = nullptr;
+    after_each_hooks_ = nullptr;
+    around_hooks_.clear();
+    execution_result_ = nullptr;
 }
 
 // Private methods.
