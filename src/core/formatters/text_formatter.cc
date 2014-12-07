@@ -15,7 +15,7 @@ using std::rethrow_exception;
 // Public methods.
 
 void TextFormatter::afterEachHookFailed(exception_ptr failure) const {
-    output_ << "An error occurred in a `after(:example)` hook" << endl;
+    output_ << "An error occurred in an `after(:example)` hook" << endl;
     outputException(failure);
 }
 
