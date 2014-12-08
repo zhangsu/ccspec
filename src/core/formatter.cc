@@ -9,27 +9,17 @@ using std::ostream;
 
 // public methods.
 
-void Formatter::examplePassed(const ExecutionResult& execution_result) const {
-    (void) execution_result;
-}
+void Formatter::examplePassed(const ExecutionResult&) const {}
 
-void Formatter::exampleFailed(const ExecutionResult& execution_result) const {
-    (void) execution_result;
-}
+void Formatter::exampleFailed(const ExecutionResult&) const {}
 
-void Formatter::afterEachHookFailed(exception_ptr failure) const {
-    (void) failure;
-}
+void Formatter::afterEachHookFailed(exception_ptr) const {}
 
-void Formatter::aroundHookFailed(exception_ptr failure) const {
-    (void) failure;
-}
+void Formatter::aroundHookFailed(exception_ptr) const {}
 
 void Formatter::startDump() const {}
 
-void Formatter::dumpFailures(const list<exception_ptr>& failures) const {
-    (void) failures;
-}
+void Formatter::dumpFailures(const list<exception_ptr>&) const {}
 
 // Protected methods.
 
