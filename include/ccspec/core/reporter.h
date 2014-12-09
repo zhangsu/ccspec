@@ -13,9 +13,8 @@ namespace core {
 class Reporter {
   public:
     explicit Reporter(const Formatter*);
-    ~Reporter();
-
     explicit Reporter(const std::vector<const Formatter*> formatters);
+    ~Reporter();
 
     void examplePassed(const ExecutionResult&);
     void exampleFailed(const ExecutionResult&);
