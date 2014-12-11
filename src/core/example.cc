@@ -106,7 +106,7 @@ void Example::run(Reporter* reporter,
 
 // Private methods.
 
-Example::Example(string desc, std::function<void ()> spec)
+Example::Example(string desc, function<void ()> spec)
     : desc_(desc),
       spec_(spec),
       reporter_(nullptr),
