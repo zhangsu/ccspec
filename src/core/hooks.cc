@@ -4,7 +4,9 @@
 namespace ccspec {
 namespace core {
 
-void before(std::string scope, BeforeHook hook) {
+using std::string;
+
+void before(string scope, BeforeHook hook) {
     ExampleGroup* parent_group = groups_being_defined.top();
     if (scope == "each" || scope == "example")
         parent_group->addBeforeEachHook(hook);
@@ -14,7 +16,7 @@ void before(std::string scope, BeforeHook hook) {
         throw "no such before hook type";
 }
 
-void after(std::string scope, AfterHook hook) {
+void after(string scope, AfterHook hook) {
     ExampleGroup* parent_group = groups_being_defined.top();
     if (scope == "each" || scope == "example")
         parent_group->addAfterEachHook(hook);
@@ -24,7 +26,7 @@ void after(std::string scope, AfterHook hook) {
         throw "no such after hook type";
 }
 
-void around(std::string scope, AroundHook hook) {
+void around(string scope, AroundHook hook) {
     ExampleGroup* parent_group = groups_being_defined.top();
     if (scope == "each" || scope == "example")
         parent_group->addAroundHook(hook);
