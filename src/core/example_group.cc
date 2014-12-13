@@ -1,16 +1,38 @@
 #include <ccspec/core/example_group.h>
+#include <ccspec/core/unexpected_throw.h>
+#include <ccspec/support/exception.h>
 
 namespace ccspec {
 namespace core {
 
-using std::list;
+using std::current_exception;
+using std::exception;
+using std::exception_ptr;
 using std::function;
+using std::list;
+using std::make_exception_ptr;
 using std::stack;
 using std::string;
+using ccspec::core::UnexpectedThrow;
 
 stack<ExampleGroup*> groups_being_defined;
 
 // Public methods.
+
+void ExampleGroup::catchException(
+    function<void()> func,
+    function<void(exception_ptr)> handleException
+) {
+    try {
+        func();
+    } catch (const ccspec::support::Exception& e) {
+        // The exception can only be a Mismatch as no other CCSpec
+        // exceptions should be thrown inside the spec code.
+        handleException(current_exception());
+    } catch (const exception& e) {
+        handleException(make_exception_ptr(UnexpectedThrow(e)));
+    }
+}
 
 ExampleGroup::~ExampleGroup() {
     for (auto child : children_)

@@ -1,7 +1,6 @@
 #ifndef CCSPEC_CORE_EXAMPLE_H_
 #define CCSPEC_CORE_EXAMPLE_H_
 
-#include <exception>
 #include <functional>
 #include <list>
 #include <string>
@@ -25,9 +24,6 @@ class Example {
 
     Example(std::string desc, std::function<void ()> spec);
 
-    void catchException(
-        std::function<void()> func,
-        std::function<void(std::exception_ptr)> handleException) const;
     void finish(const ExecutionResult&) const;
 
     const std::string desc_;

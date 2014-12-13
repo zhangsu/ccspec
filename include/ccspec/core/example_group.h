@@ -1,6 +1,7 @@
 #ifndef CCSPEC_CORE_EXAMPLE_GROUP_H_
 #define CCSPEC_CORE_EXAMPLE_GROUP_H_
 
+#include <exception>
 #include <functional>
 #include <list>
 #include <stack>
@@ -19,6 +20,10 @@ extern std::stack<ExampleGroup*> groups_being_defined;
 class ExampleGroup {
   public:
     virtual ~ExampleGroup();
+
+    static void catchException(
+        std::function<void()> func,
+        std::function<void(std::exception_ptr)> handleException);
 
     void addExample(Example);
     void addBeforeEachHook(BeforeHook);

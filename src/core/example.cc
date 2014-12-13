@@ -1,19 +1,13 @@
 #include <ccspec/core/example.h>
 #include <ccspec/core/example_group.h>
-#include <ccspec/core/unexpected_throw.h>
-#include <ccspec/support/exception.h>
 
 namespace ccspec {
 namespace core {
 
-using std::current_exception;
-using std::make_exception_ptr;
-using std::exception;
 using std::exception_ptr;
 using std::function;
 using std::list;
 using std::string;
-using ccspec::core::UnexpectedThrow;
 
 // Public methods.
 
@@ -36,7 +30,7 @@ void Example::run() const {
     }
 
     if (around_hooks_.empty()) {
-        catchException(
+        ExampleGroup::catchException(
             [this] {
                 for (auto hook : *before_each_hooks_)
                     hook();
@@ -46,7 +40,7 @@ void Example::run() const {
             [&](exception_ptr e) { execution_result_->set_exception(e); }
         );
         // Continue running after each hooks regardless of execution result.
-        catchException(
+        ExampleGroup::catchException(
             [this] {
                 for (auto hook : *after_each_hooks_)
                     hook();
@@ -82,7 +76,7 @@ void Example::run(Reporter* reporter,
     ExecutionResult execution_result;
     execution_result_ = &execution_result;
 
-    catchException(
+    ExampleGroup::catchException(
         [this] { run(); },
         [&](exception_ptr e) {
             if (execution_result_->exception()) {
@@ -112,21 +106,6 @@ Example::Example(string desc, function<void ()> spec)
       reporter_(nullptr),
       before_each_hooks_(nullptr),
       after_each_hooks_(nullptr) {}
-
-void Example::catchException(
-    function<void()> func,
-    function<void(exception_ptr)> handleException
-) const {
-    try {
-        func();
-    } catch (const ccspec::support::Exception& e) {
-        // The exception can only be a Mismatch as no other CCSpec
-        // exceptions should be thrown inside the spec code.
-        handleException(current_exception());
-    } catch (const exception& e) {
-        handleException(make_exception_ptr(UnexpectedThrow(e)));
-    }
-}
 
 void Example::finish(const ExecutionResult& execution_result) const {
     if (execution_result.exception())
