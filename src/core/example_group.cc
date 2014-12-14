@@ -6,7 +6,6 @@ namespace ccspec {
 namespace core {
 
 using std::current_exception;
-using std::exception;
 using std::exception_ptr;
 using std::function;
 using std::list;
@@ -29,7 +28,8 @@ void ExampleGroup::catchException(
         // The exception can only be a Mismatch as no other CCSpec
         // exceptions should be thrown inside the spec code.
         handleException(current_exception());
-    } catch (const exception& e) {
+    } catch (const std::exception& e) {
+        // Wrap other C++ exceptions in a CCSpec exception.
         handleException(make_exception_ptr(UnexpectedThrow(e)));
     }
 }
