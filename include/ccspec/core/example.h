@@ -1,6 +1,7 @@
 #ifndef CCSPEC_CORE_EXAMPLE_H_
 #define CCSPEC_CORE_EXAMPLE_H_
 
+#include <exception>
 #include <functional>
 #include <list>
 #include <string>
@@ -18,6 +19,7 @@ class Example {
              const std::list<BeforeHook>* before_each_hooks,
              const std::list<AfterHook>* after_each_hooks,
              std::list<AroundHook>) const;
+    void failWithException(Reporter*, std::exception_ptr) const;
 
   private:
     typedef Example Creator(std::string desc, std::function<void ()> spec);

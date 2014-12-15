@@ -44,6 +44,7 @@ class ExampleGroup {
              std::list<BeforeHook>& before_each_hooks,
              std::list<AfterHook>& after_each_hooks,
              std::list<AroundHook>&) const;
+    void failWithException(Reporter&, std::exception_ptr) const;
 
     const std::string desc_;
     std::list<const ExampleGroup*> children_;

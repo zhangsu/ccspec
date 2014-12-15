@@ -98,6 +98,12 @@ void Example::run(Reporter* reporter,
     execution_result_ = nullptr;
 }
 
+void Example::failWithException(Reporter* reporter, exception_ptr e) const {
+    ExecutionResult execution_result;
+    execution_result.set_exception(e);
+    reporter->exampleFailed(execution_result);
+}
+
 // Private methods.
 
 Example::Example(string desc, function<void ()> spec)

@@ -97,19 +97,40 @@ void ExampleGroup::run(Reporter& reporter,
         around_hooks_.begin(),
         around_hooks_.end()
     );
-    for (auto hook : before_all_hooks_)
-        hook();
-    for (auto const& example : examples_) {
-        example.run(&reporter, &before_each_hooks, &after_each_hooks,
-                    around_hooks);
-    }
-    for (auto child : children_)
-        child->run(reporter, before_each_hooks, after_each_hooks, around_hooks);
+
+    catchException(
+        [&] {
+            for (auto hook : before_all_hooks_)
+                hook();
+            for (auto const& example : examples_) {
+                example.run(&reporter, &before_each_hooks, &after_each_hooks,
+                            around_hooks);
+            }
+            for (auto child : children_) {
+                child->run(reporter, before_each_hooks, after_each_hooks,
+                           around_hooks);
+            }
+        },
+        [&](exception_ptr e) {
+            // Exceptions are all handled when running an example, so
+            // exceptions here can only be thrown from before all hooks, thus
+            // fail all descendant examples.
+            failWithException(reporter, e);
+        }
+    );
     for (auto hook : after_all_hooks_)
         hook();
     around_hooks.erase(first_new_around, around_hooks.end());
     after_each_hooks.erase(first_new_after_each, after_each_hooks.end());
     before_each_hooks.erase(first_new_before_each, before_each_hooks.end());
+}
+
+void ExampleGroup::failWithException(Reporter& reporter,
+                                     std::exception_ptr e) const {
+    for (auto const& example : examples_)
+        example.failWithException(&reporter, e);
+    for (auto child : children_)
+        child->failWithException(reporter, e);
 }
 
 // Friend functions.
