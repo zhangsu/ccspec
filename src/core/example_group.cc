@@ -118,8 +118,14 @@ void ExampleGroup::run(Reporter& reporter,
             failWithException(reporter, e);
         }
     );
-    for (auto hook : after_all_hooks_)
-        hook();
+    // Continue running after all hooks regardless of execution result.
+    catchException(
+        [this] {
+            for (auto hook : after_all_hooks_)
+                hook();
+        },
+        [&](exception_ptr e) { reporter.afterAllHookFailed(e); }
+    );
     around_hooks.erase(first_new_around, around_hooks.end());
     after_each_hooks.erase(first_new_after_each, after_each_hooks.end());
     before_each_hooks.erase(first_new_before_each, before_each_hooks.end());

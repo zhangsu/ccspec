@@ -13,6 +13,7 @@ namespace formatters {
 class TextFormatter : public Formatter {
   public:
     virtual void afterEachHookFailed(std::exception_ptr failure) const;
+    virtual void afterAllHookFailed(std::exception_ptr failure) const;
     virtual void aroundHookFailed(std::exception_ptr failure) const;
     virtual void dumpFailures(
         const std::list<std::exception_ptr>& failures) const;
