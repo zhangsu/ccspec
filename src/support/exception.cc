@@ -11,7 +11,7 @@ const char* Exception::what() const noexcept {
     return desc().c_str();
 }
 
-const std::string& Exception::desc() const {
+const string& Exception::desc() const {
     return desc_;
 }
 

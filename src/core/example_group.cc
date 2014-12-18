@@ -132,7 +132,7 @@ void ExampleGroup::run(Reporter& reporter,
 }
 
 void ExampleGroup::failWithException(Reporter& reporter,
-                                     std::exception_ptr e) const {
+                                     exception_ptr e) const {
     for (auto const& example : examples_)
         example.failWithException(&reporter, e);
     for (auto child : children_)
