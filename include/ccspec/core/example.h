@@ -15,11 +15,11 @@ namespace core {
 class Example {
   public:
     void run() const;
-    void run(Reporter*,
-             const std::list<BeforeHook>* before_each_hooks,
-             const std::list<AfterHook>* after_each_hooks,
+    void run(Reporter&,
+             const std::list<BeforeHook>& before_each_hooks,
+             const std::list<AfterHook>& after_each_hooks,
              std::list<AroundHook>) const;
-    void failWithException(Reporter*, std::exception_ptr) const;
+    void failWithException(Reporter&, std::exception_ptr) const;
 
   private:
     typedef Example Creator(std::string desc, std::function<void ()> spec);

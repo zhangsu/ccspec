@@ -65,13 +65,13 @@ void Example::run() const {
 
 // Errors in around hooks are handled here so that only one error is caught
 // in a chain of around hooks.
-void Example::run(Reporter* reporter,
-                  const list<BeforeHook>* before_each_hooks,
-                  const list<AfterHook>* after_each_hooks,
+void Example::run(Reporter& reporter,
+                  const list<BeforeHook>& before_each_hooks,
+                  const list<AfterHook>& after_each_hooks,
                   list<AroundHook> around_hooks) const {
-    reporter_ = reporter;
-    before_each_hooks_ = before_each_hooks;
-    after_each_hooks_ = after_each_hooks;
+    reporter_ = &reporter;
+    before_each_hooks_ = &before_each_hooks;
+    after_each_hooks_ = &after_each_hooks;
     around_hooks_ = around_hooks;
     ExecutionResult execution_result;
     execution_result_ = &execution_result;
@@ -83,7 +83,7 @@ void Example::run(Reporter* reporter,
                 // An error happened in a before hook, an example or an
                 // after hook but another is happening here in an around
                 // hook, report separately.
-                reporter->aroundHookFailed(e);
+                reporter.aroundHookFailed(e);
             } else {
                 execution_result.set_exception(e);
             }
@@ -98,10 +98,10 @@ void Example::run(Reporter* reporter,
     execution_result_ = nullptr;
 }
 
-void Example::failWithException(Reporter* reporter, exception_ptr e) const {
+void Example::failWithException(Reporter& reporter, exception_ptr e) const {
     ExecutionResult execution_result;
     execution_result.set_exception(e);
-    reporter->exampleFailed(execution_result);
+    reporter.exampleFailed(execution_result);
 }
 
 // Private methods.

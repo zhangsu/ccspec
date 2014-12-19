@@ -103,7 +103,7 @@ void ExampleGroup::run(Reporter& reporter,
             for (auto hook : before_all_hooks_)
                 hook();
             for (auto const& example : examples_) {
-                example.run(&reporter, &before_each_hooks, &after_each_hooks,
+                example.run(reporter, before_each_hooks, after_each_hooks,
                             around_hooks);
             }
             for (auto child : children_) {
@@ -134,7 +134,7 @@ void ExampleGroup::run(Reporter& reporter,
 void ExampleGroup::failWithException(Reporter& reporter,
                                      exception_ptr e) const {
     for (auto const& example : examples_)
-        example.failWithException(&reporter, e);
+        example.failWithException(reporter, e);
     for (auto child : children_)
         child->failWithException(reporter, e);
 }
