@@ -79,7 +79,7 @@ void Example::run(Reporter& reporter,
     ExampleGroup::catchException(
         [this] { run(); },
         [&](exception_ptr e) {
-            if (execution_result_->exception()) {
+            if (execution_result.exception()) {
                 // An error happened in a before hook, an example or an
                 // after hook but another is happening here in an around
                 // hook, report separately.
