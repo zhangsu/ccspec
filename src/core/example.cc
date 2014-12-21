@@ -111,7 +111,8 @@ Example::Example(string desc, function<void ()> spec)
       spec_(spec),
       reporter_(nullptr),
       before_each_hooks_(nullptr),
-      after_each_hooks_(nullptr) {}
+      after_each_hooks_(nullptr),
+      execution_result_(nullptr) {}
 
 void Example::finish(const ExecutionResult& execution_result) const {
     if (execution_result.exception())
