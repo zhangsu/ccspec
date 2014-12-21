@@ -101,7 +101,7 @@ void Example::run(Reporter& reporter,
 void Example::failWithException(Reporter& reporter, exception_ptr e) const {
     ExecutionResult execution_result;
     execution_result.set_exception(e);
-    reporter.exampleFailed(execution_result);
+    reporter.exampleFailed(desc_, execution_result);
 }
 
 // Private methods.
@@ -116,9 +116,9 @@ Example::Example(string desc, function<void ()> spec)
 
 void Example::finish(const ExecutionResult& execution_result) const {
     if (execution_result.exception())
-        reporter_->exampleFailed(execution_result);
+        reporter_->exampleFailed(desc_, execution_result);
     else
-        reporter_->examplePassed(execution_result);
+        reporter_->examplePassed(desc_, execution_result);
 }
 
 // Friend functions.

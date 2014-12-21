@@ -5,22 +5,17 @@ namespace core {
 namespace formatters {
 
 using std::ostream;
+using std::string;
 
 // Public methods.
 
 ProgressFormatter::ProgressFormatter(ostream& output) : TextFormatter(output) {}
 
-void ProgressFormatter::examplePassed(const ExecutionResult& execution_result)
-    const {
-    (void) execution_result;
-
+void ProgressFormatter::examplePassed(string, const ExecutionResult&) const {
     output_ << '.';
 }
 
-void ProgressFormatter::exampleFailed(const ExecutionResult& execution_result)
-    const {
-    (void) execution_result;
-
+void ProgressFormatter::exampleFailed(string, const ExecutionResult&) const {
     output_ << 'F';
 }
 

@@ -6,12 +6,13 @@ namespace core {
 using std::exception_ptr;
 using std::list;
 using std::ostream;
+using std::string;
 
 // public methods.
 
-void Formatter::examplePassed(const ExecutionResult&) const {}
+void Formatter::examplePassed(string, const ExecutionResult&) const {}
 
-void Formatter::exampleFailed(const ExecutionResult&) const {}
+void Formatter::exampleFailed(string, const ExecutionResult&) const {}
 
 void Formatter::afterEachHookFailed(exception_ptr) const {}
 

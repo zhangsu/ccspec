@@ -3,6 +3,7 @@
 
 #include <exception>
 #include <list>
+#include <string>
 #include <vector>
 #include "execution_result.h"
 #include "formatter.h"
@@ -16,8 +17,8 @@ class Reporter {
     explicit Reporter(const std::vector<const Formatter*> formatters);
     ~Reporter();
 
-    void examplePassed(const ExecutionResult&);
-    void exampleFailed(const ExecutionResult&);
+    void examplePassed(std::string desc, const ExecutionResult&);
+    void exampleFailed(std::string desc, const ExecutionResult&);
     void afterEachHookFailed(std::exception_ptr failure);
     void afterAllHookFailed(std::exception_ptr failure);
     void aroundHookFailed(std::exception_ptr failure);

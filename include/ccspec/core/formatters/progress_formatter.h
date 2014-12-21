@@ -2,6 +2,7 @@
 #define CCSPEC_CORE_FORMATTERS_PROGRESS_FORMATTER_H_
 
 #include <ostream>
+#include <string>
 #include <ccspec/core/execution_result.h>
 #include "text_formatter.h"
 
@@ -13,8 +14,8 @@ class ProgressFormatter : public TextFormatter {
   public:
     explicit ProgressFormatter(std::ostream&);
 
-    virtual void examplePassed(const ExecutionResult&) const;
-    virtual void exampleFailed(const ExecutionResult&) const;
+    virtual void examplePassed(std::string desc, const ExecutionResult&) const;
+    virtual void exampleFailed(std::string desc, const ExecutionResult&) const;
     virtual void startDump() const;
 };
 

@@ -4,6 +4,7 @@ namespace ccspec {
 namespace core {
 
 using std::exception_ptr;
+using std::string;
 using std::vector;
 
 // Public methods.
@@ -17,14 +18,20 @@ Reporter::~Reporter() {
     finish();
 }
 
-void Reporter::examplePassed(const ExecutionResult& execution_result) {
+void Reporter::examplePassed(
+    string desc,
+    const ExecutionResult& execution_result
+) {
     for (auto formatter : formatters_)
-        formatter->examplePassed(execution_result);
+        formatter->examplePassed(desc, execution_result);
 }
 
-void Reporter::exampleFailed(const ExecutionResult& execution_result) {
+void Reporter::exampleFailed(
+    string desc,
+    const ExecutionResult& execution_result
+) {
     for (auto formatter : formatters_)
-        formatter->exampleFailed(execution_result);
+        formatter->exampleFailed(desc, execution_result);
     failures_.push_back(execution_result.exception());
 }
 
