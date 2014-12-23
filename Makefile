@@ -13,7 +13,8 @@ CCSPECOUTPUT      = $(BINDIR)ccspec
 CCSPECOBJECTS     = $(SRCDIR)ccspec.o\
   $(addprefix $(SRCCOREDIR), example.o example_group.o execution_result.o\
                              formatter.o hooks.o reporter.o unexpected_throw.o)\
-  $(addprefix $(SRCCOREDIR)formatters/, progress_formatter.o text_formatter.o)\
+  $(addprefix $(SRCCOREDIR)formatters/, documentation_formatter.o\
+                                        progress_formatter.o text_formatter.o)\
   $(addprefix $(SRCEXPECTATIONDIR), )\
   $(addprefix $(SRCSUPPORTDIR), exception.o)
 

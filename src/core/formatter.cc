@@ -10,6 +10,10 @@ using std::string;
 
 // public methods.
 
+void Formatter::exampleGroupStarted(string) {}
+
+void Formatter::exampleGroupFinished(string) {}
+
 void Formatter::examplePassed(string, const ExecutionResult&) const {}
 
 void Formatter::exampleFailed(string, const ExecutionResult&) const {}

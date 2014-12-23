@@ -13,10 +13,12 @@ namespace core {
 
 class Reporter {
   public:
-    explicit Reporter(const Formatter*);
-    explicit Reporter(const std::vector<const Formatter*> formatters);
+    explicit Reporter(Formatter*);
+    explicit Reporter(std::vector<Formatter*> formatters);
     ~Reporter();
 
+    void exampleGroupStarted(std::string desc) const;
+    void exampleGroupFinished(std::string desc) const;
     void examplePassed(std::string desc, const ExecutionResult&);
     void exampleFailed(std::string desc, const ExecutionResult&);
     void afterEachHookFailed(std::exception_ptr failure);
@@ -26,7 +28,7 @@ class Reporter {
   private:
     void finish() const;
 
-    const std::vector<const Formatter*> formatters_;
+    const std::vector<Formatter*> formatters_;
     std::list<std::exception_ptr> failures_;
 };
 

@@ -9,13 +9,23 @@ using std::vector;
 
 // Public methods.
 
-Reporter::Reporter(const Formatter* formatter) : formatters_{formatter} {}
+Reporter::Reporter(Formatter* formatter) : formatters_{formatter} {}
 
-Reporter::Reporter(const vector<const Formatter*> formatters)
+Reporter::Reporter(vector<Formatter*> formatters)
     : formatters_(formatters) {}
 
 Reporter::~Reporter() {
     finish();
+}
+
+void Reporter::exampleGroupStarted(string desc) const {
+    for (auto formatter : formatters_)
+        formatter->exampleGroupStarted(desc);
+}
+
+void Reporter::exampleGroupFinished(string desc) const {
+    for (auto formatter : formatters_)
+        formatter->exampleGroupFinished(desc);
 }
 
 void Reporter::examplePassed(

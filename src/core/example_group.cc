@@ -98,6 +98,7 @@ void ExampleGroup::run(Reporter& reporter,
         around_hooks_.end()
     );
 
+    reporter.exampleGroupStarted(desc_);
     catchException(
         [&] {
             for (auto hook : before_all_hooks_)
@@ -126,6 +127,7 @@ void ExampleGroup::run(Reporter& reporter,
         },
         [&](exception_ptr e) { reporter.afterAllHookFailed(e); }
     );
+    reporter.exampleGroupFinished(desc_);
     around_hooks.erase(first_new_around, around_hooks.end());
     after_each_hooks.erase(first_new_after_each, after_each_hooks.end());
     before_each_hooks.erase(first_new_before_each, before_each_hooks.end());
