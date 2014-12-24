@@ -30,6 +30,9 @@ void TextFormatter::aroundHookFailed(exception_ptr failure) const {
 }
 
 void TextFormatter::dumpFailures(const list<exception_ptr>& failures) const {
+    if (failures.empty())
+        return;
+
     output_ << "Failures:" << endl;
     for (auto failure : failures)
         outputException(failure);
