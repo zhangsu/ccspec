@@ -11,18 +11,18 @@ template <typename U>
 class Eq : public Matcher<Eq<U>, U> {
   public:
     template <typename V>
-    bool match(V expected_value) const;
+    bool match(V actual_value) const;
     virtual std::string desc() const;
 
   private:
     explicit Eq(U);
 
     template <typename T>
-    friend Eq<T> eq(T);
+    friend Eq<T> eq(T expected_value);
 };
 
 template <typename T>
-Eq<T> eq(T);
+Eq<T> eq(T expected_value);
 
 } // namespace matchers
 } // namespace ccspec

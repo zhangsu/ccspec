@@ -10,17 +10,17 @@ template <typename ConcreteMatcher, typename U>
 class Matcher {
   public:
     template <typename V>
-    bool match(V expected_value) const;
+    bool match(V actual_value) const;
 
     virtual std::string desc() const = 0;
 
   protected:
-    explicit Matcher(U);
+    explicit Matcher(U expected_value);
 
-    U value() const;
+    U expected_value() const;
 
   private:
-    const U value_;
+    const U expected_value_;
 };
 
 template <typename ConcreteMatcher, typename U>

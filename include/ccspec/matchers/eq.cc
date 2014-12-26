@@ -9,27 +9,27 @@ namespace matchers {
 
 template <typename U>
 template <typename V>
-bool Eq<U>::match(V expected_value) const {
-    return expected_value == this->value();
+bool Eq<U>::match(V actual_value) const {
+    return actual_value == this->expected_value();
 }
 
 template <typename U>
 std::string Eq<U>::desc() const {
     std::ostringstream s;
-    s << "should equal " << this->value();
+    s << "should equal " << this->expected_value();
     return s.str();
 }
 
 // Private methods.
 
 template<typename U>
-Eq<U>::Eq(U value) : Matcher<Eq<U>, U>(value) {}
+Eq<U>::Eq(U expected_value) : Matcher<Eq<U>, U>(expected_value) {}
 
 // Friend functions.
 
 template<typename U>
-Eq<U> eq(U value) {
-    return Eq<U>(value);
+Eq<U> eq(U expected_value) {
+    return Eq<U>(expected_value);
 }
 
 } // namespace matchers

@@ -11,10 +11,10 @@ namespace expectation {
 template <typename U, typename ConcreteMatcher, typename V>
 class Mismatch : public ccspec::support::Exception {
   public:
-    Mismatch(const U& value, const Matcher<ConcreteMatcher, V>&);
+    Mismatch(const U& actual_value, const Matcher<ConcreteMatcher, V>&);
 
   private:
-    std::string desc(const U& value, const Matcher<ConcreteMatcher, V>&);
+    std::string desc(const U& actual_value, const Matcher<ConcreteMatcher, V>&);
 };
 
 } // namespace expectation

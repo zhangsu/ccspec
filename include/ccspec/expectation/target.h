@@ -12,7 +12,7 @@ class Target;
 } // namespace expectation
 
 template <typename T>
-expectation::Target<T> expect(T);
+expectation::Target<T> expect(T actual_value);
 
 namespace expectation {
 
@@ -25,10 +25,10 @@ class Target {
   private:
     explicit Target(U);
 
-    const U value_;
+    const U actual_value_;
 
     template <typename V>
-    friend Target<V> ccspec::expect(V);
+    friend Target<V> ccspec::expect(V actual_value);
 };
 
 } // namespace expectation
