@@ -12,7 +12,7 @@ class Eq : public Matcher<Eq<U>, U> {
   public:
     template <typename V>
     bool match(V actual_value) const;
-    virtual std::string desc() const;
+    std::string desc() const override;
 
   private:
     explicit Eq(U);

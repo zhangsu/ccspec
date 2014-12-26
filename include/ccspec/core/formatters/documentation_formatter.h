@@ -14,10 +14,10 @@ class DocumentationFormatter : public TextFormatter {
   public:
     explicit DocumentationFormatter(std::ostream&);
 
-    virtual void exampleGroupStarted(std::string desc);
-    virtual void exampleGroupFinished(std::string desc);
-    virtual void examplePassed(std::string desc, const ExecutionResult&) const;
-    virtual void exampleFailed(std::string desc, const ExecutionResult&) const;
+    void exampleGroupStarted(std::string desc) override;
+    void exampleGroupFinished(std::string desc) override;
+    void examplePassed(std::string desc, const ExecutionResult&) const override;
+    void exampleFailed(std::string desc, const ExecutionResult&) const override;
 
   private:
     void printIndentation() const;
