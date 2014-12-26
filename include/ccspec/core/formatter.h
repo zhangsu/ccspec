@@ -25,6 +25,7 @@ class Formatter {
 
   protected:
     explicit Formatter(std::ostream&);
+    virtual ~Formatter();
 
     std::ostream& output() const;
 

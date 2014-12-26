@@ -16,6 +16,7 @@ class Matcher {
 
   protected:
     explicit Matcher(U expected_value);
+    virtual ~Matcher();
 
     U expected_value() const;
 

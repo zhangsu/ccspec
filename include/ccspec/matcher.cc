@@ -15,6 +15,9 @@ Matcher<ConcreteMatcher, U>::Matcher(U expected_value)
     : expected_value_(expected_value) {}
 
 template <typename ConcreteMatcher, typename U>
+Matcher<ConcreteMatcher, U>::~Matcher() {}
+
+template <typename ConcreteMatcher, typename U>
 U Matcher<ConcreteMatcher, U>::expected_value() const {
     return expected_value_;
 }
