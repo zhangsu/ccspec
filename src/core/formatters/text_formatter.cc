@@ -15,17 +15,17 @@ using std::rethrow_exception;
 // Public methods.
 
 void TextFormatter::afterEachHookFailed(exception_ptr failure) const {
-    output_ << "An error occurred in an `after(:example)` hook" << endl;
+    output() << "An error occurred in an `after(:example)` hook" << endl;
     outputException(failure);
 }
 
 void TextFormatter::afterAllHookFailed(exception_ptr failure) const {
-    output_ << "An error occurred in an `after(:context)` hook" << endl;
+    output() << "An error occurred in an `after(:context)` hook" << endl;
     outputException(failure);
 }
 
 void TextFormatter::aroundHookFailed(exception_ptr failure) const {
-    output_ << "An error occurred in an `around(:example)` hook" << endl;
+    output() << "An error occurred in an `around(:example)` hook" << endl;
     outputException(failure);
 }
 
@@ -33,7 +33,7 @@ void TextFormatter::dumpFailures(const list<exception_ptr>& failures) const {
     if (failures.empty())
         return;
 
-    output_ << endl << "Failures:" << endl;
+    output() << endl << "Failures:" << endl;
     for (auto failure : failures)
         outputException(failure);
 }
@@ -48,7 +48,7 @@ void TextFormatter::outputException(exception_ptr failure) const {
     try {
         rethrow_exception(failure);
     } catch (const exception& e) {
-        output_ << e.what() << endl;
+        output() << e.what() << endl;
     }
 }
 

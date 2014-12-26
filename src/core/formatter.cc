@@ -32,5 +32,9 @@ void Formatter::dumpFailures(const list<exception_ptr>&) const {}
 
 Formatter::Formatter(ostream& output) : output_(output) {}
 
+ostream& Formatter::output() const {
+    return output_;
+}
+
 } // namespace core
 } // namespace ccspec

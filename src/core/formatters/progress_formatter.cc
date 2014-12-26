@@ -12,15 +12,15 @@ using std::string;
 ProgressFormatter::ProgressFormatter(ostream& output) : TextFormatter(output) {}
 
 void ProgressFormatter::examplePassed(string, const ExecutionResult&) const {
-    output_ << '.';
+    output() << '.';
 }
 
 void ProgressFormatter::exampleFailed(string, const ExecutionResult&) const {
-    output_ << 'F';
+    output() << 'F';
 }
 
 void ProgressFormatter::startDump() const {
-    output_ << '\n';
+    output() << '\n';
 }
 
 } // namespace formatters

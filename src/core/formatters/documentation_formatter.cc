@@ -17,10 +17,10 @@ DocumentationFormatter::DocumentationFormatter(ostream& output)
 
 void DocumentationFormatter::exampleGroupStarted(string desc) {
     if (group_level_ == 0)
-        output_ << endl;
+        output() << endl;
 
     printIndentation();
-    output_ << desc << endl;
+    output() << desc << endl;
     group_level_++;
 }
 
@@ -33,7 +33,7 @@ void DocumentationFormatter::examplePassed(
     const ExecutionResult&
 ) const {
     printIndentation();
-    output_ << desc << endl;
+    output() << desc << endl;
 }
 
 void DocumentationFormatter::exampleFailed(
@@ -41,14 +41,14 @@ void DocumentationFormatter::exampleFailed(
     const ExecutionResult&
 ) const {
     printIndentation();
-    output_ << desc << " (FAILED) " << endl;
+    output() << desc << " (FAILED) " << endl;
 }
 
 // Private methods.
 
 void DocumentationFormatter::printIndentation() const {
     for (int i = 0; i < group_level_; ++i)
-        output_ << "  ";
+        output() << "  ";
 }
 
 } // namespace formatters

@@ -26,6 +26,9 @@ class Formatter {
   protected:
     explicit Formatter(std::ostream&);
 
+    std::ostream& output() const;
+
+  private:
     std::ostream& output_;
 };
 
