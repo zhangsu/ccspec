@@ -15,7 +15,7 @@ class Eq : public Matcher<Eq<U>, U> {
     std::string desc() const override;
 
   private:
-    explicit Eq(U);
+    explicit Eq(U expected_value);
 
     template <typename T>
     friend Eq<T> eq(T expected_value);
