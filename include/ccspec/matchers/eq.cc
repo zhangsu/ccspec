@@ -1,6 +1,4 @@
 #include <sstream>
-#include <string>
-#include <ccspec/matcher.h>
 
 namespace ccspec {
 namespace matchers {
