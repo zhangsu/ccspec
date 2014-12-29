@@ -10,7 +10,7 @@ namespace support {
 class Exception : public std::exception {
   public:
     virtual const char* what() const noexcept override;
-    virtual const std::string& desc() const;
+    const std::string& desc() const;
 
   protected:
     explicit Exception(std::string desc);
