@@ -1,9 +1,12 @@
 #ifndef CCSPEC_MISMATCH_H_
 #define CCSPEC_MISMATCH_H_
 
+#include <sstream>
 #include <string>
 #include <ccspec/matcher.h>
 #include <ccspec/support/exception.h>
+
+// Interface.
 
 namespace ccspec {
 namespace expectation {
@@ -20,6 +23,32 @@ class Mismatch : public ccspec::support::Exception {
 } // namespace expectation
 } // namespace ccspec
 
-#include "mismatch.cc"
+// Implementation.
+
+namespace ccspec {
+namespace expectation {
+
+// Public methods.
+
+template <typename U, typename ConcreteMatcher, typename V>
+Mismatch<U, ConcreteMatcher, V>::Mismatch(
+    const U& actual_value,
+    const Matcher<ConcreteMatcher, V>& matcher
+) : Exception(desc(actual_value, matcher)) {}
+
+// Private methods.
+
+template <typename U, typename ConcreteMatcher, typename V>
+std::string Mismatch<U, ConcreteMatcher, V>::desc(
+    const U& actual_value,
+    const Matcher<ConcreteMatcher, V>& matcher
+) {
+    std::ostringstream s;
+    s << actual_value << ' ' << matcher;
+    return s.str();
+}
+
+} // namespace expectation
+} // namespace ccspec
 
 #endif // CCSPEC_MISMATCH_H_
