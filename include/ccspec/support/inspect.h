@@ -5,14 +5,33 @@
 #ifndef _MSC_VER
 #   include <cxxabi.h>
 #endif
+#include <sstream>
 #include <string>
 #include <typeinfo>
-#include <ccspec/support/inspect.h>
+#include <ostream>
 
 // Interface.
 
 namespace ccspec {
 namespace support {
+
+std::string inspect(bool val);
+std::string inspect(short val);
+std::string inspect(unsigned short val);
+std::string inspect(int val);
+std::string inspect(unsigned int val);
+std::string inspect(long val);
+std::string inspect(unsigned long val);
+std::string inspect(long long val);
+std::string inspect(unsigned long long val);
+std::string inspect(float val);
+std::string inspect(double val);
+std::string inspect(long double val);
+std::string inspect(void* val);
+std::string inspect(std::streambuf* sb);
+std::string inspect(std::ostream& (*pf)(std::ostream&));
+std::string inspect(std::ios& (*pf)(std::ios&));
+std::string inspect(std::ios_base& (*pf)(std::ios_base&));
 
 template <typename T>
 std::string inspect(const T&);

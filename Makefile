@@ -16,7 +16,7 @@ CCSPECOBJECTS     = $(SRCDIR)ccspec.o\
   $(addprefix $(SRCCOREDIR)formatters/, documentation_formatter.o\
                                         progress_formatter.o text_formatter.o)\
   $(addprefix $(SRCEXPECTATIONDIR), )\
-  $(addprefix $(SRCSUPPORTDIR), exception.o)
+  $(addprefix $(SRCSUPPORTDIR), exception.o inspect.o)
 
 ifeq ($(DEBUG),1)
   FLAGS += -g
