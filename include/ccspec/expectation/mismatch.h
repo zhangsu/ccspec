@@ -5,6 +5,7 @@
 #include <string>
 #include <ccspec/matcher.h>
 #include <ccspec/support/exception.h>
+#include <ccspec/support/inspect.h>
 
 // Interface.
 
@@ -44,7 +45,7 @@ std::string Mismatch<U, ConcreteMatcher, V>::desc(
     const Matcher<ConcreteMatcher, V>& matcher
 ) {
     std::ostringstream s;
-    s << actual_value << ' ' << matcher;
+    s << support::inspect(actual_value) << ' ' << matcher;
     return s.str();
 }
 
