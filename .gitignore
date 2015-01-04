@@ -1,5 +1,6 @@
 .ycm_extra_conf.pyc
 *.swp
+*.swo
 *.o
 *.d
 bin/
