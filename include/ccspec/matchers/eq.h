@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <ccspec/matcher.h>
+#include <ccspec/support/inspect.h>
 
 // Interface.
 
@@ -46,7 +47,7 @@ bool Eq<U>::match(V actual_value) const {
 template <typename U>
 std::string Eq<U>::desc() const {
     std::ostringstream s;
-    s << "should equal " << this->expected_value();
+    s << "should equal " << support::inspect(this->expected_value());
     return s.str();
 }
 
