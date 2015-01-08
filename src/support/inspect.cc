@@ -1,3 +1,4 @@
+#include <sstream>
 #include <ccspec/support/inspect.h>
 
 namespace ccspec {

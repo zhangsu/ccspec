@@ -5,7 +5,6 @@
 #ifndef _MSC_VER
 #   include <cxxabi.h>
 #endif
-#include <sstream>
 #include <string>
 #include <typeinfo>
 #include <ostream>
