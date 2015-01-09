@@ -7,7 +7,7 @@
 #endif
 #include <string>
 #include <typeinfo>
-#include <ostream>
+#include <iostream>
 
 // Interface.
 
