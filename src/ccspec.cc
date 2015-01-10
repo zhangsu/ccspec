@@ -16,6 +16,7 @@ using ccspec::core::specify;
 using ccspec::core::Example;
 using ccspec::core::Reporter;
 using ccspec::expect;
+using ccspec::matchers::be;
 using ccspec::matchers::eq;
 
 int main() {
@@ -42,7 +43,7 @@ int main() {
             });
 
             example("1 + 1 = 2", [] {
-                expect(1 + 1).to(eq(3));
+                expect(1 + 1).to(be(2));
             });
 
             it("has a positive product with itself", [] {
