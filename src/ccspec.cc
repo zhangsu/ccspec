@@ -43,7 +43,9 @@ int main() {
             });
 
             example("1 + 1 = 2", [] {
-                expect(1 + 1).to(be(2));
+                struct A{} a;
+                A& pa = a;
+                expect(a).to(be(pa));
             });
 
             it("has a positive product with itself", [] {

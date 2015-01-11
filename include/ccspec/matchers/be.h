@@ -53,9 +53,7 @@ std::string Be<U>::desc() const {
 // Private methods.
 
 template<typename U>
-Be<U>::Be(const U& expected_value)
-    : Matcher<Be<U>, U>(expected_value),
-      expected_value_ref_(expected_value) {}
+Be<U>::Be(const U& expected_value) : expected_value_ref_(expected_value) {}
 
 // Friend functions.
 
