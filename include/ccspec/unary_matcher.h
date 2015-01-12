@@ -1,8 +1,6 @@
 #ifndef CCSPEC_UNARY_MATCHER_H_
 #define CCSPEC_UNARY_MATCHER_H_
 
-#include <ostream>
-#include <string>
 #include <ccspec/matcher.h>
 
 // Interface.
