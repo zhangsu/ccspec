@@ -6,6 +6,7 @@ LFLAGS            = $(FLAGS)
 SRCDIR            = src/
 SRCCOREDIR        = $(SRCDIR)core/
 SRCEXPECTATIONDIR = $(SRCDIR)expectation/
+SRCMATCHERSDIR    = $(SRCDIR)matchers/
 SRCSUPPORTDIR     = $(SRCDIR)support/
 BINDIR            = bin/
 OUTPUTS           = $(CCSPECOUTPUT)
@@ -16,6 +17,7 @@ CCSPECOBJECTS     = $(SRCDIR)ccspec.o\
   $(addprefix $(SRCCOREDIR)formatters/, documentation_formatter.o\
                                         progress_formatter.o text_formatter.o)\
   $(addprefix $(SRCEXPECTATIONDIR), )\
+  $(addprefix $(SRCMATCHERSDIR), be_something.o)\
   $(addprefix $(SRCSUPPORTDIR), exception.o inspect.o)
 
 ifeq ($(DEBUG),1)

@@ -23,8 +23,7 @@ class Be : public Matcher<Be<U>, U> {
 
     const U& expected_value_ref_;
 
-    template <typename T>
-    friend Be<T> be(const T& expected_value);
+    friend class BeSomething;
 };
 
 } // namespace matchers
@@ -54,13 +53,6 @@ std::string Be<U>::desc() const {
 
 template<typename U>
 Be<U>::Be(const U& expected_value) : expected_value_ref_(expected_value) {}
-
-// Friend functions.
-
-template<typename U>
-Be<U> be(const U& expected_value) {
-    return Be<U>(expected_value);
-}
 
 } // namespace matchers
 } // namespace ccspec
