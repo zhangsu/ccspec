@@ -42,10 +42,8 @@ int main() {
                 example.run();
             });
 
-            example("1 + 1 = 2", [] {
-                struct A{} a;
-                A& pa = a;
-                expect(a).to(be(pa));
+            example("1 + 1 < 3", [] {
+                expect(1 + 1).to(be < 2);
             });
 
             it("has a positive product with itself", [] {

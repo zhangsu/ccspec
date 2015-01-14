@@ -1,10 +1,12 @@
 #ifndef CCSPEC_MATCHERS_BE_SOMETHING_H_
 #define CCSPEC_MATCHERS_BE_SOMETHING_H_
 
+#include <functional>
 #include <sstream>
 #include <string>
 #include <ccspec/matcher.h>
 #include "be.h"
+#include "be_compared_to.h"
 
 // Interface.
 
@@ -17,6 +19,8 @@ class BeSomething {
 
     template <typename T>
     Be<T> operator ()(const T& expected_value) const;
+    template <typename T>
+    BeComparedTo<T> operator <(const T& expected_value) const;
 
   private:
     BeSomething();
@@ -39,6 +43,11 @@ namespace matchers {
 template <typename T>
 Be<T> BeSomething::operator ()(const T& expected_value) const {
     return Be<T>(expected_value);
+}
+
+template <typename T>
+BeComparedTo<T> BeSomething::operator <(const T& expected_value) const {
+    return BeComparedTo<T>(std::less<T>(), expected_value);
 }
 
 } // namespace matchers
