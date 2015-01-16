@@ -24,7 +24,7 @@ class BeComparedTo : public UnaryMatcher<BeComparedTo<U>, U> {
 
     explicit BeComparedTo(Comparator compare, U expected_value);
 
-    std::function<bool (U, U)> compare_;
+    Comparator compare_;
 
     friend class BeSomething;
 };
