@@ -22,9 +22,11 @@ class BeComparedTo : public UnaryMatcher<BeComparedTo<U>, U> {
   private:
     typedef std::function<bool (U, U)> Comparator;
 
-    explicit BeComparedTo(Comparator compare, U expected_value);
+    explicit BeComparedTo(Comparator compare, std::string comparator_name,
+                          U expected_value);
 
     Comparator compare_;
+    std::string comparator_name_;
 
     friend class BeSomething;
 };
@@ -48,16 +50,19 @@ bool BeComparedTo<U>::match(V actual_value) const {
 template <typename U>
 std::string BeComparedTo<U>::desc() const {
     std::ostringstream s;
-    s << "should be " << support::inspect(this->expected_value());
+    s << "should be " << comparator_name_ << ' '
+      << support::inspect(this->expected_value());
     return s.str();
 }
 
 // Private methods.
 
 template<typename U>
-BeComparedTo<U>::BeComparedTo(Comparator compare, U expected_value)
+BeComparedTo<U>::BeComparedTo(Comparator compare, std::string comparator_name,
+                              U expected_value)
     : UnaryMatcher<BeComparedTo<U>, U>(expected_value),
-      compare_(compare) {}
+      compare_(compare),
+      comparator_name_(comparator_name) {}
 
 } // namespace matchers
 } // namespace ccspec
