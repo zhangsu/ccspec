@@ -42,12 +42,12 @@ int main() {
                 example.run();
             });
 
-            example("1 + 1 < 3", [] {
-                expect(1 + 1).to(be < 2);
+            example("1 + 1 = 2", [] {
+                expect(1 + 1).to(be == 2);
             });
 
             it("has a positive product with itself", [] {
-                expect((42) * (42) > 0).to(eq(true));
+                expect((42) * (42)).to(be > 0);
             });
         });
 
@@ -56,7 +56,7 @@ int main() {
             });
 
             specify("the product with its positive self is negative", [] {
-                expect((-42) * 42 < 0).to(eq(true));
+                expect((-42) * 42).to(be < 0);
             });
         });
 
