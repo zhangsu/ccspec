@@ -23,8 +23,8 @@ namespace expectation {
 template <typename U>
 class Target {
   public:
-    template <typename ConcreteMatcher, typename V>
-    void to(const Matcher<ConcreteMatcher, V>&) const;
+    template <typename ConcreteMatcher>
+    void to(const Matcher<ConcreteMatcher>&) const;
 
     template <typename V>
     void to(const matchers::Be<V>&) const;
@@ -58,17 +58,17 @@ namespace expectation {
 // Public methods.
 
 template <typename U>
-template <typename ConcreteMatcher, typename V>
-void Target<U>::to(const Matcher<ConcreteMatcher, V>& matcher) const {
+template <typename ConcreteMatcher>
+void Target<U>::to(const Matcher<ConcreteMatcher>& matcher) const {
     if (!matcher.match(actual_value_))
-        throw Mismatch<U, ConcreteMatcher, V>(actual_value_, matcher);
+        throw Mismatch<U, ConcreteMatcher>(actual_value_, matcher);
 }
 
 template <typename U>
 template <typename V>
 void Target<U>::to(const matchers::Be<V>& matcher) const {
     if (!matcher.match(actual_value_ref_))
-        throw Mismatch<U, matchers::Be<V>, V>(actual_value_ref_, matcher);
+        throw Mismatch<U, matchers::Be<V>>(actual_value_ref_, matcher);
 }
 
 // Private methods.

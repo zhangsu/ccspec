@@ -8,7 +8,7 @@
 namespace ccspec {
 
 template <typename ConcreteMatcher, typename U>
-class UnaryMatcher : public Matcher<ConcreteMatcher, U> {
+class UnaryMatcher : public Matcher<ConcreteMatcher> {
   protected:
     explicit UnaryMatcher(U expected_value);
     virtual ~UnaryMatcher();

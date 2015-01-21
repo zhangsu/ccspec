@@ -8,7 +8,7 @@
 
 namespace ccspec {
 
-template <typename ConcreteMatcher, typename U>
+template <typename ConcreteMatcher>
 class Matcher {
   public:
     template <typename V>
@@ -17,8 +17,8 @@ class Matcher {
     virtual std::string desc() const = 0;
 };
 
-template <typename ConcreteMatcher, typename U>
-std::ostream& operator<<(std::ostream&, const Matcher<ConcreteMatcher, U>&);
+template <typename ConcreteMatcher>
+std::ostream& operator<<(std::ostream&, const Matcher<ConcreteMatcher>&);
 
 } // namespace ccspec
 
@@ -28,17 +28,17 @@ namespace ccspec {
 
 // Public methods.
 
-template <typename ConcreteMatcher, typename U>
+template <typename ConcreteMatcher>
 template <typename V>
-bool Matcher<ConcreteMatcher, U>::match(V actual_value) const {
+bool Matcher<ConcreteMatcher>::match(V actual_value) const {
     return static_cast<const ConcreteMatcher*>(this)->match(actual_value);
 }
 
 // Operators.
 
-template <typename ConcreteMatcher, typename U>
+template <typename ConcreteMatcher>
 std::ostream& operator<<(std::ostream& stream,
-                         const Matcher<ConcreteMatcher, U>& matcher) {
+                         const Matcher<ConcreteMatcher>& matcher) {
     stream << matcher.desc();
     return stream;
 }

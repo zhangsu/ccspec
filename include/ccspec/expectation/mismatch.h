@@ -12,13 +12,13 @@
 namespace ccspec {
 namespace expectation {
 
-template <typename U, typename ConcreteMatcher, typename V>
+template <typename U, typename ConcreteMatcher>
 class Mismatch : public ccspec::support::Exception {
   public:
-    Mismatch(const U& actual_value, const Matcher<ConcreteMatcher, V>&);
+    Mismatch(const U& actual_value, const Matcher<ConcreteMatcher>&);
 
   private:
-    std::string desc(const U& actual_value, const Matcher<ConcreteMatcher, V>&);
+    std::string desc(const U& actual_value, const Matcher<ConcreteMatcher>&);
 };
 
 } // namespace expectation
@@ -31,18 +31,18 @@ namespace expectation {
 
 // Public methods.
 
-template <typename U, typename ConcreteMatcher, typename V>
-Mismatch<U, ConcreteMatcher, V>::Mismatch(
+template <typename U, typename ConcreteMatcher>
+Mismatch<U, ConcreteMatcher>::Mismatch(
     const U& actual_value,
-    const Matcher<ConcreteMatcher, V>& matcher
+    const Matcher<ConcreteMatcher>& matcher
 ) : Exception(desc(actual_value, matcher)) {}
 
 // Private methods.
 
-template <typename U, typename ConcreteMatcher, typename V>
-std::string Mismatch<U, ConcreteMatcher, V>::desc(
+template <typename U, typename ConcreteMatcher>
+std::string Mismatch<U, ConcreteMatcher>::desc(
     const U& actual_value,
-    const Matcher<ConcreteMatcher, V>& matcher
+    const Matcher<ConcreteMatcher>& matcher
 ) {
     std::ostringstream s;
     s << support::inspect(actual_value) << ' ' << matcher;

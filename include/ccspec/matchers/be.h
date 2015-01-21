@@ -12,7 +12,7 @@ namespace ccspec {
 namespace matchers {
 
 template <typename U>
-class Be : public Matcher<Be<U>, U> {
+class Be : public Matcher<Be<U>> {
   public:
     template <typename V>
     bool match(const V& actual_value) const;
