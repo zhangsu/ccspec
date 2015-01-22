@@ -7,16 +7,16 @@
 
 namespace ccspec {
 
-template <typename ConcreteMatcher, typename U>
+template <typename ConcreteMatcher, typename T>
 class UnaryMatcher : public Matcher<ConcreteMatcher> {
   protected:
-    explicit UnaryMatcher(U expected_value);
+    explicit UnaryMatcher(T expected_value);
     virtual ~UnaryMatcher();
 
-    U expected_value() const;
+    T expected_value() const;
 
   private:
-    const U expected_value_;
+    const T expected_value_;
 };
 
 } // namespace ccspec
@@ -27,15 +27,15 @@ namespace ccspec {
 
 // Protected methods.
 
-template <typename ConcreteMatcher, typename U>
-UnaryMatcher<ConcreteMatcher, U>::UnaryMatcher(U expected_value)
+template <typename ConcreteMatcher, typename T>
+UnaryMatcher<ConcreteMatcher, T>::UnaryMatcher(T expected_value)
     : expected_value_(expected_value) {}
 
-template <typename ConcreteMatcher, typename U>
-UnaryMatcher<ConcreteMatcher, U>::~UnaryMatcher() {}
+template <typename ConcreteMatcher, typename T>
+UnaryMatcher<ConcreteMatcher, T>::~UnaryMatcher() {}
 
-template <typename ConcreteMatcher, typename U>
-U UnaryMatcher<ConcreteMatcher, U>::expected_value() const {
+template <typename ConcreteMatcher, typename T>
+T UnaryMatcher<ConcreteMatcher, T>::expected_value() const {
     return expected_value_;
 }
 

@@ -11,8 +11,8 @@ namespace ccspec {
 template <typename ConcreteMatcher>
 class Matcher {
   public:
-    template <typename V>
-    bool match(V actual_value) const;
+    template <typename T>
+    bool match(T actual_value) const;
 
     virtual std::string desc() const = 0;
 };
@@ -29,8 +29,8 @@ namespace ccspec {
 // Public methods.
 
 template <typename ConcreteMatcher>
-template <typename V>
-bool Matcher<ConcreteMatcher>::match(V actual_value) const {
+template <typename T>
+bool Matcher<ConcreteMatcher>::match(T actual_value) const {
     return static_cast<const ConcreteMatcher*>(this)->match(actual_value);
 }
 
