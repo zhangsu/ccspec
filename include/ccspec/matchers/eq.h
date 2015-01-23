@@ -21,12 +21,12 @@ class Eq : public UnaryMatcher<Eq<U>, U> {
   private:
     explicit Eq(U expected_value);
 
-    template <typename T>
-    friend Eq<T> eq(T expected_value);
+    template <typename V>
+    friend Eq<V> eq(V expected_value);
 };
 
-template <typename T>
-Eq<T> eq(T expected_value);
+template <typename V>
+Eq<V> eq(V expected_value);
 
 } // namespace matchers
 } // namespace ccspec
