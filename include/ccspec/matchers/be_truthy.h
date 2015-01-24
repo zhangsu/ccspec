@@ -1,0 +1,46 @@
+#ifndef CCSPEC_MATCHERS_BE_TRUTHY_H_
+#define CCSPEC_MATCHERS_BE_TRUTHY_H_
+
+#include <sstream>
+#include <string>
+#include <ccspec/matcher.h>
+
+// Interface.
+
+namespace ccspec {
+namespace matchers {
+
+class BeTruthy : public Matcher<BeTruthy> {
+  public:
+    template <typename V>
+    bool match(V actual_value) const;
+    std::string desc() const override;
+
+  private:
+    BeTruthy();
+
+    friend BeTruthy be_truthy();
+};
+
+BeTruthy be_truthy();
+
+} // namespace matchers
+} // namespace ccspec
+
+// Implementation.
+
+namespace ccspec {
+namespace matchers {
+
+// Public methods.
+
+template <typename V>
+bool BeTruthy::match(V actual_value) const {
+    return !!actual_value;
+}
+
+} // namespace matchers
+} // namespace ccspec
+
+#endif // CCSPEC_MATCHERS_BE_TRUTHY_H_
+
