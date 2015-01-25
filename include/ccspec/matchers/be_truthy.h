@@ -12,17 +12,19 @@ namespace matchers {
 
 class BeTruthy : public Matcher<BeTruthy> {
   public:
+    static const BeTruthy& instance();
+
     template <typename V>
     bool match(V actual_value) const;
     std::string desc() const override;
 
   private:
     BeTruthy();
-
-    friend BeTruthy be_truthy();
+    BeTruthy(const BeTruthy&) = delete;
+    void operator =(const BeTruthy&) = delete;
 };
 
-BeTruthy be_truthy();
+extern const BeTruthy& be_truthy;
 
 } // namespace matchers
 } // namespace ccspec

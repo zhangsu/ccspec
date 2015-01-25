@@ -3,7 +3,14 @@
 namespace ccspec {
 namespace matchers {
 
+const BeTruthy& be_truthy = BeTruthy::instance();
+
 // Public methods.
+
+const BeTruthy& BeTruthy::instance() {
+    static BeTruthy instance;
+    return instance;
+}
 
 std::string BeTruthy::desc() const {
     std::ostringstream s;
@@ -14,12 +21,6 @@ std::string BeTruthy::desc() const {
 // Private methods.
 
 BeTruthy::BeTruthy() {}
-
-// Friend functions.
-
-BeTruthy be_truthy() {
-    return BeTruthy();
-}
 
 } // namespace matchers
 } // namespace ccspec
