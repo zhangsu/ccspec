@@ -5,10 +5,14 @@ namespace matchers {
 
 const BeSomething& be = BeSomething::instance();
 
+// Public methods.
+
 const BeSomething& BeSomething::instance() {
     static BeSomething instance;
     return instance;
 }
+
+// Private methods.
 
 BeSomething::BeSomething() {}
 
