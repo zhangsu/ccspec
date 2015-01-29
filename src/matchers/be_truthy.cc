@@ -13,9 +13,7 @@ const BeTruthy& BeTruthy::instance() {
 }
 
 std::string BeTruthy::desc() const {
-    std::ostringstream s;
-    s << "should be truthy";
-    return s.str();
+    return "should be truthy";
 }
 
 // Private methods.

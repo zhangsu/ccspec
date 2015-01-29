@@ -1,7 +1,6 @@
 #ifndef CCSPEC_MATCHERS_BE_TRUTHY_H_
 #define CCSPEC_MATCHERS_BE_TRUTHY_H_
 
-#include <sstream>
 #include <string>
 #include <ccspec/matcher.h>
 
