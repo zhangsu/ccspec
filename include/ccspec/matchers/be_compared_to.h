@@ -50,7 +50,7 @@ bool BeComparedTo<U>::match(V actual_value) const {
 template <typename U>
 std::string BeComparedTo<U>::desc() const {
     std::ostringstream s;
-    s << "should be " << comparator_name_ << ' '
+    s << "be " << comparator_name_ << ' '
       << support::inspect(this->expected_value());
     return s.str();
 }

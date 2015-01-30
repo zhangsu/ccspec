@@ -45,7 +45,7 @@ std::string Mismatch<T, ConcreteMatcher>::desc(
     const Matcher<ConcreteMatcher>& matcher
 ) {
     std::ostringstream s;
-    s << support::inspect(actual_value) << ' ' << matcher;
+    s << support::inspect(actual_value) << " should " << matcher;
     return s.str();
 }
 

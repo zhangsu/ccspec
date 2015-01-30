@@ -13,7 +13,7 @@ const BeTruthy& BeTruthy::instance() {
 }
 
 std::string BeTruthy::desc() const {
-    return "should be truthy";
+    return "be truthy";
 }
 
 // Private methods.

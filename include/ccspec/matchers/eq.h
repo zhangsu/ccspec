@@ -47,7 +47,7 @@ bool Eq<U>::match(V actual_value) const {
 template <typename U>
 std::string Eq<U>::desc() const {
     std::ostringstream s;
-    s << "should equal " << support::inspect(this->expected_value());
+    s << "equal " << support::inspect(this->expected_value());
     return s.str();
 }
 

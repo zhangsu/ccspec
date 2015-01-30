@@ -45,7 +45,7 @@ bool Be<U>::match(const V& actual_value) const {
 template <typename U>
 std::string Be<U>::desc() const {
     std::ostringstream s;
-    s << "should be " << support::inspect(expected_value_ref_);
+    s << "be " << support::inspect(expected_value_ref_);
     return s.str();
 }
 
