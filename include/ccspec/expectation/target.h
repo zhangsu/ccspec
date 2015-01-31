@@ -4,6 +4,7 @@
 #include <ccspec/matcher.h>
 #include <ccspec/matchers/be.h>
 #include "mismatch.h"
+#include "unexpected_match.h"
 
 // Interface.
 
@@ -25,9 +26,13 @@ class Target {
   public:
     template <typename ConcreteMatcher>
     void to(const Matcher<ConcreteMatcher>&) const;
+    template <typename ConcreteMatcher>
+    void notTo(const Matcher<ConcreteMatcher>&) const;
 
     template <typename V>
     void to(const matchers::Be<V>&) const;
+    template <typename V>
+    void notTo(const matchers::Be<V>&) const;
 
   private:
     explicit Target(const U& actual_value);
@@ -65,10 +70,24 @@ void Target<U>::to(const Matcher<ConcreteMatcher>& matcher) const {
 }
 
 template <typename U>
+template <typename ConcreteMatcher>
+void Target<U>::notTo(const Matcher<ConcreteMatcher>& matcher) const {
+    if (matcher.match(actual_value_))
+        throw UnexpectedMatch<U, ConcreteMatcher>(actual_value_, matcher);
+}
+
+template <typename U>
 template <typename V>
 void Target<U>::to(const matchers::Be<V>& matcher) const {
     if (!matcher.match(actual_value_ref_))
         throw Mismatch<U, matchers::Be<V>>(actual_value_ref_, matcher);
+}
+
+template <typename U>
+template <typename V>
+void Target<U>::notTo(const matchers::Be<V>& matcher) const {
+    if (matcher.match(actual_value_ref_))
+        throw UnexpectedMatch<U, matchers::Be<V>>(actual_value_ref_, matcher);
 }
 
 // Private methods.
