@@ -89,6 +89,10 @@ string inspect(void* val) {
     return ss.str();
 }
 
+string inspect(const string& s) {
+    return s;
+}
+
 string inspect(std::streambuf* sb) {
     ostringstream ss;
     ss << sb;

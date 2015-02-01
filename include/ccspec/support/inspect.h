@@ -28,6 +28,7 @@ std::string inspect(float val);
 std::string inspect(double val);
 std::string inspect(long double val);
 std::string inspect(void* val);
+std::string inspect(const std::string& s);
 std::string inspect(std::streambuf* sb);
 std::string inspect(std::ostream& (*pf)(std::ostream&));
 std::string inspect(std::ios& (*pf)(std::ios&));
