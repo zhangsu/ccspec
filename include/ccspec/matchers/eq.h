@@ -58,9 +58,9 @@ Eq<U>::Eq(U expected_value) : UnaryMatcher<Eq<U>, U>(expected_value) {}
 
 // Friend functions.
 
-template<typename U>
-Eq<U> eq(U expected_value) {
-    return Eq<U>(expected_value);
+template<typename V>
+Eq<V> eq(V expected_value) {
+    return Eq<V>(expected_value);
 }
 
 } // namespace matchers
