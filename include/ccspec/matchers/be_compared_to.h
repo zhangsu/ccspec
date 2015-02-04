@@ -16,14 +16,14 @@ template <typename U>
 class BeComparedTo : public UnaryMatcher<BeComparedTo<U>, U> {
   public:
     template <typename V>
-    bool match(V actual_value) const;
+    bool match(const V& actual_value) const;
     std::string desc() const override;
 
   private:
     typedef std::function<bool (U, U)> Comparator;
 
     explicit BeComparedTo(Comparator compare, std::string comparator_name,
-                          U expected_value);
+                          const U& expected_value);
 
     Comparator compare_;
     std::string comparator_name_;
@@ -43,7 +43,7 @@ namespace matchers {
 
 template <typename U>
 template <typename V>
-bool BeComparedTo<U>::match(V actual_value) const {
+bool BeComparedTo<U>::match(const V& actual_value) const {
     return compare_(actual_value, this->expected_value());
 }
 
@@ -59,7 +59,7 @@ std::string BeComparedTo<U>::desc() const {
 
 template<typename U>
 BeComparedTo<U>::BeComparedTo(Comparator compare, std::string comparator_name,
-                              U expected_value)
+                              const U& expected_value)
     : UnaryMatcher<BeComparedTo<U>, U>(expected_value),
       compare_(compare),
       comparator_name_(comparator_name) {}

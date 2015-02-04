@@ -12,7 +12,7 @@ template <typename ConcreteMatcher>
 class Matcher {
   public:
     template <typename T>
-    bool match(T actual_value) const;
+    bool match(const T& actual_value) const;
 
     virtual std::string desc() const = 0;
 };
@@ -30,7 +30,7 @@ namespace ccspec {
 
 template <typename ConcreteMatcher>
 template <typename T>
-bool Matcher<ConcreteMatcher>::match(T actual_value) const {
+bool Matcher<ConcreteMatcher>::match(const T& actual_value) const {
     return static_cast<const ConcreteMatcher*>(this)->match(actual_value);
 }
 

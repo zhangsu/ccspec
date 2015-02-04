@@ -15,18 +15,18 @@ template <typename U>
 class Eq : public UnaryMatcher<Eq<U>, U> {
   public:
     template <typename V>
-    bool match(V actual_value) const;
+    bool match(const V& actual_value) const;
     std::string desc() const override;
 
   private:
-    explicit Eq(U expected_value);
+    explicit Eq(const U& expected_value);
 
     template <typename V>
-    friend Eq<V> eq(V expected_value);
+    friend Eq<V> eq(const V& expected_value);
 };
 
 template <typename V>
-Eq<V> eq(V expected_value);
+Eq<V> eq(const V& expected_value);
 
 } // namespace matchers
 } // namespace ccspec
@@ -40,7 +40,7 @@ namespace matchers {
 
 template <typename U>
 template <typename V>
-bool Eq<U>::match(V actual_value) const {
+bool Eq<U>::match(const V& actual_value) const {
     return actual_value == this->expected_value();
 }
 
@@ -54,12 +54,12 @@ std::string Eq<U>::desc() const {
 // Private methods.
 
 template<typename U>
-Eq<U>::Eq(U expected_value) : UnaryMatcher<Eq<U>, U>(expected_value) {}
+Eq<U>::Eq(const U& expected_value) : UnaryMatcher<Eq<U>, U>(expected_value) {}
 
 // Friend functions.
 
 template<typename V>
-Eq<V> eq(V expected_value) {
+Eq<V> eq(const V& expected_value) {
     return Eq<V>(expected_value);
 }
 

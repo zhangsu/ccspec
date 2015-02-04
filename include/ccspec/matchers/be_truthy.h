@@ -14,7 +14,7 @@ class BeTruthy : public Matcher<BeTruthy> {
     static const BeTruthy& instance();
 
     template <typename T>
-    bool match(T actual_value) const;
+    bool match(const T& actual_value) const;
     std::string desc() const override;
 
   private:
@@ -36,7 +36,7 @@ namespace matchers {
 // Public methods.
 
 template <typename T>
-bool BeTruthy::match(T actual_value) const {
+bool BeTruthy::match(const T& actual_value) const {
     return !!actual_value;
 }
 

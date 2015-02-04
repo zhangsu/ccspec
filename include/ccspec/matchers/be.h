@@ -3,7 +3,7 @@
 
 #include <sstream>
 #include <string>
-#include <ccspec/matcher.h>
+#include <ccspec/unary_matcher.h>
 #include <ccspec/support/inspect.h>
 
 // Interface.
@@ -12,7 +12,7 @@ namespace ccspec {
 namespace matchers {
 
 template <typename U>
-class Be : public Matcher<Be<U>> {
+class Be : public UnaryMatcher<Be<U>, U> {
   public:
     template <typename V>
     bool match(const V& actual_value) const;
@@ -20,8 +20,6 @@ class Be : public Matcher<Be<U>> {
 
   private:
     explicit Be(const U& expected_value);
-
-    const U& expected_value_ref_;
 
     friend class BeSomething;
 };
@@ -39,20 +37,20 @@ namespace matchers {
 template <typename U>
 template <typename V>
 bool Be<U>::match(const V& actual_value) const {
-    return &actual_value == &expected_value_ref_;
+    return &actual_value == &(this->expected_value());
 }
 
 template <typename U>
 std::string Be<U>::desc() const {
     std::ostringstream s;
-    s << "be " << support::inspect(expected_value_ref_);
+    s << "be " << support::inspect(this->expected_value());
     return s.str();
 }
 
 // Private methods.
 
 template<typename U>
-Be<U>::Be(const U& expected_value) : expected_value_ref_(expected_value) {}
+Be<U>::Be(const U& expected_value) : UnaryMatcher<Be<U>, U>(expected_value) {}
 
 } // namespace matchers
 } // namespace ccspec
