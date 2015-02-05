@@ -11,8 +11,7 @@ using std::vector;
 
 Reporter::Reporter(Formatter* formatter) : formatters_{formatter} {}
 
-Reporter::Reporter(vector<Formatter*> formatters)
-    : formatters_(formatters) {}
+Reporter::Reporter(vector<Formatter*> formatters) : formatters_(formatters) {}
 
 Reporter::~Reporter() {
     finish();

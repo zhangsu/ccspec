@@ -7,8 +7,7 @@ using std::exception_ptr;
 
 // Public methods.
 
-ExecutionResult::ExecutionResult()
-    : exception_(nullptr) {}
+ExecutionResult::ExecutionResult() : exception_(nullptr) {}
 
 exception_ptr ExecutionResult::exception() const {
     return exception_;
