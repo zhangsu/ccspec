@@ -1,17 +1,21 @@
 CC                = g++
 LINKER            = g++
 FLAGS             = -Wall -Wextra
-CFLAGS            = $(FLAGS) -std=c++11 -c -Iinclude
+CFLAGS            = $(FLAGS) -std=c++11 -c -Iinclude -fPIC
 LFLAGS            = $(FLAGS)
+LIBLFLAGS         = $(LFLAGS) -shared
+UTILLFLAGS        = $(LFLAGS) -Llib -lccspec
 SRCDIR            = src/
 SRCCOREDIR        = $(SRCDIR)core/
 SRCEXPECTATIONDIR = $(SRCDIR)expectation/
 SRCMATCHERSDIR    = $(SRCDIR)matchers/
 SRCSUPPORTDIR     = $(SRCDIR)support/
 BINDIR            = bin/
-OUTPUTS           = $(CCSPECOUTPUT)
-CCSPECOUTPUT      = $(BINDIR)ccspec
-CCSPECOBJECTS     = $(SRCDIR)ccspec.o\
+LIBDIR            = lib/
+OUTPUTS           = $(CCSPECOUTPUT) $(UTILOUTPUT)
+UTILOUTPUT        = $(BINDIR)ccspec
+CCSPECOUTPUT      = $(LIBDIR)libccspec.so
+CCSPECOBJECTS     = \
   $(addprefix $(SRCCOREDIR), example.o example_group.o execution_result.o\
                              formatter.o hooks.o reporter.o unexpected_throw.o)\
   $(addprefix $(SRCCOREDIR)formatters/, documentation_formatter.o\
@@ -19,6 +23,7 @@ CCSPECOBJECTS     = $(SRCDIR)ccspec.o\
   $(addprefix $(SRCEXPECTATIONDIR), )\
   $(addprefix $(SRCMATCHERSDIR), be_something.o be_truthy.o)\
   $(addprefix $(SRCSUPPORTDIR), exception.o inspect.o)
+UTILOBJECTS = $(SRCDIR)ccspec.o
 
 ifeq ($(DEBUG),1)
   FLAGS += -g
@@ -31,11 +36,17 @@ endif
 
 all: $(OUTPUTS)
 
-$(CCSPECOUTPUT): $(CCSPECOBJECTS) bin/
-	$(LINKER) $(LFLAGS) $(CCSPECOBJECTS) -o $@
+$(UTILOUTPUT): $(UTILOBJECTS) $(CCSPECOUTPUT) bin/
+	$(LINKER) $(UTILLFLAGS) $(UTILOBJECTS) -o $@
+
+$(CCSPECOUTPUT): $(CCSPECOBJECTS) lib/
+	$(LINKER) $(LIBLFLAGS) $(CCSPECOBJECTS) -o $@
 
 bin/:
 	mkdir -p bin
+
+lib/:
+	mkdir -p lib
 
 -include $(CCSPECOBJECTS:.o=.d)
 
