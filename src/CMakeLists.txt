@@ -1,0 +1,6 @@
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+file(GLOB_RECURSE SRC "*.h" "*.cc")
+add_library(ccspec SHARED ${SRC})
+set_target_properties(ccspec PROPERTIES VERSION "0.1.0")
+target_include_directories(ccspec PUBLIC "${CMAKE_SOURCE_DIR}/include")
+install(TARGETS ccspec DESTINATION lib)
