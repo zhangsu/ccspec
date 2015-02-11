@@ -11,7 +11,7 @@ before_install:
   - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-5; fi
   - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
 
-script: make
+script: cd build && cmake/.. && make && make install
 
 os:
   - linux
