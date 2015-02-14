@@ -5,6 +5,7 @@ compiler:
   - gcc
 
 before_install:
+  # TODO: remove the following when Travis has C++11-feature-complete G++.
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt-get update -qq
   - if [ "$CXX" = "clang++" ]; then sudo apt-get install -qq libstdc++-5-dev; fi
