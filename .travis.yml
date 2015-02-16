@@ -6,22 +6,12 @@ compiler:
 
 before_install:
   # TODO: remove the following when Travis has C++11-feature-complete G++.
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt-get update -qq
-  - if [ "$CXX" = "clang++" ]; then sudo apt-get install -qq libstdc++-5-dev; fi
-  - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-5; fi
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
+  - scripts/update_compilers.bash
   # TODO: remove the following when Travis has CMake newer than 2.8.12.
-  - if ( test "`uname -s`" = "Darwin" )
-  - then
-  -   brew update
-  -   brew install cmake
-  - else
-  -   echo "yes" | sudo add-apt-repository ppa:kalakris/cmake
-  -   sudo apt-get update -qq
-  -   sudo apt-get install cmake
-  - fi
-script: cd build && cmake .. && make && make install
+  - scripts/update_cmake.bash
+
+script:
+  - cd build && cmake .. && make && make install
 
 os:
   - linux
