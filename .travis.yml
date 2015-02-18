@@ -6,9 +6,9 @@ compiler:
 
 before_install:
   # TODO: remove the following when Travis has C++11-feature-complete G++.
-  - script/update_compilers.bash
+  - sudo script/update_compilers.bash
   # TODO: remove the following when Travis has CMake newer than 2.8.12.
-  - script/update_cmake.bash
+  - sudo script/update_cmake.bash
 
 script:
   - cd build && cmake .. && make && make install
