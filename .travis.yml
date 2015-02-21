@@ -5,14 +5,22 @@ compiler:
   - gcc
 
 before_install:
-  # TODO: remove the following when Travis has C++11-feature-complete G++.
-  - sudo script/update_compilers.bash
-  # TODO: remove the following when Travis has CMake newer than 2.8.12.
+  # TODO: remove the following when Travis has CMake newer than 2.8.11.
   - sudo script/update_cmake.bash
+  # TODO: remove the following when Travis has C++11-feature-complete G++ and clang.
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test --yes
+  - if [ "$CXX" = "clang++" ]; then sudo add-apt-repository 'deb http://llvm.org/apt/precise/ llvm-toolchain-precise-3.6 main' --yes; fi
+  - sudo apt-get update -qq
+  - if [ "$CXX" = "clang++" ]; then sudo apt-get --allow-unauthenticated install clang-3.6; fi
+  - if [ "$CXX" = "g++" ]; then sudo apt-get install g++-5; fi
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
 
 script:
-  - cd build && cmake .. && make && make install
+  - cd build && cmake .. && make
 
 os:
   - linux
   - osx
+
+notifications:
+  email: false
