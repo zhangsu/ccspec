@@ -22,5 +22,3 @@ BeTruthy::BeTruthy() {}
 
 } // namespace matchers
 } // namespace ccspec
-
-
