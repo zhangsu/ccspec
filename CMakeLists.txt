@@ -6,4 +6,7 @@ endif()
 
 project(ccspec)
 add_subdirectory(src)
+add_subdirectory(spec)
 add_subdirectory(demo)
+enable_testing()
+add_test(NAME ccspec_spec COMMAND ccspec_spec)
