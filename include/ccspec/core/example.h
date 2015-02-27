@@ -15,7 +15,7 @@ namespace core {
 class Example {
   public:
     void run() const;
-    void run(Reporter&,
+    bool run(Reporter&,
              const std::list<BeforeHook>& before_each_hooks,
              const std::list<AfterHook>& after_each_hooks,
              std::list<AroundHook>) const;
@@ -26,7 +26,7 @@ class Example {
 
     Example(std::string desc, std::function<void ()> spec);
 
-    void finish(const ExecutionResult&) const;
+    bool finish(const ExecutionResult&) const;
 
     const std::string desc_;
     const std::function<void ()> spec_;

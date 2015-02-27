@@ -65,7 +65,7 @@ void Example::run() const {
 
 // Errors in around hooks are handled here so that only one error is caught
 // in a chain of around hooks.
-void Example::run(Reporter& reporter,
+bool Example::run(Reporter& reporter,
                   const list<BeforeHook>& before_each_hooks,
                   const list<AfterHook>& after_each_hooks,
                   list<AroundHook> around_hooks) const {
@@ -89,13 +89,15 @@ void Example::run(Reporter& reporter,
             }
         }
     );
-    finish(execution_result);
+    bool succeeded = finish(execution_result);
 
     reporter_ = nullptr;
     before_each_hooks_ = nullptr;
     after_each_hooks_ = nullptr;
     around_hooks_.clear();
     execution_result_ = nullptr;
+
+    return succeeded;
 }
 
 void Example::failWithException(Reporter& reporter, exception_ptr e) const {
@@ -114,11 +116,16 @@ Example::Example(string desc, function<void ()> spec)
       after_each_hooks_(nullptr),
       execution_result_(nullptr) {}
 
-void Example::finish(const ExecutionResult& execution_result) const {
-    if (execution_result.exception())
+bool Example::finish(const ExecutionResult& execution_result) const {
+    bool succeeded;
+    if (execution_result.exception()) {
         reporter_->exampleFailed(desc_, execution_result);
-    else
+        succeeded = false;
+    } else {
         reporter_->examplePassed(desc_, execution_result);
+        succeeded = true;
+    }
+    return succeeded;
 }
 
 // Friend functions.
