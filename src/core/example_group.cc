@@ -63,11 +63,11 @@ void ExampleGroup::addAroundHook(AroundHook hook) {
     around_hooks_.push_back(hook);
 }
 
-void ExampleGroup::run(Reporter& reporter) const {
+bool ExampleGroup::run(Reporter& reporter) const {
     list<BeforeHook> before_each_hooks;
     list<AfterHook> after_each_hooks;
     list<AroundHook> around_hooks;
-    run(reporter, before_each_hooks, after_each_hooks, around_hooks);
+    return run(reporter, before_each_hooks, after_each_hooks, around_hooks);
 }
 
 // Private methods.
@@ -78,7 +78,7 @@ void ExampleGroup::addChild(const ExampleGroup* example_group) {
     children_.push_back(example_group);
 }
 
-void ExampleGroup::run(Reporter& reporter,
+bool ExampleGroup::run(Reporter& reporter,
                        list<BeforeHook>& before_each_hooks,
                        list<AfterHook>& after_each_hooks,
                        list<AroundHook>& around_hooks) const {
@@ -97,6 +97,7 @@ void ExampleGroup::run(Reporter& reporter,
         around_hooks_.begin(),
         around_hooks_.end()
     );
+    bool succeeded = true;
 
     reporter.exampleGroupStarted(desc_);
     catchException(
@@ -104,12 +105,20 @@ void ExampleGroup::run(Reporter& reporter,
             for (auto hook : before_all_hooks_)
                 hook();
             for (auto const& example : examples_) {
-                example.run(reporter, before_each_hooks, after_each_hooks,
-                            around_hooks);
+                // `succeeded` must be on the RHS of && to avoid short-circuit.
+                succeeded = example.run(
+                    reporter,
+                    before_each_hooks,
+                    after_each_hooks,
+                    around_hooks) && succeeded;
             }
             for (auto child : children_) {
-                child->run(reporter, before_each_hooks, after_each_hooks,
-                           around_hooks);
+                // `succeeded` must be on the RHS of && to avoid short-circuit.
+                succeeded = child->run(
+                    reporter,
+                    before_each_hooks,
+                    after_each_hooks,
+                    around_hooks) && succeeded;
             }
         },
         [&](exception_ptr e) {
@@ -117,6 +126,7 @@ void ExampleGroup::run(Reporter& reporter,
             // exceptions here can only be thrown from before all hooks, thus
             // fail all descendant examples.
             failWithException(reporter, e);
+            succeeded = false;
         }
     );
     // Continue running after all hooks regardless of execution result.
@@ -125,12 +135,17 @@ void ExampleGroup::run(Reporter& reporter,
             for (auto hook : after_all_hooks_)
                 hook();
         },
-        [&](exception_ptr e) { reporter.afterAllHookFailed(e); }
+        [&](exception_ptr e) {
+            reporter.afterAllHookFailed(e);
+            succeeded = false;
+        }
     );
     reporter.exampleGroupFinished(desc_);
     around_hooks.erase(first_new_around, around_hooks.end());
     after_each_hooks.erase(first_new_after_each, after_each_hooks.end());
     before_each_hooks.erase(first_new_before_each, before_each_hooks.end());
+
+    return succeeded;
 }
 
 void ExampleGroup::failWithException(Reporter& reporter,

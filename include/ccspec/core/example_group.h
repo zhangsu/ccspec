@@ -31,7 +31,7 @@ class ExampleGroup {
     void addAfterEachHook(AfterHook);
     void addAfterAllHook(AfterHook);
     void addAroundHook(AroundHook);
-    void run(Reporter&) const;
+    bool run(Reporter&) const;
 
   private:
     typedef ExampleGroup* Creator(std::string desc,
@@ -40,7 +40,7 @@ class ExampleGroup {
     explicit ExampleGroup(std::string desc);
 
     void addChild(const ExampleGroup*);
-    void run(Reporter&,
+    bool run(Reporter&,
              std::list<BeforeHook>& before_each_hooks,
              std::list<AfterHook>& after_each_hooks,
              std::list<AroundHook>&) const;
