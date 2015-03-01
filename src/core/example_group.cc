@@ -85,18 +85,15 @@ bool ExampleGroup::run(Reporter& reporter,
     auto first_new_before_each = before_each_hooks.insert(
         before_each_hooks.end(),
         before_each_hooks_.begin(),
-        before_each_hooks_.end()
-    );
+        before_each_hooks_.end());
     auto first_new_after_each = after_each_hooks.insert(
         after_each_hooks.end(),
         after_each_hooks_.begin(),
-        after_each_hooks_.end()
-    );
+        after_each_hooks_.end());
     auto first_new_around = around_hooks.insert(
         around_hooks.end(),
         around_hooks_.begin(),
-        around_hooks_.end()
-    );
+        around_hooks_.end());
     bool succeeded = true;
 
     reporter.exampleGroupStarted(desc_);
@@ -127,8 +124,7 @@ bool ExampleGroup::run(Reporter& reporter,
             // fail all descendant examples.
             failWithException(reporter, e);
             succeeded = false;
-        }
-    );
+        });
     // Continue running after all hooks regardless of execution result.
     catchException(
         [this] {
@@ -138,8 +134,7 @@ bool ExampleGroup::run(Reporter& reporter,
         [&](exception_ptr e) {
             reporter.afterAllHookFailed(e);
             succeeded = false;
-        }
-    );
+        });
     reporter.exampleGroupFinished(desc_);
     around_hooks.erase(first_new_around, around_hooks.end());
     after_each_hooks.erase(first_new_after_each, after_each_hooks.end());

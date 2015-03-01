@@ -37,8 +37,7 @@ void Example::run() const {
                 spec_();
             },
             // Save errors in before hook and example.
-            [&](exception_ptr e) { execution_result_->set_exception(e); }
-        );
+            [&](exception_ptr e) { execution_result_->set_exception(e); });
         // Continue running after each hooks regardless of execution result.
         ExampleGroup::catchException(
             [this] {
@@ -54,8 +53,7 @@ void Example::run() const {
                 } else {
                     execution_result_->set_exception(e);
                 }
-            }
-        );
+            });
     } else {
         AroundHook around_hook = around_hooks_.front();
         around_hooks_.pop_front();
@@ -87,8 +85,7 @@ bool Example::run(Reporter& reporter,
             } else {
                 execution_result.set_exception(e);
             }
-        }
-    );
+        });
     bool succeeded = finish(execution_result);
 
     reporter_ = nullptr;
