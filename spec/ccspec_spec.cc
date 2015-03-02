@@ -20,9 +20,9 @@ int main() {
     DocumentationFormatter formatter(cout);
     Reporter reporter(&formatter);
 
-    matchers::eq_spec->run(reporter);
+    bool succeeded = matchers::eq_spec->run(reporter);
 
     delete matchers::eq_spec;
 
-    return 1;
+    return !succeeded;
 }
