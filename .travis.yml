@@ -12,7 +12,7 @@ before_install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
 
 script:
-  - cd build && cmake .. && make
+  - cd build && cmake .. && make && spec/ccspec_spec
 
 os:
   - linux
