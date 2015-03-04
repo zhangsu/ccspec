@@ -11,11 +11,20 @@
 namespace ccspec {
 namespace matchers {
 
+// Matches expected value with actual value using operator ==.
+//
+// Example:
+//      expect(4).to(eq(4.0));
+//      expect(string("baz")).notTo(eq("bar"));
 template <typename U>
 class Eq : public UnaryMatcher<Eq<U>, U> {
   public:
+    // Returns true if the given actual value is equal to this matcher's
+    // expected value using the == comparison operator.
     template <typename V>
     bool match(const V& actual_value) const;
+
+    // Returns the human-readable description of what this matcher matches.
     std::string desc() const override;
 
   private:
@@ -25,6 +34,7 @@ class Eq : public UnaryMatcher<Eq<U>, U> {
     friend Eq<V> eq(const V& expected_value);
 };
 
+// Creates a new Eq matcher with the given expected value.
 template <typename V>
 Eq<V> eq(const V& expected_value);
 
