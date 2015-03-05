@@ -17,7 +17,7 @@ CCSpec is simply an attempt to port RSpec from Ruby to C++ as much as possible.
 });
 ```
 
-## Basic Structure
+## Getting Started
 CCSpec contains hierarchical structures of example groups and examples. Each
 example group is a collection of descriptions of related behavioral examples.
 The `describe` function returns an example group, which can contain multiple
