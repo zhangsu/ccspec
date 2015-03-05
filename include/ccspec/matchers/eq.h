@@ -11,7 +11,7 @@
 namespace ccspec {
 namespace matchers {
 
-// Matches expected value with actual value using operator ==.
+// Matches expected value with actual value using the equality operator ==.
 //
 // Example:
 //      expect(4).to(eq(4.0));
