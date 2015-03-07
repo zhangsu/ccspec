@@ -11,16 +11,32 @@
 namespace ccspec {
 namespace matchers {
 
+// Matches expected value with actual value for object types by comparing their
+// object identities obtained using the address-of operator &.
+//
+// Example:
+//      struct A {};
+//      A a0, a1;
+//      A& a2 = a0;
+//      expect(a0).to(be(a2));
+//      expect(a0).notTo(be(a1));
 template <typename U>
 class Be : public UnaryMatcher<Be<U>, U> {
   public:
+    // Returns true if the given actual value has the same object identity
+    // as that of this matcher's expected value, where the identities are
+    // obtained using the & address-of operator.
     template <typename V>
     bool match(const V& actual_value) const;
+
+    // Returns the human-readable description of what this matcher matches.
     std::string desc() const override;
 
   private:
     explicit Be(const U& expected_value);
 
+    // The friend class that produces various matchers that have their DSL start
+    // with "be".
     friend class BeSomething;
 };
 
