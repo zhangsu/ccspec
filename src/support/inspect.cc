@@ -11,6 +11,18 @@ using std::string;
 using std::streambuf;
 using std::ostream;
 
+string inspect(char val) {
+    ostringstream ss;
+    ss << val;
+    return ss.str();
+}
+
+string inspect(unsigned char val) {
+    ostringstream ss;
+    ss << val;
+    return ss.str();
+}
+
 string inspect(bool val) {
     ostringstream ss;
     ss << val;

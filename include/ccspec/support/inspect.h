@@ -15,6 +15,8 @@
 namespace ccspec {
 namespace support {
 
+std::string inspect(char);
+std::string inspect(unsigned char);
 std::string inspect(bool);
 std::string inspect(short);
 std::string inspect(unsigned short);
