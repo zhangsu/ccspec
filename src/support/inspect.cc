@@ -101,6 +101,10 @@ string inspect(void* val) {
     return ss.str();
 }
 
+string inspect(const char* s) {
+    return string(s);
+}
+
 string inspect(const string& s) {
     return s;
 }

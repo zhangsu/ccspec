@@ -30,6 +30,7 @@ std::string inspect(float);
 std::string inspect(double);
 std::string inspect(long double);
 std::string inspect(void*);
+std::string inspect(const char*);
 std::string inspect(const std::string&);
 std::string inspect(std::streambuf*);
 std::string inspect(std::ostream& (*pf)(std::ostream&));
