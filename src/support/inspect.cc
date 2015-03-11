@@ -22,10 +22,9 @@ string inspect(unsigned char val) {
     ss << val;
     return ss.str();
 }
-
 string inspect(bool val) {
     ostringstream ss;
-    ss << val;
+    ss << std::boolalpha << val;
     return ss.str();
 }
 
