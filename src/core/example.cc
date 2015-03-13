@@ -142,5 +142,5 @@ Example specify(string desc, function<void ()> spec) {
     return it(desc, spec);
 }
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec

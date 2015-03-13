@@ -21,8 +21,8 @@ class Mismatch : public ccspec::support::Exception {
     std::string desc(const T& actual_value, const Matcher<ConcreteMatcher>&);
 };
 
-} // namespace expectation
-} // namespace ccspec
+}  // namespace expectation
+}  // namespace ccspec
 
 // Implementation.
 
@@ -49,7 +49,7 @@ std::string Mismatch<T, ConcreteMatcher>::desc(
     return s.str();
 }
 
-} // namespace expectation
-} // namespace ccspec
+}  // namespace expectation
+}  // namespace ccspec
 
 #endif // CCSPEC_MISMATCH_H_

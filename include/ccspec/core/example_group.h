@@ -62,7 +62,7 @@ class ExampleGroup {
 ExampleGroup::Creator describe;
 ExampleGroup::Creator context;
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec
 
 #endif // CCSPEC_CORE_EXAMPLE_GROUP_H_

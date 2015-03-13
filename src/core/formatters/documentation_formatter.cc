@@ -51,6 +51,6 @@ void DocumentationFormatter::printIndentation() const {
         output() << "  ";
 }
 
-} // namespace formatters
-} // namespace core
-} // namespace ccspec
+}  // namespace formatters
+}  // namespace core
+}  // namespace ccspec

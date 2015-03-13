@@ -11,8 +11,8 @@ namespace matchers {
 
 extern ExampleGroup* eq_spec;
 
-} // namespace matchers
-} // namespace spec
+}  // namespace matchers
+}  // namespace spec
 
 int main() {
     using namespace spec;

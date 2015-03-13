@@ -23,6 +23,6 @@ void ProgressFormatter::startDump() const {
     output() << '\n';
 }
 
-} // namespace formatters
-} // namespace core
-} // namespace ccspec
+}  // namespace formatters
+}  // namespace core
+}  // namespace ccspec

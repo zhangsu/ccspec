@@ -25,8 +25,8 @@ class TextFormatter : public Formatter {
     void outputException(std::exception_ptr failure) const;
 };
 
-} // namespace formatters
-} // namespace core
-} // namespace ccspec
+}  // namespace formatters
+}  // namespace core
+}  // namespace ccspec
 
 #endif // CCSPEC_CORE_FORMATTERS_TEXT_FORMATTER_H_

@@ -19,5 +19,5 @@ const string& Exception::desc() const {
 
 Exception::Exception(string desc) : desc_(desc) {}
 
-} // namespace support
-} // namespace ccspec
+}  // namespace support
+}  // namespace ccspec

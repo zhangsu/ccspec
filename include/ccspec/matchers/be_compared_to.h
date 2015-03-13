@@ -31,8 +31,8 @@ class BeComparedTo : public UnaryMatcher<BeComparedTo<U>, U> {
     friend class BeSomething;
 };
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec
 
 // Implementation.
 
@@ -64,7 +64,7 @@ BeComparedTo<U>::BeComparedTo(Comparator compare, std::string comparator_name,
       compare_(compare),
       comparator_name_(comparator_name) {}
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec
 
 #endif // CCSPEC_MATCHERS_BE_COMPARED_TO_H_

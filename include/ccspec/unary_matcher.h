@@ -19,7 +19,7 @@ class UnaryMatcher : public Matcher<ConcreteMatcher> {
     const T& expected_value_;
 };
 
-} // namespace ccspec
+}  // namespace ccspec
 
 // Implementation.
 
@@ -39,6 +39,6 @@ const T& UnaryMatcher<ConcreteMatcher, T>::expected_value() const {
     return expected_value_;
 }
 
-} // namespace ccspec
+}  // namespace ccspec
 
 #endif // CCSPEC_UNARY_MATCHER_H_

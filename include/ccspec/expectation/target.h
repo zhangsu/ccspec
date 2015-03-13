@@ -14,7 +14,7 @@ namespace expectation {
 template <typename U>
 class Target;
 
-} // namespace expectation
+}  // namespace expectation
 
 template <typename T>
 expectation::Target<T> expect(const T& actual_value);
@@ -38,8 +38,8 @@ class Target {
     friend Target<V> ccspec::expect(const V& actual_value);
 };
 
-} // namespace expectation
-} // namespace ccspec
+}  // namespace expectation
+}  // namespace ccspec
 
 // Implementation.
 
@@ -75,7 +75,7 @@ void Target<U>::notTo(const Matcher<ConcreteMatcher>& matcher) const {
 template <typename U>
 Target<U>::Target(const U& actual_value) : actual_value_(actual_value) {}
 
-} // namespace expectation
-} // namespace ccspec
+}  // namespace expectation
+}  // namespace ccspec
 
 #endif // CCSPEC_EXPECTATION_TARGET_H_

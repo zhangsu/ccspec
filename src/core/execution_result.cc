@@ -17,5 +17,5 @@ void ExecutionResult::set_exception(exception_ptr exception) {
     exception_ = exception;
 }
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec

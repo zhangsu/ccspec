@@ -40,8 +40,8 @@ std::string inspect(std::ios_base& (*pf)(std::ios_base&));
 template <typename T>
 std::string inspect(const T&);
 
-} // namespace support
-} // namespace ccspec
+}  // namespace support
+}  // namespace ccspec
 
 // Implementation.
 
@@ -60,7 +60,7 @@ std::string inspect(const T& object) {
 #endif
 }
 
-} // namespace support
-} // namespace ccspec
+}  // namespace support
+}  // namespace ccspec
 
 #endif // CCSPEC_SUPPORT_INSPECT_H_

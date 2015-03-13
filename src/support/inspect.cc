@@ -132,5 +132,5 @@ string inspect(std::ios_base& (*pf)(std::ios_base&)) {
     return ss.str();
 }
 
-} // namespace support
-} // namespace ccspec
+}  // namespace support
+}  // namespace ccspec

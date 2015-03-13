@@ -19,7 +19,7 @@ class Exception : public std::exception {
     const std::string desc_;
 };
 
-} // namespace support
-} // namespace ccspec
+}  // namespace support
+}  // namespace ccspec
 
 #endif // CCSPEC_SUPPORT_EXCEPTION_H_

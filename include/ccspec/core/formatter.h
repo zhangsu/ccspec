@@ -33,7 +33,7 @@ class Formatter {
     std::ostream& output_;
 };
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec
 
 #endif // CCSPEC_CORE_FORMATTER_H_

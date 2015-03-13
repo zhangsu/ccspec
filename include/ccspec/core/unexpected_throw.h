@@ -16,7 +16,7 @@ class UnexpectedThrow : public ccspec::support::Exception {
     std::string desc(const std::exception& cause);
 };
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec
 
 #endif // CCSPEC_CORE_UNEXPECTED_THROW_H_

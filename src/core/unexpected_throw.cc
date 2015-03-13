@@ -18,5 +18,5 @@ string UnexpectedThrow::desc(const exception& cause) {
     return string("Unexpected exception: ") + cause.what();
 }
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec

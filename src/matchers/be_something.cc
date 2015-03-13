@@ -16,5 +16,5 @@ const BeSomething& BeSomething::instance() {
 
 BeSomething::BeSomething() {}
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec

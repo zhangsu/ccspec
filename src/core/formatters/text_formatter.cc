@@ -52,6 +52,6 @@ void TextFormatter::outputException(exception_ptr failure) const {
     }
 }
 
-} // namespace formatters
-} // namespace core
-} // namespace ccspec
+}  // namespace formatters
+}  // namespace core
+}  // namespace ccspec

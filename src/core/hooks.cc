@@ -34,5 +34,5 @@ void around(string scope, AroundHook hook) {
         throw "no such around hook type";
 }
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec

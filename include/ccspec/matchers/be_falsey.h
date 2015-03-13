@@ -25,8 +25,8 @@ class BeFalsey : public Matcher<BeFalsey> {
 
 extern const BeFalsey& be_falsey;
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec
 
 // Implementation.
 
@@ -40,7 +40,7 @@ bool BeFalsey::match(const T& actual_value) const {
     return !actual_value;
 }
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec
 
 #endif // CCSPEC_MATCHERS_BE_FALSEY_H_

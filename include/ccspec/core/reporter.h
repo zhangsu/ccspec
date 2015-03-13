@@ -32,7 +32,7 @@ class Reporter {
     std::list<std::exception_ptr> failures_;
 };
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec
 
 #endif // CCSPEC_CORE_REPORTER_H_

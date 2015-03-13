@@ -38,8 +38,8 @@ class Eq : public UnaryMatcher<Eq<U>, U> {
 template <typename V>
 Eq<V> eq(const V& expected_value);
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec
 
 // Implementation.
 
@@ -73,7 +73,7 @@ Eq<V> eq(const V& expected_value) {
     return Eq<V>(expected_value);
 }
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec
 
 #endif // CCSPEC_MATCHERS_EQ_H_

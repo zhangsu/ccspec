@@ -165,5 +165,5 @@ auto eq_spec = describe("Eq", [] {
     });
 });
 
-} // namespace matchers
-} // namespace spec
+}  // namespace matchers
+}  // namespace spec

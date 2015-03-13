@@ -59,7 +59,7 @@ Example::Creator it;
 Example::Creator example;
 Example::Creator specify;
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec
 
 #endif // CCSPEC_CORE_EXAMPLE_H_

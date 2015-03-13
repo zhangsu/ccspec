@@ -19,8 +19,8 @@ class ProgressFormatter : public TextFormatter {
     void startDump() const override;
 };
 
-} // namespace formatters
-} // namespace core
-} // namespace ccspec
+}  // namespace formatters
+}  // namespace core
+}  // namespace ccspec
 
 #endif // CCSPEC_CORE_FORMATTERS_PROGRESS_FORMATTER_H_

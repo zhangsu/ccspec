@@ -20,7 +20,7 @@ class Matcher {
 template <typename ConcreteMatcher>
 std::ostream& operator<<(std::ostream&, const Matcher<ConcreteMatcher>&);
 
-} // namespace ccspec
+}  // namespace ccspec
 
 // Implementation.
 
@@ -43,6 +43,6 @@ std::ostream& operator<<(std::ostream& stream,
     return stream;
 }
 
-} // namespace ccspec
+}  // namespace ccspec
 
 #endif // CCSPEC_MATCHER_H_

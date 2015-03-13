@@ -25,8 +25,8 @@ class BeTruthy : public Matcher<BeTruthy> {
 
 extern const BeTruthy& be_truthy;
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec
 
 // Implementation.
 
@@ -40,7 +40,7 @@ bool BeTruthy::match(const T& actual_value) const {
     return !!actual_value;
 }
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec
 
 #endif // CCSPEC_MATCHERS_BE_TRUTHY_H_

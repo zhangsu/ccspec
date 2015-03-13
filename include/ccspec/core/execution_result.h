@@ -17,7 +17,7 @@ class ExecutionResult {
     std::exception_ptr exception_;
 };
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec
 
 #endif // CCSPEC_CORE_EXECUTION_RESULT_H_

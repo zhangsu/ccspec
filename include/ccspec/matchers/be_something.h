@@ -40,8 +40,8 @@ class BeSomething {
 
 extern const BeSomething& be;
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec
 
 // Implementation.
 
@@ -86,7 +86,7 @@ BeComparedTo<T> BeSomething::operator !=(const T& expected_value) const {
                            expected_value);
 }
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec
 
 #endif // CCSPEC_MATCHERS_BE_SOMETHING_H_

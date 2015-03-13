@@ -20,5 +20,5 @@ std::string BeTruthy::desc() const {
 
 BeTruthy::BeTruthy() {}
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec

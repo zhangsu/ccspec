@@ -172,5 +172,5 @@ ExampleGroup* context(string desc, function<void ()> spec) {
     return describe(desc, spec);
 }
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec

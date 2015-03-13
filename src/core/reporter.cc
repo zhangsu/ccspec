@@ -68,5 +68,5 @@ void Reporter::finish() const {
     }
 }
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec

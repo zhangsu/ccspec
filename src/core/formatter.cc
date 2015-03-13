@@ -38,5 +38,5 @@ ostream& Formatter::output() const {
     return output_;
 }
 
-} // namespace core
-} // namespace ccspec
+}  // namespace core
+}  // namespace ccspec

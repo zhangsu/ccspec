@@ -25,8 +25,8 @@ class DocumentationFormatter : public TextFormatter {
     int group_level_;
 };
 
-} // namespace formatters
-} // namespace core
-} // namespace ccspec
+}  // namespace formatters
+}  // namespace core
+}  // namespace ccspec
 
 #endif // CCSPEC_CORE_FORMATTERS_DOCUMENTATION_FORMATTER_H_

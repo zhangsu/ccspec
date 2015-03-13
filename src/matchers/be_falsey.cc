@@ -20,5 +20,5 @@ std::string BeFalsey::desc() const {
 
 BeFalsey::BeFalsey() {}
 
-} // namespace matchers
-} // namespace ccspec
+}  // namespace matchers
+}  // namespace ccspec
