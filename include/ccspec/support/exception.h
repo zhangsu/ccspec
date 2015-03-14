@@ -22,4 +22,4 @@ class Exception : public std::exception {
 }  // namespace support
 }  // namespace ccspec
 
-#endif // CCSPEC_SUPPORT_EXCEPTION_H_
+#endif  // CCSPEC_SUPPORT_EXCEPTION_H_

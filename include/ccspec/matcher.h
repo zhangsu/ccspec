@@ -45,4 +45,4 @@ std::ostream& operator<<(std::ostream& stream,
 
 }  // namespace ccspec
 
-#endif // CCSPEC_MATCHER_H_
+#endif  // CCSPEC_MATCHER_H_

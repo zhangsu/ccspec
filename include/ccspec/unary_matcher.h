@@ -41,4 +41,4 @@ const T& UnaryMatcher<ConcreteMatcher, T>::expected_value() const {
 
 }  // namespace ccspec
 
-#endif // CCSPEC_UNARY_MATCHER_H_
+#endif  // CCSPEC_UNARY_MATCHER_H_

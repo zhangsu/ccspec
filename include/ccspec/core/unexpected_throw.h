@@ -19,4 +19,4 @@ class UnexpectedThrow : public ccspec::support::Exception {
 }  // namespace core
 }  // namespace ccspec
 
-#endif // CCSPEC_CORE_UNEXPECTED_THROW_H_
+#endif  // CCSPEC_CORE_UNEXPECTED_THROW_H_

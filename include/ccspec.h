@@ -6,4 +6,4 @@
 #include "ccspec/matcher.h"
 #include "ccspec/matchers.h"
 
-#endif // CCSPEC_H_
+#endif  // CCSPEC_H_

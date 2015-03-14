@@ -78,4 +78,4 @@ Target<U>::Target(const U& actual_value) : actual_value_(actual_value) {}
 }  // namespace expectation
 }  // namespace ccspec
 
-#endif // CCSPEC_EXPECTATION_TARGET_H_
+#endif  // CCSPEC_EXPECTATION_TARGET_H_

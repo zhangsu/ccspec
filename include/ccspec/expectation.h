@@ -3,4 +3,4 @@
 
 #include "expectation/target.h"
 
-#endif // CCSPEC_EXPECTATION_H_
+#endif  // CCSPEC_EXPECTATION_H_

@@ -71,4 +71,4 @@ Be<U>::Be(const U& expected_value) : UnaryMatcher<Be<U>, U>(expected_value) {}
 }  // namespace matchers
 }  // namespace ccspec
 
-#endif // CCSPEC_MATCHERS_BE_H_
+#endif  // CCSPEC_MATCHERS_BE_H_

@@ -23,4 +23,4 @@ class ProgressFormatter : public TextFormatter {
 }  // namespace core
 }  // namespace ccspec
 
-#endif // CCSPEC_CORE_FORMATTERS_PROGRESS_FORMATTER_H_
+#endif  // CCSPEC_CORE_FORMATTERS_PROGRESS_FORMATTER_H_

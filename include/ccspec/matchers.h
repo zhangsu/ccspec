@@ -7,4 +7,4 @@
 #include "matchers/be_truthy.h"
 #include "matchers/eq.h"
 
-#endif // CCSPEC_MATCHERS_H_
+#endif  // CCSPEC_MATCHERS_H_

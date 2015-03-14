@@ -29,4 +29,4 @@ class DocumentationFormatter : public TextFormatter {
 }  // namespace core
 }  // namespace ccspec
 
-#endif // CCSPEC_CORE_FORMATTERS_DOCUMENTATION_FORMATTER_H_
+#endif  // CCSPEC_CORE_FORMATTERS_DOCUMENTATION_FORMATTER_H_

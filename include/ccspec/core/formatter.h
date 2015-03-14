@@ -36,4 +36,4 @@ class Formatter {
 }  // namespace core
 }  // namespace ccspec
 
-#endif // CCSPEC_CORE_FORMATTER_H_
+#endif  // CCSPEC_CORE_FORMATTER_H_

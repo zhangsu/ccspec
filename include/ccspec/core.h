@@ -8,4 +8,4 @@
 #include "core/hooks.h"
 #include "core/reporter.h"
 
-#endif // CCSPEC_CORE_H_
+#endif  // CCSPEC_CORE_H_

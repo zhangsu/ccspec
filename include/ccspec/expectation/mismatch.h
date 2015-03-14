@@ -52,4 +52,4 @@ std::string Mismatch<T, ConcreteMatcher>::desc(
 }  // namespace expectation
 }  // namespace ccspec
 
-#endif // CCSPEC_MISMATCH_H_
+#endif  // CCSPEC_MISMATCH_H_

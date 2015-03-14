@@ -65,4 +65,4 @@ ExampleGroup::Creator context;
 }  // namespace core
 }  // namespace ccspec
 
-#endif // CCSPEC_CORE_EXAMPLE_GROUP_H_
+#endif  // CCSPEC_CORE_EXAMPLE_GROUP_H_

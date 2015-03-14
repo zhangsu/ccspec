@@ -35,4 +35,4 @@ class Reporter {
 }  // namespace core
 }  // namespace ccspec
 
-#endif // CCSPEC_CORE_REPORTER_H_
+#endif  // CCSPEC_CORE_REPORTER_H_

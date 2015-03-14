@@ -67,4 +67,4 @@ BeComparedTo<U>::BeComparedTo(Comparator compare, std::string comparator_name,
 }  // namespace matchers
 }  // namespace ccspec
 
-#endif // CCSPEC_MATCHERS_BE_COMPARED_TO_H_
+#endif  // CCSPEC_MATCHERS_BE_COMPARED_TO_H_

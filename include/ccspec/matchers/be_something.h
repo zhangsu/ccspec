@@ -89,4 +89,4 @@ BeComparedTo<T> BeSomething::operator !=(const T& expected_value) const {
 }  // namespace matchers
 }  // namespace ccspec
 
-#endif // CCSPEC_MATCHERS_BE_SOMETHING_H_
+#endif  // CCSPEC_MATCHERS_BE_SOMETHING_H_

@@ -52,4 +52,4 @@ std::string UnexpectedMatch<T, ConcreteMatcher>::desc(
 }  // namespace expectation
 }  // namespace ccspec
 
-#endif // CCSPEC_UNEXPECTED_MATCH_H_
+#endif  // CCSPEC_UNEXPECTED_MATCH_H_

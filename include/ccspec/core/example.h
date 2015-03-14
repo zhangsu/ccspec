@@ -62,4 +62,4 @@ Example::Creator specify;
 }  // namespace core
 }  // namespace ccspec
 
-#endif // CCSPEC_CORE_EXAMPLE_H_
+#endif  // CCSPEC_CORE_EXAMPLE_H_

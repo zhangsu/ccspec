@@ -43,4 +43,4 @@ bool BeFalsey::match(const T& actual_value) const {
 }  // namespace matchers
 }  // namespace ccspec
 
-#endif // CCSPEC_MATCHERS_BE_FALSEY_H_
+#endif  // CCSPEC_MATCHERS_BE_FALSEY_H_

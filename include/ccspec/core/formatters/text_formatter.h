@@ -29,4 +29,4 @@ class TextFormatter : public Formatter {
 }  // namespace core
 }  // namespace ccspec
 
-#endif // CCSPEC_CORE_FORMATTERS_TEXT_FORMATTER_H_
+#endif  // CCSPEC_CORE_FORMATTERS_TEXT_FORMATTER_H_

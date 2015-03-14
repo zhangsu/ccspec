@@ -76,4 +76,4 @@ Eq<V> eq(const V& expected_value) {
 }  // namespace matchers
 }  // namespace ccspec
 
-#endif // CCSPEC_MATCHERS_EQ_H_
+#endif  // CCSPEC_MATCHERS_EQ_H_

@@ -20,4 +20,4 @@ class ExecutionResult {
 }  // namespace core
 }  // namespace ccspec
 
-#endif // CCSPEC_CORE_EXECUTION_RESULT_H_
+#endif  // CCSPEC_CORE_EXECUTION_RESULT_H_
