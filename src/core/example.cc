@@ -105,7 +105,7 @@ void Example::failWithException(Reporter& reporter, exception_ptr e) const {
 
 // Private methods.
 
-Example::Example(string desc, function<void ()> spec)
+Example::Example(string desc, function<void()> spec)
     : desc_(desc),
       spec_(spec),
       reporter_(nullptr),
@@ -127,18 +127,18 @@ bool Example::finish(const ExecutionResult& execution_result) const {
 
 // Friend functions.
 
-Example it(string desc, function<void ()> spec) {
+Example it(string desc, function<void()> spec) {
     Example example = Example(desc, spec);
     ExampleGroup* parent_group = groups_being_defined.top();
     parent_group->addExample(example);
     return example;
 }
 
-Example example(string desc, function<void ()> spec) {
+Example example(string desc, function<void()> spec) {
     return it(desc, spec);
 }
 
-Example specify(string desc, function<void ()> spec) {
+Example specify(string desc, function<void()> spec) {
     return it(desc, spec);
 }
 

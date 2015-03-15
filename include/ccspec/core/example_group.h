@@ -35,7 +35,7 @@ class ExampleGroup {
 
   private:
     typedef ExampleGroup* Creator(std::string desc,
-                                  std::function<void ()> spec);
+                                  std::function<void()> spec);
 
     explicit ExampleGroup(std::string desc);
 

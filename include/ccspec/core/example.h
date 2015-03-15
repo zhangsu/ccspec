@@ -22,14 +22,14 @@ class Example {
     void failWithException(Reporter&, std::exception_ptr) const;
 
   private:
-    typedef Example Creator(std::string desc, std::function<void ()> spec);
+    typedef Example Creator(std::string desc, std::function<void()> spec);
 
-    Example(std::string desc, std::function<void ()> spec);
+    Example(std::string desc, std::function<void()> spec);
 
     bool finish(const ExecutionResult&) const;
 
     const std::string desc_;
-    const std::function<void ()> spec_;
+    const std::function<void()> spec_;
     // These members are marked mutable becuase they are only used to implement
     // the special DSL used for around hooks. Users call the nullary `run`
     // method on the example in around hooks, so all the hooks needed for

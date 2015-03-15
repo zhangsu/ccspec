@@ -153,7 +153,7 @@ void ExampleGroup::failWithException(Reporter& reporter,
 
 // Friend functions.
 
-ExampleGroup* describe(string desc, function<void ()> spec) {
+ExampleGroup* describe(string desc, function<void()> spec) {
     ExampleGroup* example_group = new ExampleGroup(desc);
 
     if (!groups_being_defined.empty()) {
@@ -168,7 +168,7 @@ ExampleGroup* describe(string desc, function<void ()> spec) {
     return example_group;
 }
 
-ExampleGroup* context(string desc, function<void ()> spec) {
+ExampleGroup* context(string desc, function<void()> spec) {
     return describe(desc, spec);
 }
 
