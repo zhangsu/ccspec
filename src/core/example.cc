@@ -37,7 +37,9 @@ void Example::run() const {
                 spec_();
             },
             // Save errors in before hook and example.
-            [&](exception_ptr e) { execution_result_->set_exception(e); });
+            [&](exception_ptr e) {
+                execution_result_->set_exception(e);
+            });
         // Continue running after each hooks regardless of execution result.
         ExampleGroup::catchException(
             [this] {
