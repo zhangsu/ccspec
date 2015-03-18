@@ -2,13 +2,14 @@
 #define CCSPEC_SUPPORT_INSPECT_H_
 
 #include <cstdlib>
-#ifndef _MSC_VER
-#   include <cxxabi.h>
-#endif
 #include <iostream>
 #include <memory>
 #include <string>
 #include <typeinfo>
+
+#ifndef _MSC_VER
+#include <cxxabi.h>
+#endif  // _MSC_VER
 
 // Interface.
 
