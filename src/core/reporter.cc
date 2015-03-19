@@ -1,4 +1,4 @@
-#include <ccspec/core/reporter.h>
+#include "ccspec/core/reporter.h"
 
 namespace ccspec {
 namespace core {

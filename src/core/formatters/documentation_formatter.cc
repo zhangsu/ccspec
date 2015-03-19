@@ -1,5 +1,4 @@
-#include <iostream>
-#include <ccspec/core/formatters/documentation_formatter.h>
+#include "ccspec/core/formatters/documentation_formatter.h"
 
 namespace ccspec {
 namespace core {

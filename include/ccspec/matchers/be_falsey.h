@@ -2,7 +2,8 @@
 #define CCSPEC_MATCHERS_BE_FALSEY_H_
 
 #include <string>
-#include <ccspec/matcher.h>
+
+#include "ccspec/matcher.h"
 
 // Interface.
 

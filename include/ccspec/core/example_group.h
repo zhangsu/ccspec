@@ -6,9 +6,10 @@
 #include <list>
 #include <stack>
 #include <string>
-#include "example.h"
-#include "hooks.h"
-#include "reporter.h"
+
+#include "ccspec/core/example.h"
+#include "ccspec/core/hooks.h"
+#include "ccspec/core/reporter.h"
 
 namespace ccspec {
 namespace core {

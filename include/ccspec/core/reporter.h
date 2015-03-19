@@ -5,8 +5,9 @@
 #include <list>
 #include <string>
 #include <vector>
-#include "execution_result.h"
-#include "formatter.h"
+
+#include "ccspec/core/execution_result.h"
+#include "ccspec/core/formatter.h"
 
 namespace ccspec {
 namespace core {

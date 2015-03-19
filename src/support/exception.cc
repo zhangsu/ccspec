@@ -1,4 +1,4 @@
-#include <ccspec/support/exception.h>
+#include "ccspec/support/exception.h"
 
 namespace ccspec {
 namespace support {

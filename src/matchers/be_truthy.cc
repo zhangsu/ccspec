@@ -1,4 +1,4 @@
-#include <ccspec/matchers/be_truthy.h>
+#include "ccspec/matchers/be_truthy.h"
 
 namespace ccspec {
 namespace matchers {

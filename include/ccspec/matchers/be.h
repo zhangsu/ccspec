@@ -3,8 +3,9 @@
 
 #include <sstream>
 #include <string>
-#include <ccspec/unary_matcher.h>
-#include <ccspec/support/inspect.h>
+
+#include "ccspec/support/inspect.h"
+#include "ccspec/unary_matcher.h"
 
 // Interface.
 

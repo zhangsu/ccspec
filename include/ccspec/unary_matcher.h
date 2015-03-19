@@ -1,7 +1,7 @@
 #ifndef CCSPEC_UNARY_MATCHER_H_
 #define CCSPEC_UNARY_MATCHER_H_
 
-#include <ccspec/matcher.h>
+#include "ccspec/matcher.h"
 
 // Interface.
 

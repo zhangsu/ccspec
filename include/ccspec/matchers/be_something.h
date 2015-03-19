@@ -4,9 +4,10 @@
 #include <functional>
 #include <sstream>
 #include <string>
-#include <ccspec/matcher.h>
-#include "be.h"
-#include "be_compared_to.h"
+
+#include "ccspec/matcher.h"
+#include "ccspec/matchers/be.h"
+#include "ccspec/matchers/be_compared_to.h"
 
 // Interface.
 

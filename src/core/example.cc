@@ -1,5 +1,6 @@
-#include <ccspec/core/example.h>
-#include <ccspec/core/example_group.h>
+#include "ccspec/core/example.h"
+
+#include "ccspec/core/example_group.h"
 
 namespace ccspec {
 namespace core {

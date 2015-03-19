@@ -5,6 +5,7 @@
 #include <list>
 #include <ostream>
 #include <string>
+
 #include "execution_result.h"
 
 namespace ccspec {

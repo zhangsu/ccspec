@@ -5,9 +5,10 @@
 #include <functional>
 #include <list>
 #include <string>
-#include "execution_result.h"
-#include "hooks.h"
-#include "reporter.h"
+
+#include "ccspec/core/execution_result.h"
+#include "ccspec/core/hooks.h"
+#include "ccspec/core/reporter.h"
 
 namespace ccspec {
 namespace core {

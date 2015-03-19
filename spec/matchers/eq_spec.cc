@@ -1,5 +1,6 @@
 #include <string>
-#include <ccspec.h>
+
+#include "ccspec.h"
 
 using std::string;
 using ccspec::core::before;

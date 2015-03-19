@@ -1,10 +1,10 @@
 #ifndef CCSPEC_EXPECTATION_TARGET_H_
 #define CCSPEC_EXPECTATION_TARGET_H_
 
-#include <ccspec/matcher.h>
-#include <ccspec/matchers/be.h>
-#include "mismatch.h"
-#include "unexpected_match.h"
+#include "ccspec/matcher.h"
+#include "ccspec/matchers/be.h"
+#include "ccspec/expectation/mismatch.h"
+#include "ccspec/expectation/unexpected_match.h"
 
 // Interface.
 

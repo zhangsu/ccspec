@@ -1,5 +1,5 @@
 #include <sstream>
-#include <ccspec/support/inspect.h>
+#include "ccspec/support/inspect.h"
 
 namespace ccspec {
 namespace support {
