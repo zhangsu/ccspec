@@ -1,5 +1,5 @@
-#ifndef CCSPEC_MATCHERS_BE_H_
-#define CCSPEC_MATCHERS_BE_H_
+#ifndef INCLUDE_CCSPEC_MATCHERS_BE_H_
+#define INCLUDE_CCSPEC_MATCHERS_BE_H_
 
 #include <sstream>
 #include <string>
@@ -72,4 +72,4 @@ Be<U>::Be(const U& expected_value) : UnaryMatcher<Be<U>, U>(expected_value) {}
 }  // namespace matchers
 }  // namespace ccspec
 
-#endif  // CCSPEC_MATCHERS_BE_H_
+#endif  // INCLUDE_CCSPEC_MATCHERS_BE_H_

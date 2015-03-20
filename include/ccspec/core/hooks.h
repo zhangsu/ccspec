@@ -1,5 +1,5 @@
-#ifndef CCSPEC_CORE_HOOKS_H_
-#define CCSPEC_CORE_HOOKS_H_
+#ifndef INCLUDE_CCSPEC_CORE_HOOKS_H_
+#define INCLUDE_CCSPEC_CORE_HOOKS_H_
 
 #include <functional>
 #include <string>
@@ -20,4 +20,4 @@ void around(std::string scope, AroundHook);
 }  // namespace core
 }  // namespace ccspec
 
-#endif  // CCSPEC_CORE_HOOKS_H_
+#endif  // INCLUDE_CCSPEC_CORE_HOOKS_H_

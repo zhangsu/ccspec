@@ -1,5 +1,5 @@
-#ifndef CCSPEC_MATCHERS_BE_COMPARED_TO_H_
-#define CCSPEC_MATCHERS_BE_COMPARED_TO_H_
+#ifndef INCLUDE_CCSPEC_MATCHERS_BE_COMPARED_TO_H_
+#define INCLUDE_CCSPEC_MATCHERS_BE_COMPARED_TO_H_
 
 #include <functional>
 #include <sstream>
@@ -68,4 +68,4 @@ BeComparedTo<U>::BeComparedTo(Comparator compare, std::string comparator_name,
 }  // namespace matchers
 }  // namespace ccspec
 
-#endif  // CCSPEC_MATCHERS_BE_COMPARED_TO_H_
+#endif  // INCLUDE_CCSPEC_MATCHERS_BE_COMPARED_TO_H_

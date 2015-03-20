@@ -1,5 +1,5 @@
-#ifndef CCSPEC_SUPPORT_EXCEPTION_H_
-#define CCSPEC_SUPPORT_EXCEPTION_H_
+#ifndef INCLUDE_CCSPEC_SUPPORT_EXCEPTION_H_
+#define INCLUDE_CCSPEC_SUPPORT_EXCEPTION_H_
 
 #include <exception>
 #include <string>
@@ -22,4 +22,4 @@ class Exception : public std::exception {
 }  // namespace support
 }  // namespace ccspec
 
-#endif  // CCSPEC_SUPPORT_EXCEPTION_H_
+#endif  // INCLUDE_CCSPEC_SUPPORT_EXCEPTION_H_

@@ -1,5 +1,5 @@
-#ifndef CCSPEC_SUPPORT_INSPECT_H_
-#define CCSPEC_SUPPORT_INSPECT_H_
+#ifndef INCLUDE_CCSPEC_SUPPORT_INSPECT_H_
+#define INCLUDE_CCSPEC_SUPPORT_INSPECT_H_
 
 #include <cstdlib>
 #include <iostream>
@@ -64,4 +64,4 @@ std::string inspect(const T& object) {
 }  // namespace support
 }  // namespace ccspec
 
-#endif  // CCSPEC_SUPPORT_INSPECT_H_
+#endif  // INCLUDE_CCSPEC_SUPPORT_INSPECT_H_

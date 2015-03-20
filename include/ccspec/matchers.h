@@ -1,5 +1,5 @@
-#ifndef CCSPEC_MATCHERS_H_
-#define CCSPEC_MATCHERS_H_
+#ifndef INCLUDE_CCSPEC_MATCHERS_H_
+#define INCLUDE_CCSPEC_MATCHERS_H_
 
 #include "matchers/be.h"
 #include "matchers/be_falsey.h"
@@ -7,4 +7,4 @@
 #include "matchers/be_truthy.h"
 #include "matchers/eq.h"
 
-#endif  // CCSPEC_MATCHERS_H_
+#endif  // INCLUDE_CCSPEC_MATCHERS_H_

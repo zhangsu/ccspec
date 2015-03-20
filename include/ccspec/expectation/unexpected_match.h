@@ -1,5 +1,5 @@
-#ifndef CCSPEC_UNEXPECTED_MATCH_H_
-#define CCSPEC_UNEXPECTED_MATCH_H_
+#ifndef INCLUDE_CCSPEC_EXPECTATION_UNEXPECTED_MATCH_H_
+#define INCLUDE_CCSPEC_EXPECTATION_UNEXPECTED_MATCH_H_
 
 #include <sstream>
 #include <string>
@@ -53,4 +53,4 @@ std::string UnexpectedMatch<T, ConcreteMatcher>::desc(
 }  // namespace expectation
 }  // namespace ccspec
 
-#endif  // CCSPEC_UNEXPECTED_MATCH_H_
+#endif  // INCLUDE_CCSPEC_EXPECTATION_UNEXPECTED_MATCH_H_

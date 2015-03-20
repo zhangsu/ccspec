@@ -1,5 +1,5 @@
-#ifndef CCSPEC_MISMATCH_H_
-#define CCSPEC_MISMATCH_H_
+#ifndef INCLUDE_CCSPEC_EXPECTATION_MISMATCH_H_
+#define INCLUDE_CCSPEC_EXPECTATION_MISMATCH_H_
 
 #include <sstream>
 #include <string>
@@ -53,4 +53,4 @@ std::string Mismatch<T, ConcreteMatcher>::desc(
 }  // namespace expectation
 }  // namespace ccspec
 
-#endif  // CCSPEC_MISMATCH_H_
+#endif  // INCLUDE_CCSPEC_EXPECTATION_MISMATCH_H_

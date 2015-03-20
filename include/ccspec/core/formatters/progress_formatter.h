@@ -1,5 +1,5 @@
-#ifndef CCSPEC_CORE_FORMATTERS_PROGRESS_FORMATTER_H_
-#define CCSPEC_CORE_FORMATTERS_PROGRESS_FORMATTER_H_
+#ifndef INCLUDE_CCSPEC_CORE_FORMATTERS_PROGRESS_FORMATTER_H_
+#define INCLUDE_CCSPEC_CORE_FORMATTERS_PROGRESS_FORMATTER_H_
 
 #include <ostream>
 #include <string>
@@ -24,4 +24,4 @@ class ProgressFormatter : public TextFormatter {
 }  // namespace core
 }  // namespace ccspec
 
-#endif  // CCSPEC_CORE_FORMATTERS_PROGRESS_FORMATTER_H_
+#endif  // INCLUDE_CCSPEC_CORE_FORMATTERS_PROGRESS_FORMATTER_H_

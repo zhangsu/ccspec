@@ -1,5 +1,5 @@
-#ifndef CCSPEC_EXPECTATION_TARGET_H_
-#define CCSPEC_EXPECTATION_TARGET_H_
+#ifndef INCLUDE_CCSPEC_EXPECTATION_TARGET_H_
+#define INCLUDE_CCSPEC_EXPECTATION_TARGET_H_
 
 #include "ccspec/matcher.h"
 #include "ccspec/matchers/be.h"
@@ -78,4 +78,4 @@ Target<U>::Target(const U& actual_value) : actual_value_(actual_value) {}
 }  // namespace expectation
 }  // namespace ccspec
 
-#endif  // CCSPEC_EXPECTATION_TARGET_H_
+#endif  // INCLUDE_CCSPEC_EXPECTATION_TARGET_H_

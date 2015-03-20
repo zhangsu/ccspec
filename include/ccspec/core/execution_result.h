@@ -1,5 +1,5 @@
-#ifndef CCSPEC_CORE_EXECUTION_RESULT_H_
-#define CCSPEC_CORE_EXECUTION_RESULT_H_
+#ifndef INCLUDE_CCSPEC_CORE_EXECUTION_RESULT_H_
+#define INCLUDE_CCSPEC_CORE_EXECUTION_RESULT_H_
 
 #include <exception>
 
@@ -20,4 +20,4 @@ class ExecutionResult {
 }  // namespace core
 }  // namespace ccspec
 
-#endif  // CCSPEC_CORE_EXECUTION_RESULT_H_
+#endif  // INCLUDE_CCSPEC_CORE_EXECUTION_RESULT_H_

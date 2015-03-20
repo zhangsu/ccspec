@@ -1,5 +1,5 @@
-#ifndef CCSPEC_CORE_FORMATTER_H_
-#define CCSPEC_CORE_FORMATTER_H_
+#ifndef INCLUDE_CCSPEC_CORE_FORMATTER_H_
+#define INCLUDE_CCSPEC_CORE_FORMATTER_H_
 
 #include <exception>
 #include <list>
@@ -37,4 +37,4 @@ class Formatter {
 }  // namespace core
 }  // namespace ccspec
 
-#endif  // CCSPEC_CORE_FORMATTER_H_
+#endif  // INCLUDE_CCSPEC_CORE_FORMATTER_H_

@@ -1,5 +1,5 @@
-#ifndef CCSPEC_MATCHERS_EQ_H_
-#define CCSPEC_MATCHERS_EQ_H_
+#ifndef INCLUDE_CCSPEC_MATCHERS_EQ_H_
+#define INCLUDE_CCSPEC_MATCHERS_EQ_H_
 
 #include <sstream>
 #include <string>
@@ -77,4 +77,4 @@ Eq<V> eq(const V& expected_value) {
 }  // namespace matchers
 }  // namespace ccspec
 
-#endif  // CCSPEC_MATCHERS_EQ_H_
+#endif  // INCLUDE_CCSPEC_MATCHERS_EQ_H_

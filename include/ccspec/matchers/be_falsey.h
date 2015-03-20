@@ -1,5 +1,5 @@
-#ifndef CCSPEC_MATCHERS_BE_FALSEY_H_
-#define CCSPEC_MATCHERS_BE_FALSEY_H_
+#ifndef INCLUDE_CCSPEC_MATCHERS_BE_FALSEY_H_
+#define INCLUDE_CCSPEC_MATCHERS_BE_FALSEY_H_
 
 #include <string>
 
@@ -44,4 +44,4 @@ bool BeFalsey::match(const T& actual_value) const {
 }  // namespace matchers
 }  // namespace ccspec
 
-#endif  // CCSPEC_MATCHERS_BE_FALSEY_H_
+#endif  // INCLUDE_CCSPEC_MATCHERS_BE_FALSEY_H_

@@ -1,5 +1,5 @@
-#ifndef CCSPEC_MATCHER_H_
-#define CCSPEC_MATCHER_H_
+#ifndef INCLUDE_CCSPEC_MATCHER_H_
+#define INCLUDE_CCSPEC_MATCHER_H_
 
 #include <ostream>
 #include <string>
@@ -45,4 +45,4 @@ std::ostream& operator<<(std::ostream& stream,
 
 }  // namespace ccspec
 
-#endif  // CCSPEC_MATCHER_H_
+#endif  // INCLUDE_CCSPEC_MATCHER_H_

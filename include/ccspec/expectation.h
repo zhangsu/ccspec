@@ -1,6 +1,6 @@
-#ifndef CCSPEC_EXPECTATION_H_
-#define CCSPEC_EXPECTATION_H_
+#ifndef INCLUDE_CCSPEC_EXPECTATION_H_
+#define INCLUDE_CCSPEC_EXPECTATION_H_
 
 #include "expectation/target.h"
 
-#endif  // CCSPEC_EXPECTATION_H_
+#endif  // INCLUDE_CCSPEC_EXPECTATION_H_

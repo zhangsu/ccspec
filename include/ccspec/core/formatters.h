@@ -1,8 +1,8 @@
-#ifndef CCSPEC_CORE_FORMATTERS_H_
-#define CCSPEC_CORE_FORMATTERS_H_
+#ifndef INCLUDE_CCSPEC_CORE_FORMATTERS_H_
+#define INCLUDE_CCSPEC_CORE_FORMATTERS_H_
 
 #include "formatters/documentation_formatter.h"
 #include "formatters/progress_formatter.h"
 #include "formatters/text_formatter.h"
 
-#endif  // CCSPEC_CORE_FORMATTERS_H_
+#endif  // INCLUDE_CCSPEC_CORE_FORMATTERS_H_

@@ -1,5 +1,5 @@
-#ifndef CCSPEC_CORE_REPORTER_H_
-#define CCSPEC_CORE_REPORTER_H_
+#ifndef INCLUDE_CCSPEC_CORE_REPORTER_H_
+#define INCLUDE_CCSPEC_CORE_REPORTER_H_
 
 #include <exception>
 #include <list>
@@ -36,4 +36,4 @@ class Reporter {
 }  // namespace core
 }  // namespace ccspec
 
-#endif  // CCSPEC_CORE_REPORTER_H_
+#endif  // INCLUDE_CCSPEC_CORE_REPORTER_H_

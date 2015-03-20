@@ -1,5 +1,5 @@
-#ifndef CCSPEC_CORE_EXAMPLE_H_
-#define CCSPEC_CORE_EXAMPLE_H_
+#ifndef INCLUDE_CCSPEC_CORE_EXAMPLE_H_
+#define INCLUDE_CCSPEC_CORE_EXAMPLE_H_
 
 #include <exception>
 #include <functional>
@@ -63,4 +63,4 @@ Example::Creator specify;
 }  // namespace core
 }  // namespace ccspec
 
-#endif  // CCSPEC_CORE_EXAMPLE_H_
+#endif  // INCLUDE_CCSPEC_CORE_EXAMPLE_H_

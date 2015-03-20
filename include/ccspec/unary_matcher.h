@@ -1,5 +1,5 @@
-#ifndef CCSPEC_UNARY_MATCHER_H_
-#define CCSPEC_UNARY_MATCHER_H_
+#ifndef INCLUDE_CCSPEC_UNARY_MATCHER_H_
+#define INCLUDE_CCSPEC_UNARY_MATCHER_H_
 
 #include "ccspec/matcher.h"
 
@@ -41,4 +41,4 @@ const T& UnaryMatcher<ConcreteMatcher, T>::expected_value() const {
 
 }  // namespace ccspec
 
-#endif  // CCSPEC_UNARY_MATCHER_H_
+#endif  // INCLUDE_CCSPEC_UNARY_MATCHER_H_
