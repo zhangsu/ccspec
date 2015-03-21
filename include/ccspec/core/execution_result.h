@@ -7,14 +7,14 @@ namespace ccspec {
 namespace core {
 
 class ExecutionResult {
-  public:
-    ExecutionResult();
+ public:
+  ExecutionResult();
 
-    std::exception_ptr exception() const;
-    void set_exception(std::exception_ptr);
+  std::exception_ptr exception() const;
+  void set_exception(std::exception_ptr);
 
-  private:
-    std::exception_ptr exception_;
+ private:
+  std::exception_ptr exception_;
 };
 
 }  // namespace core

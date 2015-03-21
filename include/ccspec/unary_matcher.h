@@ -9,14 +9,14 @@ namespace ccspec {
 
 template <typename ConcreteMatcher, typename T>
 class UnaryMatcher : public Matcher<ConcreteMatcher> {
-  protected:
-    explicit UnaryMatcher(const T& expected_value);
-    virtual ~UnaryMatcher();
+ protected:
+  explicit UnaryMatcher(const T& expected_value);
+  virtual ~UnaryMatcher();
 
-    const T& expected_value() const;
+  const T& expected_value() const;
 
-  private:
-    const T& expected_value_;
+ private:
+  const T& expected_value_;
 };
 
 }  // namespace ccspec
@@ -36,7 +36,7 @@ UnaryMatcher<ConcreteMatcher, T>::~UnaryMatcher() {}
 
 template <typename ConcreteMatcher, typename T>
 const T& UnaryMatcher<ConcreteMatcher, T>::expected_value() const {
-    return expected_value_;
+  return expected_value_;
 }
 
 }  // namespace ccspec

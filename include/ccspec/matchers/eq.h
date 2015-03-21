@@ -19,20 +19,20 @@ namespace matchers {
 //      expect(string("baz")).notTo(eq("bar"));
 template <typename U>
 class Eq : public UnaryMatcher<Eq<U>, U> {
-  public:
-    // Returns true if the given actual value is equal to this matcher's
-    // expected value using the == comparison operator.
-    template <typename V>
-    bool match(const V& actual_value) const;
+ public:
+  // Returns true if the given actual value is equal to this matcher's expected
+  // value using the == comparison operator.
+  template <typename V>
+  bool match(const V& actual_value) const;
 
-    // Returns the human-readable description of what this matcher matches.
-    std::string desc() const override;
+  // Returns the human-readable description of what this matcher matches.
+  std::string desc() const override;
 
-  private:
-    explicit Eq(const U& expected_value);
+ private:
+  explicit Eq(const U& expected_value);
 
-    template <typename V>
-    friend Eq<V> eq(const V& expected_value);
+  template <typename V>
+  friend Eq<V> eq(const V& expected_value);
 };
 
 // Creates a new Eq matcher with the given expected value.
@@ -52,14 +52,14 @@ namespace matchers {
 template <typename U>
 template <typename V>
 bool Eq<U>::match(const V& actual_value) const {
-    return actual_value == this->expected_value();
+  return actual_value == this->expected_value();
 }
 
 template <typename U>
 std::string Eq<U>::desc() const {
-    std::ostringstream s;
-    s << "equal " << support::inspect(this->expected_value());
-    return s.str();
+  std::ostringstream s;
+  s << "equal " << support::inspect(this->expected_value());
+  return s.str();
 }
 
 // Private methods.
@@ -71,7 +71,7 @@ Eq<U>::Eq(const U& expected_value) : UnaryMatcher<Eq<U>, U>(expected_value) {}
 
 template<typename V>
 Eq<V> eq(const V& expected_value) {
-    return Eq<V>(expected_value);
+  return Eq<V>(expected_value);
 }
 
 }  // namespace matchers

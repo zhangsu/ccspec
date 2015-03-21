@@ -8,15 +8,15 @@ namespace ccspec {
 namespace support {
 
 class Exception : public std::exception {
-  public:
-    virtual const char* what() const noexcept override;
-    const std::string& desc() const;
+ public:
+  virtual const char* what() const noexcept override;
+  const std::string& desc() const;
 
-  protected:
-    explicit Exception(std::string desc);
+ protected:
+  explicit Exception(std::string desc);
 
-  private:
-    const std::string desc_;
+ private:
+  const std::string desc_;
 };
 
 }  // namespace support

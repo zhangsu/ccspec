@@ -21,58 +21,58 @@ using ccspec::matchers::be;
 using ccspec::matchers::eq;
 
 int main() {
-    auto example_group = describe("Integer", [] {
-        before("all", [] {
-        });
-
-        before("each", [] {
-        });
-
-        around("each", [](const Example& example) {
-            example.run();
-        });
-
-        context("when positive", [] {
-            before("context", [] {
-            });
-
-            before("example", [] {
-            });
-
-            around("each", [](const Example& example) {
-                example.run();
-            });
-
-            example("1 + 1 = 2", [] {
-                expect(1 + 1).to(be == 2);
-            });
-
-            it("has a positive product with itself", [] {
-                expect((42) * (42)).to(be > 0);
-            });
-        });
-
-        context("when negative", [] {
-            before("each", [] {
-            });
-
-            specify("the product with its positive self is negative", [] {
-                expect((-42) * 42).to(be < 0);
-            });
-        });
-
-        after("each", [] {
-        });
-
-        after("all", [] {
-        });
+  auto example_group = describe("Integer", [] {
+    before("all", [] {
     });
 
-    DocumentationFormatter formatter(cout);
-    Reporter reporter(&formatter);
-    example_group->run(reporter);
+    before("each", [] {
+    });
 
-    delete example_group;
+    around("each", [](const Example& example) {
+      example.run();
+    });
 
-    return 0;
+    context("when positive", [] {
+      before("context", [] {
+      });
+
+      before("example", [] {
+      });
+
+      around("each", [](const Example& example) {
+        example.run();
+      });
+
+      example("1 + 1 = 2", [] {
+        expect(1 + 1).to(be == 2);
+      });
+
+      it("has a positive product with itself", [] {
+        expect((42) * (42)).to(be > 0);
+      });
+    });
+
+    context("when negative", [] {
+      before("each", [] {
+      });
+
+      specify("the product with its positive self is negative", [] {
+        expect((-42) * 42).to(be < 0);
+      });
+    });
+
+    after("each", [] {
+    });
+
+    after("all", [] {
+    });
+  });
+
+  DocumentationFormatter formatter(cout);
+  Reporter reporter(&formatter);
+  example_group->run(reporter);
+
+  delete example_group;
+
+  return 0;
 }

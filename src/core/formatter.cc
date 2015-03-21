@@ -35,7 +35,7 @@ Formatter::Formatter(ostream& output) : output_(output) {}
 Formatter::~Formatter() {}
 
 ostream& Formatter::output() const {
-    return output_;
+  return output_;
 }
 
 }  // namespace core

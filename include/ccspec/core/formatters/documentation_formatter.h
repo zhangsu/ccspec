@@ -12,18 +12,18 @@ namespace core {
 namespace formatters {
 
 class DocumentationFormatter : public TextFormatter {
-  public:
-    explicit DocumentationFormatter(std::ostream&);
+ public:
+  explicit DocumentationFormatter(std::ostream&);
 
-    void exampleGroupStarted(std::string desc) override;
-    void exampleGroupFinished(std::string desc) override;
-    void examplePassed(std::string desc, const ExecutionResult&) const override;
-    void exampleFailed(std::string desc, const ExecutionResult&) const override;
+  void exampleGroupStarted(std::string desc) override;
+  void exampleGroupFinished(std::string desc) override;
+  void examplePassed(std::string desc, const ExecutionResult&) const override;
+  void exampleFailed(std::string desc, const ExecutionResult&) const override;
 
-  private:
-    void printIndentation() const;
+ private:
+  void printIndentation() const;
 
-    int group_level_;
+  int group_level_;
 };
 
 }  // namespace formatters

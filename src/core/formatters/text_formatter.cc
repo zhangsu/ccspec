@@ -15,27 +15,27 @@ using std::rethrow_exception;
 // Public methods.
 
 void TextFormatter::afterEachHookFailed(exception_ptr failure) const {
-    output() << "An error occurred in an `after(:example)` hook" << endl;
-    outputException(failure);
+  output() << "An error occurred in an `after(:example)` hook" << endl;
+  outputException(failure);
 }
 
 void TextFormatter::afterAllHookFailed(exception_ptr failure) const {
-    output() << "An error occurred in an `after(:context)` hook" << endl;
-    outputException(failure);
+  output() << "An error occurred in an `after(:context)` hook" << endl;
+  outputException(failure);
 }
 
 void TextFormatter::aroundHookFailed(exception_ptr failure) const {
-    output() << "An error occurred in an `around(:example)` hook" << endl;
-    outputException(failure);
+  output() << "An error occurred in an `around(:example)` hook" << endl;
+  outputException(failure);
 }
 
 void TextFormatter::dumpFailures(const list<exception_ptr>& failures) const {
-    if (failures.empty())
-        return;
+  if (failures.empty())
+    return;
 
-    output() << endl << "Failures:" << endl;
-    for (auto failure : failures)
-        outputException(failure);
+  output() << endl << "Failures:" << endl;
+  for (auto failure : failures)
+    outputException(failure);
 }
 
 // Protected methods.
@@ -45,11 +45,11 @@ TextFormatter::TextFormatter(ostream& output) : Formatter(output) {}
 // Private methods.
 
 void TextFormatter::outputException(exception_ptr failure) const {
-    try {
-        rethrow_exception(failure);
-    } catch (const exception& e) {
-        output() << e.what() << endl;
-    }
+  try {
+    rethrow_exception(failure);
+  } catch (const exception& e) {
+    output() << e.what() << endl;
+  }
 }
 
 }  // namespace formatters

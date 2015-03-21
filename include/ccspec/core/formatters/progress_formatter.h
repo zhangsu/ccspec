@@ -12,12 +12,12 @@ namespace core {
 namespace formatters {
 
 class ProgressFormatter : public TextFormatter {
-  public:
-    explicit ProgressFormatter(std::ostream&);
+ public:
+  explicit ProgressFormatter(std::ostream&);
 
-    void examplePassed(std::string desc, const ExecutionResult&) const override;
-    void exampleFailed(std::string desc, const ExecutionResult&) const override;
-    void startDump() const override;
+  void examplePassed(std::string desc, const ExecutionResult&) const override;
+  void exampleFailed(std::string desc, const ExecutionResult&) const override;
+  void startDump() const override;
 };
 
 }  // namespace formatters

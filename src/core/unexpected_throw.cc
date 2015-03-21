@@ -15,7 +15,7 @@ UnexpectedThrow::UnexpectedThrow(const exception& cause)
 // Private methods.
 
 string UnexpectedThrow::desc(const exception& cause) {
-    return string("Unexpected exception: ") + cause.what();
+  return string("Unexpected exception: ") + cause.what();
 }
 
 }  // namespace core

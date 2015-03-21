@@ -52,12 +52,12 @@ namespace support {
 template <typename T>
 std::string inspect(const T& object) {
 #ifndef _MSC_VER
-    std::unique_ptr<char, void(*)(void*)> type_name(
-        abi::__cxa_demangle(typeid(object).name(), nullptr, nullptr, nullptr),
-        std::free);
-    return type_name.get();
+  std::unique_ptr<char, void(*)(void*)> type_name(
+      abi::__cxa_demangle(typeid(object).name(), nullptr, nullptr, nullptr),
+      std::free);
+  return type_name.get();
 #else
-    return typeid(object).name();
+  return typeid(object).name();
 #endif
 }
 

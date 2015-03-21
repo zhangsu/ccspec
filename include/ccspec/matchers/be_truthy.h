@@ -11,17 +11,17 @@ namespace ccspec {
 namespace matchers {
 
 class BeTruthy : public Matcher<BeTruthy> {
-  public:
-    static const BeTruthy& instance();
+ public:
+  static const BeTruthy& instance();
 
-    template <typename T>
-    bool match(const T& actual_value) const;
-    std::string desc() const override;
+  template <typename T>
+  bool match(const T& actual_value) const;
+  std::string desc() const override;
 
-  private:
-    BeTruthy();
-    BeTruthy(const BeTruthy&) = delete;
-    void operator =(const BeTruthy&) = delete;
+ private:
+  BeTruthy();
+  BeTruthy(const BeTruthy&) = delete;
+  void operator =(const BeTruthy&) = delete;
 };
 
 extern const BeTruthy& be_truthy;
@@ -38,7 +38,7 @@ namespace matchers {
 
 template <typename T>
 bool BeTruthy::match(const T& actual_value) const {
-    return !!actual_value;
+  return !!actual_value;
 }
 
 }  // namespace matchers

@@ -8,12 +8,12 @@ const BeFalsey& be_falsey = BeFalsey::instance();
 // Public methods.
 
 const BeFalsey& BeFalsey::instance() {
-    static BeFalsey instance;
-    return instance;
+  static BeFalsey instance;
+  return instance;
 }
 
 std::string BeFalsey::desc() const {
-    return "be falsey";
+  return "be falsey";
 }
 
 // Private methods.

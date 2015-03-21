@@ -10,11 +10,11 @@ namespace ccspec {
 
 template <typename ConcreteMatcher>
 class Matcher {
-  public:
-    template <typename T>
-    bool match(const T& actual_value) const;
+ public:
+  template <typename T>
+  bool match(const T& actual_value) const;
 
-    virtual std::string desc() const = 0;
+  virtual std::string desc() const = 0;
 };
 
 template <typename ConcreteMatcher>
@@ -31,7 +31,7 @@ namespace ccspec {
 template <typename ConcreteMatcher>
 template <typename T>
 bool Matcher<ConcreteMatcher>::match(const T& actual_value) const {
-    return static_cast<const ConcreteMatcher*>(this)->match(actual_value);
+  return static_cast<const ConcreteMatcher*>(this)->match(actual_value);
 }
 
 // Operators.
@@ -39,8 +39,8 @@ bool Matcher<ConcreteMatcher>::match(const T& actual_value) const {
 template <typename ConcreteMatcher>
 std::ostream& operator<<(std::ostream& stream,
                          const Matcher<ConcreteMatcher>& matcher) {
-    stream << matcher.desc();
-    return stream;
+  stream << matcher.desc();
+  return stream;
 }
 
 }  // namespace ccspec

@@ -15,28 +15,28 @@ namespace ccspec {
 namespace matchers {
 
 class BeSomething {
-  public:
-    static const BeSomething& instance();
+ public:
+  static const BeSomething& instance();
 
-    template <typename T>
-    Be<T> operator ()(const T& expected_value) const;
-    template <typename T>
-    BeComparedTo<T> operator <(const T& expected_value) const;
-    template <typename T>
-    BeComparedTo<T> operator <=(const T& expected_value) const;
-    template <typename T>
-    BeComparedTo<T> operator >(const T& expected_value) const;
-    template <typename T>
-    BeComparedTo<T> operator >=(const T& expected_value) const;
-    template <typename T>
-    BeComparedTo<T> operator ==(const T& expected_value) const;
-    template <typename T>
-    BeComparedTo<T> operator !=(const T& expected_value) const;
+  template <typename T>
+  Be<T> operator ()(const T& expected_value) const;
+  template <typename T>
+  BeComparedTo<T> operator <(const T& expected_value) const;
+  template <typename T>
+  BeComparedTo<T> operator <=(const T& expected_value) const;
+  template <typename T>
+  BeComparedTo<T> operator >(const T& expected_value) const;
+  template <typename T>
+  BeComparedTo<T> operator >=(const T& expected_value) const;
+  template <typename T>
+  BeComparedTo<T> operator ==(const T& expected_value) const;
+  template <typename T>
+  BeComparedTo<T> operator !=(const T& expected_value) const;
 
-  private:
-    BeSomething();
-    BeSomething(const BeSomething&) = delete;
-    void operator =(const BeSomething&) = delete;
+ private:
+  BeSomething();
+  BeSomething(const BeSomething&) = delete;
+  void operator =(const BeSomething&) = delete;
 };
 
 extern const BeSomething& be;
@@ -53,27 +53,27 @@ namespace matchers {
 
 template <typename T>
 Be<T> BeSomething::operator ()(const T& expected_value) const {
-    return Be<T>(expected_value);
+  return Be<T>(expected_value);
 }
 
 template <typename T>
 BeComparedTo<T> BeSomething::operator <(const T& expected_value) const {
-    return BeComparedTo<T>(std::less<T>(), "<", expected_value);
+  return BeComparedTo<T>(std::less<T>(), "<", expected_value);
 }
 
 template <typename T>
 BeComparedTo<T> BeSomething::operator <=(const T& expected_value) const {
-    return BeComparedTo<T>(std::less_equal<T>(), "<=", expected_value);
+  return BeComparedTo<T>(std::less_equal<T>(), "<=", expected_value);
 }
 
 template <typename T>
 BeComparedTo<T> BeSomething::operator >(const T& expected_value) const {
-    return BeComparedTo<T>(std::greater<T>(), ">", expected_value);
+  return BeComparedTo<T>(std::greater<T>(), ">", expected_value);
 }
 
 template <typename T>
 BeComparedTo<T> BeSomething::operator >=(const T& expected_value) const {
-    return BeComparedTo<T>(std::greater_equal<T>(), ">=", expected_value);
+  return BeComparedTo<T>(std::greater_equal<T>(), ">=", expected_value);
 }
 
 template <typename T>
@@ -83,8 +83,8 @@ BeComparedTo<T> BeSomething::operator ==(const T& expected_value) const {
 
 template <typename T>
 BeComparedTo<T> BeSomething::operator !=(const T& expected_value) const {
-    return BeComparedTo<T>(std::not_equal_to<T>(), "not equal to",
-                           expected_value);
+  return BeComparedTo<T>(std::not_equal_to<T>(), "not equal to",
+                         expected_value);
 }
 
 }  // namespace matchers

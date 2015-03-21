@@ -10,11 +10,11 @@ using std::exception_ptr;
 ExecutionResult::ExecutionResult() : exception_(nullptr) {}
 
 exception_ptr ExecutionResult::exception() const {
-    return exception_;
+  return exception_;
 }
 
 void ExecutionResult::set_exception(exception_ptr exception) {
-    exception_ = exception;
+  exception_ = exception;
 }
 
 }  // namespace core
