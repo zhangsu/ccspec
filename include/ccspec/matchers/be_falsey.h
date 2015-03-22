@@ -19,7 +19,7 @@ class BeFalsey : public Matcher<BeFalsey> {
   std::string desc() const override;
 
  private:
-  BeFalsey();
+  BeFalsey() = default;
   BeFalsey(const BeFalsey&) = delete;
   void operator =(const BeFalsey&) = delete;
 };

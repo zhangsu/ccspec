@@ -34,7 +34,7 @@ class BeSomething {
   BeComparedTo<T> operator !=(const T& expected_value) const;
 
  private:
-  BeSomething();
+  BeSomething() = default;
   BeSomething(const BeSomething&) = delete;
   void operator =(const BeSomething&) = delete;
 };

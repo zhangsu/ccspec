@@ -12,9 +12,5 @@ const BeSomething& BeSomething::instance() {
   return instance;
 }
 
-// Private methods.
-
-BeSomething::BeSomething() {}
-
 }  // namespace matchers
 }  // namespace ccspec

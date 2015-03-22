@@ -16,9 +16,5 @@ std::string BeTruthy::desc() const {
   return "be truthy";
 }
 
-// Private methods.
-
-BeTruthy::BeTruthy() {}
-
 }  // namespace matchers
 }  // namespace ccspec
