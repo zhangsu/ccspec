@@ -11,7 +11,6 @@ template <typename ConcreteMatcher, typename T>
 class UnaryMatcher : public Matcher<ConcreteMatcher> {
  protected:
   explicit UnaryMatcher(const T& expected_value);
-  virtual ~UnaryMatcher();
 
   const T& expected_value() const;
 
@@ -30,9 +29,6 @@ namespace ccspec {
 template <typename ConcreteMatcher, typename T>
 UnaryMatcher<ConcreteMatcher, T>::UnaryMatcher(const T& expected_value)
     : expected_value_(expected_value) {}
-
-template <typename ConcreteMatcher, typename T>
-UnaryMatcher<ConcreteMatcher, T>::~UnaryMatcher() {}
 
 template <typename ConcreteMatcher, typename T>
 const T& UnaryMatcher<ConcreteMatcher, T>::expected_value() const {
