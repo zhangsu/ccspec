@@ -67,7 +67,7 @@ bool ExampleGroup::run(Reporter& reporter) const {
   list<BeforeHook> before_each_hooks;
   list<AfterHook> after_each_hooks;
   list<AroundHook> around_hooks;
-  return run(reporter, before_each_hooks, after_each_hooks, around_hooks);
+  return run(reporter, &before_each_hooks, &after_each_hooks, &around_hooks);
 }
 
 // Private methods.
@@ -79,19 +79,19 @@ void ExampleGroup::addChild(const ExampleGroup* example_group) {
 }
 
 bool ExampleGroup::run(Reporter& reporter,
-                       list<BeforeHook>& before_each_hooks,
-                       list<AfterHook>& after_each_hooks,
-                       list<AroundHook>& around_hooks) const {
-  auto first_new_before_each = before_each_hooks.insert(
-      before_each_hooks.end(),
+                       list<BeforeHook>* before_each_hooks,
+                       list<AfterHook>* after_each_hooks,
+                       list<AroundHook>* around_hooks) const {
+  auto first_new_before_each = before_each_hooks->insert(
+      before_each_hooks->end(),
       before_each_hooks_.begin(),
       before_each_hooks_.end());
-  auto first_new_after_each = after_each_hooks.insert(
-      after_each_hooks.end(),
+  auto first_new_after_each = after_each_hooks->insert(
+      after_each_hooks->end(),
       after_each_hooks_.begin(),
       after_each_hooks_.end());
-  auto first_new_around = around_hooks.insert(
-      around_hooks.end(),
+  auto first_new_around = around_hooks->insert(
+      around_hooks->end(),
       around_hooks_.begin(),
       around_hooks_.end());
   bool succeeded = true;
@@ -103,9 +103,9 @@ bool ExampleGroup::run(Reporter& reporter,
     for (auto const& example : examples_) {
       // `succeeded` must be on the RHS of && to avoid short-circuit.
       succeeded = example.run(reporter,
-          before_each_hooks,
-          after_each_hooks,
-          around_hooks) && succeeded;
+          *before_each_hooks,
+          *after_each_hooks,
+          *around_hooks) && succeeded;
     }
     for (auto child : children_) {
         // `succeeded` must be on the RHS of && to avoid short-circuit.
@@ -131,9 +131,9 @@ bool ExampleGroup::run(Reporter& reporter,
     succeeded = false;
   });
   reporter.exampleGroupFinished(desc_);
-  around_hooks.erase(first_new_around, around_hooks.end());
-  after_each_hooks.erase(first_new_after_each, after_each_hooks.end());
-  before_each_hooks.erase(first_new_before_each, before_each_hooks.end());
+  around_hooks->erase(first_new_around, around_hooks->end());
+  after_each_hooks->erase(first_new_after_each, after_each_hooks->end());
+  before_each_hooks->erase(first_new_before_each, before_each_hooks->end());
 
   return succeeded;
 }

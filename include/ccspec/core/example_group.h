@@ -42,9 +42,9 @@ class ExampleGroup {
 
   void addChild(const ExampleGroup*);
   bool run(Reporter&,
-           std::list<BeforeHook>& before_each_hooks,
-           std::list<AfterHook>& after_each_hooks,
-           std::list<AroundHook>&) const;
+           std::list<BeforeHook>* before_each_hooks,
+           std::list<AfterHook>* after_each_hooks,
+           std::list<AroundHook>* around_hooks) const;
   void failWithException(Reporter&, std::exception_ptr) const;
 
   const std::string desc_;
