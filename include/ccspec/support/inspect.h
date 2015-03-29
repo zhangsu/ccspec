@@ -16,24 +16,24 @@
 namespace ccspec {
 namespace support {
 
-std::string inspect(char);
-std::string inspect(unsigned char);
-std::string inspect(bool);
-std::string inspect(short);
-std::string inspect(unsigned short);
-std::string inspect(int);
-std::string inspect(unsigned int);
-std::string inspect(long);
-std::string inspect(unsigned long);
-std::string inspect(long long);
-std::string inspect(unsigned long long);
-std::string inspect(float);
-std::string inspect(double);
-std::string inspect(long double);
-std::string inspect(void*);
-std::string inspect(const char*);
-std::string inspect(const std::string&);
-std::string inspect(std::streambuf*);
+std::string inspect(char val);
+std::string inspect(unsigned char val);
+std::string inspect(bool val);
+std::string inspect(short val);
+std::string inspect(unsigned short val);
+std::string inspect(int val);
+std::string inspect(unsigned int val);
+std::string inspect(long val);
+std::string inspect(unsigned long val);
+std::string inspect(long long val);
+std::string inspect(unsigned long long val);
+std::string inspect(float val);
+std::string inspect(double val);
+std::string inspect(long double val);
+std::string inspect(void* val);
+std::string inspect(const char* s);
+std::string inspect(const std::string& s);
+std::string inspect(std::streambuf* sb);
 std::string inspect(std::ostream& (*pf)(std::ostream&));
 std::string inspect(std::ios& (*pf)(std::ios&));
 std::string inspect(std::ios_base& (*pf)(std::ios_base&));
