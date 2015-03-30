@@ -119,7 +119,7 @@ auto eq_spec = describe("Eq", [] {
   context("when used for arbitrary types", [] {
     class T {
      public:
-      T(int i) : i_(i) {}
+      explicit T(int i) : i_(i) {}
       bool operator ==(const T& t) const {
         return i_ == t.i_;
       }
