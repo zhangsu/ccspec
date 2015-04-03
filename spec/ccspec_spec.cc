@@ -16,14 +16,12 @@ extern ExampleGroup* eq_spec;
 }  // namespace spec
 
 int main() {
-  using namespace spec;
-
   DocumentationFormatter formatter(cout);
   Reporter reporter(&formatter);
 
-  bool succeeded = matchers::eq_spec->run(reporter);
+  bool succeeded = spec::matchers::eq_spec->run(reporter);
 
-  delete matchers::eq_spec;
+  delete spec::matchers::eq_spec;
 
   return !succeeded;
 }
