@@ -6,7 +6,7 @@
 #include <ostream>
 #include <string>
 
-#include "execution_result.h"
+#include "ccspec/core/execution_result.h"
 
 namespace ccspec {
 namespace core {

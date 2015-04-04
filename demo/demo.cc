@@ -1,6 +1,8 @@
 #include <iostream>
 
-#include "ccspec.h"
+#include "ccspec/core.h"
+#include "ccspec/expectation.h"
+#include "ccspec/matchers.h"
 
 using std::cout;
 using std::endl;

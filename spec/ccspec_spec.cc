@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "ccspec.h"
+#include "ccspec/core.h"
 
 using std::cout;
 using ccspec::core::formatters::DocumentationFormatter;
