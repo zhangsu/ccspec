@@ -15,6 +15,9 @@ namespace matchers {
 // Matches expected value with actual value for object types by comparing their
 // object identities obtained using the address-of operator &.
 //
+// This matcher can only be instantiated by the singleton `be` of the friend
+// class BeSomething.
+//
 // Example:
 //      struct A {};
 //      A a0, a1;
