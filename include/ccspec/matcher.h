@@ -14,6 +14,7 @@ class Matcher {
   template <typename T>
   bool match(const T& actual_value) const;
 
+  // Returns the human-readable description of what this matcher matches.
   virtual std::string desc() const = 0;
 };
 

@@ -25,7 +25,6 @@ class Eq : public UnaryMatcher<Eq<U>, U> {
   template <typename V>
   bool match(const V& actual_value) const;
 
-  // Returns the human-readable description of what this matcher matches.
   std::string desc() const override;
 
  private:
