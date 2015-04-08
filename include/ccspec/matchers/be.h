@@ -38,8 +38,7 @@ class Be : public UnaryMatcher<Be<U>, U> {
  private:
   explicit Be(const U& expected_value);
 
-  // The friend class that produces various matchers that have their DSL start
-  // with "be".
+  // Produces various matchers that have their DSL start with "be".
   friend class BeSomething;
 };
 
