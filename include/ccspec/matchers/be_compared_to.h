@@ -13,11 +13,26 @@
 namespace ccspec {
 namespace matchers {
 
+// Matches expected value with actual value by comparing them with a caller-
+// specified binary predicate, where the first argument of the predicate is
+// passed the actual value and the second argument is passed the expected value.
+//
+// This matcher can only be instantiated by the singleton `be` of the friend
+// class BeSomething.
+//
+// Example:
+//      expect(3).to(be < 4);
+//      expect(3.5).to(be >= 3.4999);
+//      expect(string("foo")).notTo(be == string("bar"));
 template <typename U>
 class BeComparedTo : public UnaryMatcher<BeComparedTo<U>, U> {
  public:
+  // Returns true if this matcher's binary predicate returns true with the first
+  // argument being the given actual value and the second argument being this
+  // matcher's expected value.
   template <typename V>
   bool match(const V& actual_value) const;
+
   std::string desc() const override;
 
  private:
@@ -26,9 +41,13 @@ class BeComparedTo : public UnaryMatcher<BeComparedTo<U>, U> {
   explicit BeComparedTo(Comparator compare, std::string comparator_name,
                         const U& expected_value);
 
+  // Compares two arguments and returns true or false.
   Comparator compare_;
+
+  // Stores the human-readable name of the comparator used for display.
   std::string comparator_name_;
 
+  // Produces various matchers that have their DSL start with "be".
   friend class BeSomething;
 };
 
