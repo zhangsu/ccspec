@@ -16,12 +16,14 @@ addons:
       - cmake
       - clang-3.6
       - g++-5
+      - cppcheck
 
 before_install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
 
 script:
   - wget https://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py && find . -name *.h -o -name *.cc | xargs python cpplint.py
+  - cppcheck --enable=all --error-exitcode=1 -I include/ src/ spec/ demo/
   - cd build && cmake .. && make && spec/ccspec_spec
 
 cache: ccache
