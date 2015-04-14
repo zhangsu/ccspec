@@ -78,7 +78,7 @@ BeComparedTo<T> BeSomething::operator >=(const T& expected_value) const {
 
 template <typename T>
 BeComparedTo<T> BeSomething::operator ==(const T& expected_value) const {
-    return BeComparedTo<T>(std::equal_to<T>(), "equal to", expected_value);
+  return BeComparedTo<T>(std::equal_to<T>(), "equal to", expected_value);
 }
 
 template <typename T>
