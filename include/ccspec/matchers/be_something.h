@@ -14,31 +14,56 @@
 namespace ccspec {
 namespace matchers {
 
+// Creates various matchers that have their DSL start with "be".
 class BeSomething {
  public:
+  // Returns the singleton of BeSomething.
   static const BeSomething& instance();
 
+  // Creates a Be matcher that matches if the actual value has the same object
+  // identity as the expected value.
   template <typename T>
   Be<T> operator ()(const T& expected_value) const;
+
+  // Creates a "less than" matcher that matches if the actual value is less than
+  // the expected value.
   template <typename T>
   BeComparedTo<T> operator <(const T& expected_value) const;
+
+  // Creates a "less than or equal to" matcher that matches if the actual value
+  // is less than or equal to the expected value.
   template <typename T>
   BeComparedTo<T> operator <=(const T& expected_value) const;
+
+  // Creates a "greater than" matcher that matches if the actual value is
+  // greater than the expected value.
   template <typename T>
   BeComparedTo<T> operator >(const T& expected_value) const;
+
+  // Creates a "greater than or equal to" matcher that matches if the actual
+  // value is greater than or equal to the expected value.
   template <typename T>
   BeComparedTo<T> operator >=(const T& expected_value) const;
+
+  // Creates a "equal to" matcher that matches if the actual value is equal to
+  // the expected value.
   template <typename T>
   BeComparedTo<T> operator ==(const T& expected_value) const;
+
+  // Creates a "not equal to" matcher that matches if the actual value is not
+  // equal to the expected value.
   template <typename T>
   BeComparedTo<T> operator !=(const T& expected_value) const;
 
  private:
   BeSomething() = default;
+  // Deletes copy constructor and assignment operator to maintain singleton
+  // property.
   BeSomething(const BeSomething&) = delete;
   void operator =(const BeSomething&) = delete;
 };
 
+// Points to the BeSomething singleton.
 extern const BeSomething& be;
 
 }  // namespace matchers
