@@ -12,6 +12,7 @@ namespace matchers {
 
 extern ExampleGroup* eq_spec;
 extern ExampleGroup* be_spec;
+extern ExampleGroup* be_truthy_spec;
 
 }  // namespace matchers
 }  // namespace spec
@@ -22,6 +23,7 @@ int main() {
 
   ExampleGroup* example_groups[] = {
     spec::matchers::be_spec,
+    spec::matchers::be_truthy_spec,
     spec::matchers::eq_spec,
   };
   bool succeeded = true;
