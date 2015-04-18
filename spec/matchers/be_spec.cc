@@ -133,7 +133,7 @@ auto be_spec = describe("Be", [] {
     });
 
     it("says 'be $s' when expecting std::string", [] {
-      expect(be(string("test")).desc()).to(eq(string("be test")));
+      expect(be(string("test")).desc()).to(eq("be test"));
     });
   });
 });

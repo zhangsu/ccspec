@@ -165,7 +165,7 @@ auto eq_spec = describe("Eq", [] {
     });
 
     it("says 'equal $s' when expecting std::string", [] {
-      expect(eq(string("test")).desc()).to(eq(string("equal test")));
+      expect(eq(string("test")).desc()).to(eq("equal test"));
     });
   });
 });
