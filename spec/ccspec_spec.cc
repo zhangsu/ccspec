@@ -10,9 +10,9 @@ using ccspec::core::Reporter;
 namespace spec {
 namespace matchers {
 
-extern ExampleGroup* eq_spec;
 extern ExampleGroup* be_spec;
 extern ExampleGroup* be_truthy_spec;
+extern ExampleGroup* eq_spec;
 
 }  // namespace matchers
 }  // namespace spec
