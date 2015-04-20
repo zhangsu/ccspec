@@ -10,6 +10,7 @@ using ccspec::core::Reporter;
 namespace spec {
 namespace matchers {
 
+extern ExampleGroup* be_falsey_spec;
 extern ExampleGroup* be_spec;
 extern ExampleGroup* be_truthy_spec;
 extern ExampleGroup* eq_spec;
@@ -22,6 +23,7 @@ int main() {
   Reporter reporter(&formatter);
 
   ExampleGroup* example_groups[] = {
+    spec::matchers::be_falsey_spec,
     spec::matchers::be_spec,
     spec::matchers::be_truthy_spec,
     spec::matchers::eq_spec,
