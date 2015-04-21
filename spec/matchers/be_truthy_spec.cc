@@ -45,12 +45,12 @@ auto be_truthy_spec = describe("BeTruthy", [] {
     expect(be_truthy.match(42)).to(be_truthy);
   });
 
-  it("matches if a int is truthy", [] {
+  it("matches if an int is truthy", [] {
     int i = 42;
     expect(be_truthy.match(i)).to(be_truthy);
   });
 
-  it("does not match if a int is falsey", [] {
+  it("does not match if an int is falsey", [] {
     int i = 0;
     expect(be_truthy.match(i)).to(be_falsey);
   });
