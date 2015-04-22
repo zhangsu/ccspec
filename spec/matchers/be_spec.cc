@@ -1,4 +1,3 @@
-#include <memory>
 #include <string>
 
 #include "ccspec/core.h"
@@ -6,7 +5,6 @@
 #include "ccspec/matchers.h"
 
 using std::string;
-using std::shared_ptr;
 using ccspec::core::before;
 using ccspec::core::context;
 using ccspec::core::describe;
