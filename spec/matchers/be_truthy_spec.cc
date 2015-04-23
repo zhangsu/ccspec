@@ -5,6 +5,8 @@
 using ccspec::core::describe;
 using ccspec::core::it;
 using ccspec::expect;
+using ccspec::matchers::BeTruthy;
+using ccspec::matchers::be;
 using ccspec::matchers::be_falsey;
 using ccspec::matchers::be_truthy;
 using ccspec::matchers::eq;
@@ -13,6 +15,16 @@ namespace spec {
 namespace matchers {
 
 auto be_truthy_spec = describe("BeTruthy", [] {
+  describe("instance", [] {
+    it("returns the same BeTruthy instance as be_truthy", [] {
+      expect(BeTruthy::instance()).to(be(be_truthy));
+    });
+
+    it("returns a singleton", [] {
+      expect(BeTruthy::instance()).to(be(BeTruthy::instance()));
+    });
+  });
+
   it("matches if a const temporary bool is true", [] {
     expect(be_truthy.match(true)).to(be_truthy);
   });
