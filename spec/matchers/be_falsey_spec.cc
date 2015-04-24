@@ -5,6 +5,8 @@
 using ccspec::core::describe;
 using ccspec::core::it;
 using ccspec::expect;
+using ccspec::matchers::BeFalsey;
+using ccspec::matchers::be;
 using ccspec::matchers::be_falsey;
 using ccspec::matchers::be_truthy;
 using ccspec::matchers::eq;
@@ -13,6 +15,16 @@ namespace spec {
 namespace matchers {
 
 auto be_falsey_spec = describe("BeFalsey", [] {
+  describe("instance", [] {
+    it("returns the same BeFalsey instance as be_falsey", [] {
+      expect(BeFalsey::instance()).to(be(be_falsey));
+    });
+
+    it("returns a singleton", [] {
+      expect(BeFalsey::instance()).to(be(BeFalsey::instance()));
+    });
+  });
+
   it("matches if a const temporary bool is false", [] {
     expect(be_falsey.match(false)).to(be_truthy);
   });
