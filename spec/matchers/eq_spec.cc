@@ -143,7 +143,7 @@ auto eq_spec = describe("Eq", [] {
     });
   });
 
-  describe("desc", [] {
+  describe("#desc", [] {
     it("says 'equal $b' when expecting bool", [] {
       expect(eq(true).desc()).to(eq("equal true"));
     });

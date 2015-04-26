@@ -109,7 +109,7 @@ auto be_spec = describe("Be", [] {
     });
   });
 
-  describe("desc", [] {
+  describe("#desc", [] {
     it("says 'be $b' when expecting bool", [] {
       expect(be(true).desc()).to(eq("be true"));
     });

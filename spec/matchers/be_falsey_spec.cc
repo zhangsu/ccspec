@@ -15,7 +15,7 @@ namespace spec {
 namespace matchers {
 
 auto be_falsey_spec = describe("BeFalsey", [] {
-  describe("instance", [] {
+  describe("::instance", [] {
     it("returns the same BeFalsey instance as be_falsey", [] {
       expect(BeFalsey::instance()).to(be(be_falsey));
     });
@@ -81,7 +81,7 @@ auto be_falsey_spec = describe("BeFalsey", [] {
     expect(be_falsey.match(d)).to(be_falsey);
   });
 
-  describe("desc", [] {
+  describe("#desc", [] {
     it("says 'be falsey'", [] {
       expect(be_falsey.desc()).to(eq("be falsey"));
     });

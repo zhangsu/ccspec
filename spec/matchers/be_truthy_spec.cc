@@ -15,7 +15,7 @@ namespace spec {
 namespace matchers {
 
 auto be_truthy_spec = describe("BeTruthy", [] {
-  describe("instance", [] {
+  describe("::instance", [] {
     it("returns the same BeTruthy instance as be_truthy", [] {
       expect(BeTruthy::instance()).to(be(be_truthy));
     });
@@ -81,7 +81,7 @@ auto be_truthy_spec = describe("BeTruthy", [] {
     expect(be_truthy.match(d)).to(be_falsey);
   });
 
-  describe("desc", [] {
+  describe("#desc", [] {
     it("says 'be truthy'", [] {
       expect(be_truthy.desc()).to(eq("be truthy"));
     });
