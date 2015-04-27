@@ -80,14 +80,13 @@ auto be_spec = describe("Be", [] {
     expect(be(str0).match(str1)).to(be_falsey);
   });
 
-  it("matches if two std::string references point to the same copy", [] {
+  it("matches if two string references point to the same copy", [] {
     string str0 = "test";
     string& str1 = str0;
     expect(be(str0).match(str1)).to(be_truthy);
   });
 
-  it("does not match if two std::string references point to different copies",
-     [] {
+  it("does not match if two string references point to different copies", [] {
     string str0 = "test";
     string str1 = str0;
     expect(be(str0).match(str1)).to(be_falsey);
@@ -130,7 +129,7 @@ auto be_spec = describe("Be", [] {
       expect(be("test").desc()).to(eq("be test"));
     });
 
-    it("says 'be $s' when expecting std::string", [] {
+    it("says 'be $s' when expecting string", [] {
       expect(be(string("test")).desc()).to(eq("be test"));
     });
   });

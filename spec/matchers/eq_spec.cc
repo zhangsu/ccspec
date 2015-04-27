@@ -102,17 +102,17 @@ auto eq_spec = describe("Eq", [] {
     expect(eq(str0).match(str1)).to(be_falsey);
   });
 
-  it("matches if two const temporary std::string are equal", [] {
+  it("matches if two const temporary strings are equal", [] {
     expect(eq(string("test")).match(string("test"))).to(be_truthy);
   });
 
-  it("matches if two std::string are equal", [] {
+  it("matches if two strings are equal", [] {
     string str0 = "test";
     string str1 = "test";
     expect(eq(str0).match(str1)).to(be_truthy);
   });
 
-  it("does not match if two std::string are not equal", [] {
+  it("does not match if two strings are not equal", [] {
     string str0 = "test";
     string str1 = "spec";
     expect(eq(str0).match(str1)).to(be_falsey);
@@ -164,7 +164,7 @@ auto eq_spec = describe("Eq", [] {
       expect(eq("test").desc()).to(eq("equal test"));
     });
 
-    it("says 'equal $s' when expecting std::string", [] {
+    it("says 'equal $s' when expecting string", [] {
       expect(eq(string("test")).desc()).to(eq("equal test"));
     });
   });
