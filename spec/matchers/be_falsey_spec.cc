@@ -25,7 +25,7 @@ auto be_falsey_spec = describe("BeFalsey", [] {
     });
   });
 
-  it("matches if a const temporary bool is false", [] {
+  it("matches if a const temp bool is false", [] {
     expect(be_falsey.match(false)).to(be_truthy);
   });
 
@@ -39,7 +39,7 @@ auto be_falsey_spec = describe("BeFalsey", [] {
     expect(be_falsey.match(b)).to(be_falsey);
   });
 
-  it("matches if a const temporary char is falsey", [] {
+  it("matches if a const temp char is falsey", [] {
     expect(be_falsey.match('\0')).to(be_truthy);
   });
 
@@ -53,7 +53,7 @@ auto be_falsey_spec = describe("BeFalsey", [] {
     expect(be_falsey.match(c)).to(be_falsey);
   });
 
-  it("matches if a const temporary int is falsey", [] {
+  it("matches if a const temp int is falsey", [] {
     expect(be_falsey.match(0)).to(be_truthy);
   });
 
@@ -67,7 +67,7 @@ auto be_falsey_spec = describe("BeFalsey", [] {
     expect(be_falsey.match(i)).to(be_falsey);
   });
 
-  it("matches if a const temporary double is falsey", [] {
+  it("matches if a const temp double is falsey", [] {
     expect(be_falsey.match(0.0)).to(be_truthy);
   });
 

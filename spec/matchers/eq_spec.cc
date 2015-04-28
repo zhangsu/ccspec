@@ -18,7 +18,7 @@ namespace spec {
 namespace matchers {
 
 auto eq_spec = describe("Eq", [] {
-  it("matches if two const temporary bools are equal", [] {
+  it("matches if two const temp bools are equal", [] {
     expect(eq(false).match(false)).to(be_truthy);
   });
 
@@ -33,7 +33,7 @@ auto eq_spec = describe("Eq", [] {
     expect(eq(b0).match(b1)).to(be_falsey);
   });
 
-  it("matches if two const temporary chars are equal", [] {
+  it("matches if two const temp chars are equal", [] {
     expect(eq('x').match('x')).to(be_truthy);
   });
 
@@ -48,7 +48,7 @@ auto eq_spec = describe("Eq", [] {
     expect(eq(c0).match(c1)).to(be_falsey);
   });
 
-  it("matches if two const temporary ints are equal", [] {
+  it("matches if two const temp ints are equal", [] {
     expect(eq(42).match(42)).to(be_truthy);
   });
 
@@ -63,7 +63,7 @@ auto eq_spec = describe("Eq", [] {
     expect(eq(i0).match(i1)).to(be_falsey);
   });
 
-  it("matches if two const temporary doubles are equal", [] {
+  it("matches if two const temp doubles are equal", [] {
     expect(eq(3.14).match(3.14)).to(be_truthy);
   });
 
@@ -79,7 +79,7 @@ auto eq_spec = describe("Eq", [] {
   });
 
 
-  it("matches if two const temporary char* point to the same string", [] {
+  it("matches if two const temp char* point to the same string", [] {
     expect(eq("foo").match("foo")).to(be_truthy);
   });
 
@@ -102,7 +102,7 @@ auto eq_spec = describe("Eq", [] {
     expect(eq(str0).match(str1)).to(be_falsey);
   });
 
-  it("matches if two const temporary strings are equal", [] {
+  it("matches if two const temp strings are equal", [] {
     expect(eq(string("test")).match(string("test"))).to(be_truthy);
   });
 
@@ -130,7 +130,7 @@ auto eq_spec = describe("Eq", [] {
       int i_;
     } t0(0), t1(2), t3(0);
 
-    it("matches if two const temporary instances of them are equal", [] {
+    it("matches if two const temp instances of them are equal", [] {
       expect(eq(T(3)).match(T(3))).to(be_truthy);
     });
 
