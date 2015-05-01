@@ -89,7 +89,7 @@ auto eq_spec = describe("Eq", [] {
     expect(eq(str0).match(str1)).to(be_truthy);
   });
 
-  it("does not match if two char* point to different string", [] {
+  it("does not match if two char* point to different strings", [] {
     const char* str0 = "test";
     const char* str1 = "spec";
     expect(eq(str0).match(str1)).to(be_falsey);
