@@ -128,18 +128,20 @@ auto eq_spec = describe("Eq", [] {
 
      private:
       int i_;
-    } t0(0), t1(2), t3(0);
+    };
 
     it("matches if two const temp instances of them are equal", [] {
       expect(eq(T(3)).match(T(3))).to(be_truthy);
     });
 
-    it("matches if two instances of them are equal", [t0, t3] {
-      expect(eq(t0).match(t3)).to(be_truthy);
+    it("matches if two instances of them are equal", [] {
+      T t0(1), t1(1);
+      expect(eq(t0).match(t1)).to(be_truthy);
     });
 
-    it("does not match if two instances of them are not equal", [t1, t3] {
-      expect(eq(t1).match(t3)).to(be_falsey);
+    it("does not match if two instances of them are not equal", [] {
+      T t0(2), t1(1);
+      expect(eq(t0).match(t1)).to(be_falsey);
     });
   });
 
