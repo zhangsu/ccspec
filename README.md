@@ -39,9 +39,26 @@ In case of describing an object, it is more natural to start the description
 with the subject "it". It just reads better.
 
 ```c++
-describe("the integer one", [] {
-  it("is 3 less than 4", [] {
-    expect(1).to(eq(4 - 3));
+class Student {
+ public:
+  bool hasPapers() const {
+    return true;
+  }
+
+  string status() const {
+    return "alumni";
+  }
+};
+
+describe("Student", [] {
+  Student subject;
+
+  it("has published papers", [subject] {
+    expect(subject.hasPapers()).to(be_truthy);
+  });
+
+  it("is alumni", [subject] {
+    expect(subject.status()).to(eq("alumni"));
   });
 });
 ```
