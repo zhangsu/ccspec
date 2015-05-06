@@ -107,14 +107,12 @@ auto eq_spec = describe("Eq", [] {
   });
 
   it("matches if two strings are equal", [] {
-    string str0 = "test";
-    string str1 = "test";
+    string str0 = "test", str1 = "test";
     expect(eq(str0).match(str1)).to(be_truthy);
   });
 
   it("does not match if two strings are not equal", [] {
-    string str0 = "test";
-    string str1 = "spec";
+    string str0 = "test", str1 = "spec";
     expect(eq(str0).match(str1)).to(be_falsey);
   });
 
