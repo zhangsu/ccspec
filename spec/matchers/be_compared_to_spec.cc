@@ -409,6 +409,84 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
     });
   });
 
+  context("with != comparator", [] {
+    it("matches if actual const temp char is != expected", [] {
+      expect((be != 'a').match('b')).to(be_truthy);
+    });
+
+    it("matches if actual char is > expected", [] {
+      char c0 = 'y', c1 = 'x';
+      expect((be != c1).match(c0)).to(be_truthy);
+    });
+
+    it("matches if actual char is < expected", [] {
+      char c0 = 'a', c1 = 'b';
+      expect((be != c1).match(c0)).to(be_truthy);
+    });
+
+    it("does not match if actual char is == expected", [] {
+      char c0 = 'b', c1 = 'b';
+      expect((be != c1).match(c0)).to(be_falsey);
+    });
+
+    it("matches if actual const temp int is != expected", [] {
+      expect((be != 42).match(43)).to(be_truthy);
+    });
+
+    it("matches if actual int is > expected", [] {
+      int i0 = 32768, i1 = 32767;
+      expect((be != i1).match(i0)).to(be_truthy);
+    });
+
+    it("matches if actual int is < expected", [] {
+      int i0 = -42, i1 = 42;
+      expect((be != i1).match(i0)).to(be_truthy);
+    });
+
+    it("does not match if actual int is == expected", [] {
+      int i0 = 42, i1 = 42;
+      expect((be != i1).match(i0)).to(be_falsey);
+    });
+
+    it("matches if actual const temp double is != expected", [] {
+      expect((be != 3.14).match(3.141)).to(be_truthy);
+    });
+
+    it("matches if actual double is > expected", [] {
+      double d0 = 8.87, d1 = 8.86;
+      expect((be != d1).match(d0)).to(be_truthy);
+    });
+
+    it("matches if actual double is < expected", [] {
+      double d0 = -3.14, d1 = 3.14;
+      expect((be != d1).match(d0)).to(be_truthy);
+    });
+
+    it("does not match if actual double is == expected", [] {
+      double d0 = 3.14, d1 = 3.14;
+      expect((be != d1).match(d0)).to(be_falsey);
+    });
+
+    it("matches if actual const temp string is != expected", [] {
+      expect((be != string("abd")).match(string("abc"))).to(be_truthy);
+    });
+
+    it("matches if actual string is > expected", [] {
+      string s0 = "xyz", s1 = "xyy";
+      expect((be != s1).match(s0)).to(be_truthy);
+    });
+
+    it("matches if actual string is < expected", [] {
+      string s0 = "abb", s1 = "abc";
+      expect((be != s1).match(s0)).to(be_truthy);
+    });
+
+    it("does not match if actual string is == expected", [] {
+      string s0 = "abc", s1 = "abc";
+      expect((be != s1).match(s0)).to(be_falsey);
+    });
+  });
+
   context("when used for arbitrary types", [] {
     class T {
      public:
