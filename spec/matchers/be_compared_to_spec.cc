@@ -341,7 +341,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be == c1).match(c0)).to(be_truthy);
     });
 
-    it("doe not match if actual char is > expected", [] {
+    it("does not match if actual char is > expected", [] {
       char c0 = 'y', c1 = 'x';
       expect((be == c1).match(c0)).to(be_falsey);
     });
