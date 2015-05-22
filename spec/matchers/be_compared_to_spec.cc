@@ -491,8 +491,13 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
     class T {
      public:
       explicit T(int i) : i_(i) {}
+
       bool operator <(const T& t) const {
         return i_ < t.i_;
+      }
+
+      bool operator <=(const T& t) const {
+        return i_ <= t.i_;
       }
 
      private:
@@ -517,6 +522,27 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       it("does not match if actual instance is == expected", [] {
         T t0(1), t1(1);
         expect((be < t1).match(t0)).to(be_falsey);
+      });
+    });
+
+    context("with <= comparator", [] {
+      it("matches if actual const temp instance is <= expected", [] {
+        expect((be <= T(3)).match(T(2))).to(be_truthy);
+      });
+
+      it("matches if actual instance is < expected", [] {
+        T t0(0), t1(1);
+        expect((be <= t1).match(t0)).to(be_truthy);
+      });
+
+      it("matches if actual instance is == expected", [] {
+        T t0(1), t1(1);
+        expect((be <= t1).match(t0)).to(be_truthy);
+      });
+
+      it("does not match if actual instance is > expected", [] {
+        T t0(1), t1(0);
+        expect((be <= t1).match(t0)).to(be_falsey);
       });
     });
   });
