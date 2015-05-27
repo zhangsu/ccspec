@@ -649,19 +649,19 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
 
   describe("#desc", [] {
     context("with < comparator", [] {
-      it("says '< $c' when expecting char", [] {
+      it("says 'be < $c' when expecting char", [] {
         expect((be < 'x').desc()).to(eq("be < x"));
       });
 
-      it("says '< $i' when expecting int", [] {
+      it("says 'be < $i' when expecting int", [] {
         expect((be < 42).desc()).to(eq("be < 42"));
       });
 
-      it("says '< $d' when expecting double", [] {
+      it("says 'be < $d' when expecting double", [] {
         expect((be < 3.14).desc()).to(eq("be < 3.14"));
       });
 
-      it("says '< $s' when expecting string", [] {
+      it("says 'be < $s' when expecting string", [] {
         expect((be < string("test")).desc()).to(eq("be < test"));
       });
     });
