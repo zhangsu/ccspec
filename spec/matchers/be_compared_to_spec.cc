@@ -665,6 +665,96 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
         expect((be < string("test")).desc()).to(eq("be < test"));
       });
     });
+
+    context("with <= comparator", [] {
+      it("says 'be <= $c' when expecting char", [] {
+        expect((be <= 'x').desc()).to(eq("be <= x"));
+      });
+
+      it("says 'be <= $i' when expecting int", [] {
+        expect((be <= 42).desc()).to(eq("be <= 42"));
+      });
+
+      it("says 'be <= $d' when expecting double", [] {
+        expect((be <= 3.14).desc()).to(eq("be <= 3.14"));
+      });
+
+      it("says 'be <= $s' when expecting string", [] {
+        expect((be <= string("test")).desc()).to(eq("be <= test"));
+      });
+    });
+
+    context("with > comparator", [] {
+      it("says 'be > $c' when expecting char", [] {
+        expect((be > 'x').desc()).to(eq("be > x"));
+      });
+
+      it("says 'be > $i' when expecting int", [] {
+        expect((be > 42).desc()).to(eq("be > 42"));
+      });
+
+      it("says 'be > $d' when expecting double", [] {
+        expect((be > 3.14).desc()).to(eq("be > 3.14"));
+      });
+
+      it("says 'be > $s' when expecting string", [] {
+        expect((be > string("test")).desc()).to(eq("be > test"));
+      });
+    });
+
+    context("with >= comparator", [] {
+      it("says 'be >= $c' when expecting char", [] {
+        expect((be >= 'x').desc()).to(eq("be >= x"));
+      });
+
+      it("says 'be >= $i' when expecting int", [] {
+        expect((be >= 42).desc()).to(eq("be >= 42"));
+      });
+
+      it("says 'be >= $d' when expecting double", [] {
+        expect((be >= 3.14).desc()).to(eq("be >= 3.14"));
+      });
+
+      it("says 'be >= $s' when expecting string", [] {
+        expect((be >= string("test")).desc()).to(eq("be >= test"));
+      });
+    });
+
+    context("with == comparator", [] {
+      it("says 'be equal to $c' when expecting char", [] {
+        expect((be == 'x').desc()).to(eq("be equal to x"));
+      });
+
+      it("says 'be equal to $i' when expecting int", [] {
+        expect((be == 42).desc()).to(eq("be equal to 42"));
+      });
+
+      it("says 'be equal to $d' when expecting double", [] {
+        expect((be == 3.14).desc()).to(eq("be equal to 3.14"));
+      });
+
+      it("says 'be equal to $s' when expecting string", [] {
+        expect((be == string("test")).desc()).to(eq("be equal to test"));
+      });
+    });
+
+    context("with != comparator", [] {
+      it("says 'be not equal to $c' when expecting char", [] {
+        expect((be != 'x').desc()).to(eq("be not equal to x"));
+      });
+
+      it("says 'be not equal to $i' when expecting int", [] {
+        expect((be != 42).desc()).to(eq("be not equal to 42"));
+      });
+
+      it("says 'be not equal to $d' when expecting double", [] {
+        expect((be != 3.14).desc()).to(eq("be not equal to 3.14"));
+      });
+
+      it("says 'be not equal to $s' when expecting string", [] {
+        expect((be != string("test")).desc()).to(eq("be not equal to test"));
+      });
+    });
   });
 });
 
