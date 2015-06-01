@@ -28,12 +28,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be < c1)).to(match(c0));
     });
 
-    it("does not match if actual char is > expected", [] {
+    it("doesn't match if actual char is > expected", [] {
       char c0 = 'b', c1 = 'a';
       expect((be < c1)).notTo(match(c0));
     });
 
-    it("does not match if actual char is == expected", [] {
+    it("doesn't match if actual char is == expected", [] {
       char c0 = 'b', c1 = 'b';
       expect((be < c1)).notTo(match(c0));
     });
@@ -47,12 +47,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be < i1)).to(match(i0));
     });
 
-    it("does not match if actual int is > expected", [] {
+    it("doesn't match if actual int is > expected", [] {
       int i0 = 42, i1 = -42;
       expect((be < i1)).notTo(match(i0));
     });
 
-    it("does not match if actual int is == expected", [] {
+    it("doesn't match if actual int is == expected", [] {
       int i0 = 42, i1 = 42;
       expect((be < i1)).notTo(match(i0));
     });
@@ -66,12 +66,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be < d1)).to(match(d0));
     });
 
-    it("does not match if actual double is > expected", [] {
+    it("doesn't match if actual double is > expected", [] {
       double d0 = 3.14, d1 = -3.14;
       expect((be < d1)).notTo(match(d0));
     });
 
-    it("does not match if actual double is == expected", [] {
+    it("doesn't match if actual double is == expected", [] {
       double d0 = 3.14, d1 = 3.14;
       expect((be < d1)).notTo(match(d0));
     });
@@ -85,12 +85,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be < s1)).to(match(s0));
     });
 
-    it("does not match if actual string is > expected", [] {
+    it("doesn't match if actual string is > expected", [] {
       string s0 = "abc", s1 = "abb";
       expect((be < s1)).notTo(match(s0));
     });
 
-    it("does not match if actual string is == expected", [] {
+    it("doesn't match if actual string is == expected", [] {
       string s0 = "abc", s1 = "abc";
       expect((be < s1)).notTo(match(s0));
     });
@@ -111,7 +111,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be <= c1)).to(match(c0));
     });
 
-    it("does not match if actual char is > expected", [] {
+    it("doesn't match if actual char is > expected", [] {
       char c0 = 'b', c1 = 'a';
       expect((be <= c1)).notTo(match(c0));
     });
@@ -130,7 +130,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be <= i1)).to(match(i0));
     });
 
-    it("does not match if actual int is > expected", [] {
+    it("doesn't match if actual int is > expected", [] {
       int i0 = 42, i1 = -42;
       expect((be <= i1)).notTo(match(i0));
     });
@@ -149,7 +149,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be <= d1)).to(match(d0));
     });
 
-    it("does not match if actual double is > expected", [] {
+    it("doesn't match if actual double is > expected", [] {
       double d0 = 3.14, d1 = -3.14;
       expect((be <= d1)).notTo(match(d0));
     });
@@ -168,7 +168,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be <= s1)).to(match(s0));
     });
 
-    it("does not match if actual string is > expected", [] {
+    it("doesn't match if actual string is > expected", [] {
       string s0 = "abc", s1 = "abb";
       expect((be <= s1)).notTo(match(s0));
     });
@@ -184,12 +184,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be > c1)).to(match(c0));
     });
 
-    it("does not match if actual char is < expected", [] {
+    it("doesn't match if actual char is < expected", [] {
       char c0 = 'a', c1 = 'b';
       expect((be > c1)).notTo(match(c0));
     });
 
-    it("does not match if actual char is == expected", [] {
+    it("doesn't match if actual char is == expected", [] {
       char c0 = 'b', c1 = 'b';
       expect((be > c1)).notTo(match(c0));
     });
@@ -203,12 +203,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be > i1)).to(match(i0));
     });
 
-    it("does not match if actual int is < expected", [] {
+    it("doesn't match if actual int is < expected", [] {
       int i0 = -42, i1 = 42;
       expect((be > i1)).notTo(match(i0));
     });
 
-    it("does not match if actual int is == expected", [] {
+    it("doesn't match if actual int is == expected", [] {
       int i0 = 42, i1 = 42;
       expect((be > i1)).notTo(match(i0));
     });
@@ -222,12 +222,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be > d1)).to(match(d0));
     });
 
-    it("does not match if actual double is < expected", [] {
+    it("doesn't match if actual double is < expected", [] {
       double d0 = -3.14, d1 = 3.14;
       expect((be > d1)).notTo(match(d0));
     });
 
-    it("does not match if actual double is == expected", [] {
+    it("doesn't match if actual double is == expected", [] {
       double d0 = 3.14, d1 = 3.14;
       expect((be > d1)).notTo(match(d0));
     });
@@ -241,12 +241,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be > s1)).to(match(s0));
     });
 
-    it("does not match if actual string is < expected", [] {
+    it("doesn't match if actual string is < expected", [] {
       string s0 = "abb", s1 = "abc";
       expect((be > s1)).notTo(match(s0));
     });
 
-    it("does not match if actual string is == expected", [] {
+    it("doesn't match if actual string is == expected", [] {
       string s0 = "abc", s1 = "abc";
       expect((be > s1)).notTo(match(s0));
     });
@@ -267,7 +267,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be >= c1)).to(match(c0));
     });
 
-    it("does not match if actual char is < expected", [] {
+    it("doesn't match if actual char is < expected", [] {
       char c0 = 'a', c1 = 'b';
       expect((be >= c1)).notTo(match(c0));
     });
@@ -286,7 +286,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be >= i1)).to(match(i0));
     });
 
-    it("does not match if actual int is < expected", [] {
+    it("doesn't match if actual int is < expected", [] {
       int i0 = -42, i1 = 42;
       expect((be >= i1)).notTo(match(i0));
     });
@@ -305,7 +305,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be >= d1)).to(match(d0));
     });
 
-    it("does not match if actual double is < expected", [] {
+    it("doesn't match if actual double is < expected", [] {
       double d0 = -3.14, d1 = 3.14;
       expect((be >= d1)).notTo(match(d0));
     });
@@ -319,12 +319,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be >= s1)).to(match(s0));
     });
 
-    it("does not match if actual string is == expected", [] {
+    it("doesn't match if actual string is == expected", [] {
       string s0 = "abc", s1 = "abc";
       expect((be >= s1)).to(match(s0));
     });
 
-    it("does not match if actual string is < expected", [] {
+    it("doesn't match if actual string is < expected", [] {
       string s0 = "abb", s1 = "abc";
       expect((be >= s1)).notTo(match(s0));
     });
@@ -340,12 +340,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be == c1)).to(match(c0));
     });
 
-    it("does not match if actual char is > expected", [] {
+    it("doesn't match if actual char is > expected", [] {
       char c0 = 'y', c1 = 'x';
       expect((be == c1)).notTo(match(c0));
     });
 
-    it("does not match if actual char is < expected", [] {
+    it("doesn't match if actual char is < expected", [] {
       char c0 = 'a', c1 = 'b';
       expect((be == c1)).notTo(match(c0));
     });
@@ -359,12 +359,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be == i1)).to(match(i0));
     });
 
-    it("does not match if actual int is > expected", [] {
+    it("doesn't match if actual int is > expected", [] {
       int i0 = 32768, i1 = 32767;
       expect((be == i1)).notTo(match(i0));
     });
 
-    it("does not match if actual int is < expected", [] {
+    it("doesn't match if actual int is < expected", [] {
       int i0 = -42, i1 = 42;
       expect((be == i1)).notTo(match(i0));
     });
@@ -378,12 +378,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be == d1)).to(match(d0));
     });
 
-    it("does not match if actual double is > expected", [] {
+    it("doesn't match if actual double is > expected", [] {
       double d0 = 8.87, d1 = 8.86;
       expect((be == d1)).notTo(match(d0));
     });
 
-    it("does not match if actual double is < expected", [] {
+    it("doesn't match if actual double is < expected", [] {
       double d0 = -3.14, d1 = 3.14;
       expect((be == d1)).notTo(match(d0));
     });
@@ -397,12 +397,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be == s1)).to(match(s0));
     });
 
-    it("does not match if actual string is > expected", [] {
+    it("doesn't match if actual string is > expected", [] {
       string s0 = "xyz", s1 = "xyy";
       expect((be == s1)).notTo(match(s0));
     });
 
-    it("does not match if actual string is < expected", [] {
+    it("doesn't match if actual string is < expected", [] {
       string s0 = "abb", s1 = "abc";
       expect((be == s1)).notTo(match(s0));
     });
@@ -423,7 +423,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be != c1)).to(match(c0));
     });
 
-    it("does not match if actual char is == expected", [] {
+    it("doesn't match if actual char is == expected", [] {
       char c0 = 'b', c1 = 'b';
       expect((be != c1)).notTo(match(c0));
     });
@@ -442,7 +442,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be != i1)).to(match(i0));
     });
 
-    it("does not match if actual int is == expected", [] {
+    it("doesn't match if actual int is == expected", [] {
       int i0 = 42, i1 = 42;
       expect((be != i1)).notTo(match(i0));
     });
@@ -461,7 +461,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be != d1)).to(match(d0));
     });
 
-    it("does not match if actual double is == expected", [] {
+    it("doesn't match if actual double is == expected", [] {
       double d0 = 3.14, d1 = 3.14;
       expect((be != d1)).notTo(match(d0));
     });
@@ -480,7 +480,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
       expect((be != s1)).to(match(s0));
     });
 
-    it("does not match if actual string is == expected", [] {
+    it("doesn't match if actual string is == expected", [] {
       string s0 = "abc", s1 = "abc";
       expect((be != s1)).notTo(match(s0));
     });
@@ -529,12 +529,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
         expect((be < t1)).to(match(t0));
       });
 
-      it("does not match if actual instance is > expected", [] {
+      it("doesn't match if actual instance is > expected", [] {
         T t0(1), t1(0);
         expect((be < t1)).notTo(match(t0));
       });
 
-      it("does not match if actual instance is == expected", [] {
+      it("doesn't match if actual instance is == expected", [] {
         T t0(1), t1(1);
         expect((be < t1)).notTo(match(t0));
       });
@@ -555,7 +555,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
         expect((be <= t1)).to(match(t0));
       });
 
-      it("does not match if actual instance is > expected", [] {
+      it("doesn't match if actual instance is > expected", [] {
         T t0(1), t1(0);
         expect((be <= t1)).notTo(match(t0));
       });
@@ -571,12 +571,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
         expect((be > t1)).to(match(t0));
       });
 
-      it("does not match if actual instance is == expected", [] {
+      it("doesn't match if actual instance is == expected", [] {
         T t0(1), t1(1);
         expect((be > t1)).notTo(match(t0));
       });
 
-      it("does not match if actual instance is < expected", [] {
+      it("doesn't match if actual instance is < expected", [] {
         T t0(0), t1(1);
         expect((be > t1)).notTo(match(t0));
       });
@@ -597,7 +597,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
         expect((be >= t1)).to(match(t0));
       });
 
-      it("does not match if actual instance is < expected", [] {
+      it("doesn't match if actual instance is < expected", [] {
         T t0(0), t1(1);
         expect((be >= t1)).notTo(match(t0));
       });
@@ -613,12 +613,12 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
         expect((be == t1)).to(match(t0));
       });
 
-      it("does not match if actual instance is > expected", [] {
+      it("doesn't match if actual instance is > expected", [] {
         T t0(1), t1(0);
         expect((be == t1)).notTo(match(t0));
       });
 
-      it("does not match if actual instance is < expected", [] {
+      it("doesn't match if actual instance is < expected", [] {
         T t0(0), t1(1);
         expect((be == t1)).notTo(match(t0));
       });
@@ -639,7 +639,7 @@ auto be_compared_to_spec = describe("BeComparedTo", [] {
         expect((be != t1)).to(match(t0));
       });
 
-      it("does not match if actual instance is == expected", [] {
+      it("doesn't match if actual instance is == expected", [] {
         T t0(0), t1(0);
         expect((be != t1)).notTo(match(t0));
       });

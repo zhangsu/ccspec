@@ -24,7 +24,7 @@ auto be_spec = describe("Be", [] {
     expect(be(b0)).to(match(b1));
   });
 
-  it("does not match if two bool references point to different copies", [] {
+  it("doesn't match if two bool references point to different copies", [] {
     bool b0 = true;
     bool b1 = b0;
     expect(be(b0)).notTo(match(b1));
@@ -36,7 +36,7 @@ auto be_spec = describe("Be", [] {
     expect(be(c0)).to(match(c1));
   });
 
-  it("does not match if two char references point to different copy", [] {
+  it("doesn't match if two char references point to different copy", [] {
     char c0 = 'x';
     char c1 = c0;
     expect(be(c0)).notTo(match(c1));
@@ -48,7 +48,7 @@ auto be_spec = describe("Be", [] {
     expect(be(i0)).to(match(i1));
   });
 
-  it("does not match if two int references point to different copy", [] {
+  it("doesn't match if two int references point to different copy", [] {
     int i0 = 42;
     int i1 = i0;
     expect(be(i0)).notTo(match(i1));
@@ -60,7 +60,7 @@ auto be_spec = describe("Be", [] {
     expect(be(d0)).to(match(d1));
   });
 
-  it("does not match if two double references point to different copy", [] {
+  it("doesn't match if two double references point to different copy", [] {
     double d0 = 3.14;
     double d1 = d0;
     expect(be(d0)).notTo(match(d1));
@@ -72,7 +72,7 @@ auto be_spec = describe("Be", [] {
     expect(be(str0)).to(match(str1));
   });
 
-  it("does not match if two char* references point to different char* copies",
+  it("doesn't match if two char* references point to different char* copies",
      [] {
     const char* str0 = "test";
     const char* str1 = str0;
@@ -85,7 +85,7 @@ auto be_spec = describe("Be", [] {
     expect(be(str0)).to(match(str1));
   });
 
-  it("does not match if two string references point to different copies", [] {
+  it("doesn't match if two string references point to different copies", [] {
     string str0 = "test";
     string str1 = str0;
     expect(be(str0)).notTo(match(str1));
@@ -100,7 +100,7 @@ auto be_spec = describe("Be", [] {
       expect(be(t0)).to(match(t1));
     });
 
-    it("does not match if two instances of them point to different copies", [] {
+    it("doesn't match if two instances of them point to different copies", [] {
       T t0;
       T t1 = t0;
       expect(be(t0)).notTo(match(t1));

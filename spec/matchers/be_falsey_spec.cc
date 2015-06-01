@@ -34,7 +34,7 @@ auto be_falsey_spec = describe("BeFalsey", [] {
     expect(be_falsey).to(match(b));
   });
 
-  it("does not match if a bool is true", [] {
+  it("doesn't match if a bool is true", [] {
     bool b = true;
     expect(be_falsey).notTo(match(b));
   });
@@ -48,7 +48,7 @@ auto be_falsey_spec = describe("BeFalsey", [] {
     expect(be_falsey).to(match(c));
   });
 
-  it("does not match if a char is truthy", [] {
+  it("doesn't match if a char is truthy", [] {
     char c = 'x';
     expect(be_falsey).notTo(match(c));
   });
@@ -62,7 +62,7 @@ auto be_falsey_spec = describe("BeFalsey", [] {
     expect(be_falsey).to(match(i));
   });
 
-  it("does not match if an int is truthy", [] {
+  it("doesn't match if an int is truthy", [] {
     int i = 42;
     expect(be_falsey).notTo(match(i));
   });
@@ -76,7 +76,7 @@ auto be_falsey_spec = describe("BeFalsey", [] {
     expect(be_falsey).to(match(d));
   });
 
-  it("does not match if a double is truthy", [] {
+  it("doesn't match if a double is truthy", [] {
     double d = 3.14;
     expect(be_falsey).notTo(match(d));
   });

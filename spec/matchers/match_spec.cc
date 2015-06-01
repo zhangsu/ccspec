@@ -70,7 +70,7 @@ auto match_spec = describe("Match", [] {
     expect(match(b).match(t)).to(be_truthy);
   });
 
-  it("does not match if an instance does not match a given bool", [] {
+  it("doesn't match if an instance doesn't match a given bool", [] {
     T t(false);
     bool b = true;
     expect(match(b).match(t)).to(be_falsey);
@@ -86,7 +86,7 @@ auto match_spec = describe("Match", [] {
     expect(match(c).match(t)).to(be_truthy);
   });
 
-  it("does not match if an instance does not match a given char", [] {
+  it("doesn't match if an instance doesn't match a given char", [] {
     T t('y');
     char c = 'x';
     expect(match(c).match(t)).to(be_falsey);
@@ -102,7 +102,7 @@ auto match_spec = describe("Match", [] {
     expect(match(i).match(t)).to(be_truthy);
   });
 
-  it("does not match if an instance does not match a given int", [] {
+  it("doesn't match if an instance doesn't match a given int", [] {
     T t(1);
     int i = 2;
     expect(match(i).match(t)).to(be_falsey);
@@ -118,7 +118,7 @@ auto match_spec = describe("Match", [] {
     expect(match(d).match(t)).to(be_truthy);
   });
 
-  it("does not match if an instance does not match a given double", [] {
+  it("doesn't match if an instance doesn't match a given double", [] {
     T t(3.14);
     double d = 2.138;
     expect(match(d).match(t)).to(be_falsey);
@@ -134,7 +134,7 @@ auto match_spec = describe("Match", [] {
     expect(match(s).match(t)).to(be_truthy);
   });
 
-  it("does not match if an instance does not match a given char*", [] {
+  it("doesn't match if an instance doesn't match a given char*", [] {
     T t("xyz");
     const char* s = "abc";
     expect(match(s).match(t)).to(be_falsey);
@@ -150,7 +150,7 @@ auto match_spec = describe("Match", [] {
     expect(match(s).match(t)).to(be_truthy);
   });
 
-  it("does not match if an instance does not match a given string", [] {
+  it("doesn't match if an instance doesn't match a given string", [] {
     T t(string("xyz"));
     string s = "abc";
     expect(match(s).match(t)).to(be_falsey);
