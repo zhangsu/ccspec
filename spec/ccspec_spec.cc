@@ -12,6 +12,7 @@ namespace matchers {
 
 extern ExampleGroup* be_compared_to_spec;
 extern ExampleGroup* be_falsey_spec;
+extern ExampleGroup* be_something_spec;
 extern ExampleGroup* be_spec;
 extern ExampleGroup* be_truthy_spec;
 extern ExampleGroup* eq_spec;
@@ -27,6 +28,7 @@ int main() {
   ExampleGroup* example_groups[] = {
     spec::matchers::be_compared_to_spec,
     spec::matchers::be_falsey_spec,
+    spec::matchers::be_something_spec,
     spec::matchers::be_spec,
     spec::matchers::be_truthy_spec,
     spec::matchers::eq_spec,
