@@ -55,17 +55,29 @@ flags = [
 '-x',
 'c++',
 '-isystem',
-'../BoostParts',
+'/usr/include',
 '-isystem',
-# This path will only work on OS X, but extra paths that don't exist are not
-# harmful
-'/System/Library/Frameworks/Python.framework/Headers',
+'/usr/local/include'
+'-isystem',
+'../BoostParts',
 '-isystem',
 '../llvm/include',
 '-isystem',
 '../llvm/tools/clang/include',
 '-I',
 './include',
+# These path will only work on OS X, but extra paths that don't exist are not
+# harmful
+'-isystem',
+'/System/Library/Frameworks/Python.framework/Headers',
+'-isystem',
+'/Library/Developer/CommandLineTools/usr/include/c++/v1',
+'-isystem',
+'/Library/Developer/CommandLineTools/usr/include',
+'-isystem',
+'/System/Library/Frameworks',
+'-isystem',
+'/Library/Frameworks',
 ]
 
 
