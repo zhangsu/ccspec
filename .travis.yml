@@ -20,6 +20,7 @@ addons:
 
 before_install:
   - if [ "$CXX" = "g++" ] && [ $TRAVIS_OS_NAME = "linux" ]; then export CXX="g++-5"; fi
+  - if [ $TRAVIS_OS_NAME = "osx" ]; then brew update; brew install cppcheck; fi
 
 script:
   - wget https://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py && find . -name *.h -o -name *.cc | xargs python cpplint.py
