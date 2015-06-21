@@ -20,44 +20,54 @@ namespace matchers {
 auto match_spec = describe("Match", [] {
   class T {
    public:
-    explicit T(bool b) : b_(b) {}
-    explicit T(char c) : c_(c) {}
-    explicit T(int i) : i_(i) {}
-    explicit T(double d) : d_(d) {}
-    explicit T(const char* s) : s_(s) {}
-    explicit T(string s) : str_(s) {}
+    explicit T(bool b) : data_(b) {}
+    explicit T(char c) : data_(c) {}
+    explicit T(int i) : data_(i) {}
+    explicit T(double d) : data_(d) {}
+    explicit T(const char* s) : data_(s) {}
+    explicit T(string s) : data_(s) {}
 
     bool match(bool b) const {
-      return b_ == b;
+      return data_.b_ == b;
     }
 
     bool match(char c) const {
-      return c_ == c;
+      return data_.c_ == c;
     }
 
     bool match(int i) const {
-      return i_ == i;
+      return data_.i_ == i;
     }
 
     bool match(double d) const {
-      return d_ == d;
+      return data_.d_ == d;
     }
 
     bool match(const char* s) const {
-      return s_ == s;
+      return data_.s_ == s;
     }
 
     bool match(string s) const {
-      return str_ == s;
+      return data_.str_ == s;
     }
 
    private:
-    bool b_;
-    char c_;
-    int i_;
-    double d_;
-    const char* s_;
-    string str_;
+    union Data {
+      explicit Data(bool b) : b_(b) {}
+      explicit Data(char c) : c_(c) {}
+      explicit Data(int i) : i_(i) {}
+      explicit Data(double d) : d_(d) {}
+      explicit Data(const char* s) : s_(s) {}
+      explicit Data(string s) : str_(s) {}
+      ~Data() {}
+
+      bool b_;
+      char c_;
+      int i_;
+      double d_;
+      const char* s_;
+      string str_;
+    } data_;
   };
 
   it("matches if a const temp instance matches a given const temp bool", [] {
