@@ -5,7 +5,6 @@
 #include "ccspec/matchers.h"
 
 using std::string;
-using ccspec::core::before;
 using ccspec::core::context;
 using ccspec::core::describe;
 using ccspec::core::it;
