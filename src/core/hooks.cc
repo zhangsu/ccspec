@@ -7,6 +7,8 @@ namespace core {
 
 using std::string;
 
+// TODO: add spec for this function so no cppcheck suppression is needed.
+// cppcheck-suppress unusedFunction
 void before(string scope, BeforeHook hook) {
   ExampleGroup* parent_group = groups_being_defined.top();
   if (scope == "each" || scope == "example")
@@ -17,6 +19,8 @@ void before(string scope, BeforeHook hook) {
     throw "no such before hook type";
 }
 
+// TODO: add spec for this function so no cppcheck suppression is needed.
+// cppcheck-suppress unusedFunction
 void after(string scope, AfterHook hook) {
   ExampleGroup* parent_group = groups_being_defined.top();
   if (scope == "each" || scope == "example")
@@ -27,6 +31,8 @@ void after(string scope, AfterHook hook) {
     throw "no such after hook type";
 }
 
+// TODO: add spec for this function so no cppcheck suppression is needed.
+// cppcheck-suppress unusedFunction
 void around(string scope, AroundHook hook) {
   ExampleGroup* parent_group = groups_being_defined.top();
   if (scope == "each" || scope == "example")
