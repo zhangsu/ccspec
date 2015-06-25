@@ -139,7 +139,7 @@ Example example(string desc, function<void()> spec) {
   return it(desc, spec);
 }
 
-// TODO: add spec for this function so no cppcheck suppression is needed.
+// TODO(zhangsu): add spec for this so no cppcheck suppression is needed.
 // cppcheck-suppress unusedFunction
 Example specify(string desc, function<void()> spec) {
   return it(desc, spec);
