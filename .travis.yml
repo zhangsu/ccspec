@@ -24,7 +24,7 @@ before_install:
 
 script:
   - wget https://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py && find . -name *.h -o -name *.cc | xargs python cpplint.py
-  - cppcheck --enable=all --error-exitcode=1 --inline-suppr -I include/ src/ spec/
+  - cppcheck --enable=all --error-exitcode=1 --inline-suppr --suppress=unmatchedSuppression -I include/ src/ spec/
   - cd build && cmake .. && make && spec/ccspec_spec
 
 cache: ccache
