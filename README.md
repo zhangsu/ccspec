@@ -29,8 +29,8 @@ describe("elementary school arithmetics", [] {
         expect(1 + 1).to(eq(2));
     });
 
-    specify("three minus four equals negative one", [] {
-        expect(3 - 4).to(eq(-1));
+    specify("three minus four is less than or equal to zero", [] {
+        expect(3 - 4).to(be <= 0);
     });
 });
 ```
