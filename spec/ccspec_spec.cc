@@ -19,6 +19,12 @@ extern ExampleGroup* eq_spec;
 extern ExampleGroup* match_spec;
 
 }  // namespace matchers
+
+namespace support {
+
+extern ExampleGroup* exception_spec;
+
+}  // namespace support
 }  // namespace spec
 
 int main() {
@@ -33,6 +39,7 @@ int main() {
     spec::matchers::be_truthy_spec,
     spec::matchers::eq_spec,
     spec::matchers::match_spec,
+    spec::support::exception_spec,
   };
   bool succeeded = true;
   for (auto example_group : example_groups) {
