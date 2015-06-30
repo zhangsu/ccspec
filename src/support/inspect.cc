@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <sstream>
 #include "ccspec/support/inspect.h"
 
@@ -10,6 +11,7 @@ using std::ostringstream;
 using std::string;
 using std::streambuf;
 using std::ostream;
+using std::setprecision;
 
 string inspect(char val) {
   ostringstream ss;
@@ -78,13 +80,13 @@ string inspect(unsigned long long val) {
 
 string inspect(float val) {
   ostringstream ss;
-  ss << val;
+  ss << setprecision(5) << val;
   return ss.str();
 }
 
 string inspect(double val) {
   ostringstream ss;
-  ss << val;
+  ss << setprecision(15) << val;
   return ss.str();
 }
 
