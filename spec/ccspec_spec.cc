@@ -23,6 +23,7 @@ extern ExampleGroup* match_spec;
 namespace support {
 
 extern ExampleGroup* exception_spec;
+extern ExampleGroup* inspect_spec;
 
 }  // namespace support
 }  // namespace spec
@@ -40,6 +41,7 @@ int main() {
     spec::matchers::eq_spec,
     spec::matchers::match_spec,
     spec::support::exception_spec,
+    spec::support::inspect_spec,
   };
   bool succeeded = true;
   for (auto example_group : example_groups) {
