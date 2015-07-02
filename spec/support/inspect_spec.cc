@@ -86,7 +86,7 @@ auto inspect_spec = describe(".inspect", [] {
     expect(inspect(f)).to(eq("3.14159268373523"));
   });
 
-  // TODO: add spec for the rest of the overloaded inspect function.
+  // TODO(zhangsu): add spec for the rest of the overloaded inspect function.
 });
 
 }  // namespace support
