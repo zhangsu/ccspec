@@ -86,6 +86,21 @@ auto inspect_spec = describe(".inspect", [] {
     expect(inspect(f)).to(eq("3.14159268373523"));
   });
 
+  it("returns the numerical value for void*", [] {
+    void* p = (void*) 0xffffffff;
+    expect(inspect(p)).to(eq("0xffffffff"));
+  });
+
+  it("returns the string value for const char*", [] {
+    const char* s = "Hello, 世界!";
+    expect(inspect(s)).to(eq("Hello, 世界!"));
+  });
+
+  it("returns the value for string", [] {
+    string s = "你好, world!";
+    expect(inspect(s)).to(eq("你好, world!"));
+  });
+
   // TODO(zhangsu): add spec for the rest of the overloaded inspect function.
 });
 
