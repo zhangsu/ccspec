@@ -87,7 +87,7 @@ auto inspect_spec = describe(".inspect", [] {
   });
 
   it("returns the numerical value for void*", [] {
-    void* p = (void*) 0xffffffff;
+    void* p = reinterpret_cast<void*>(0xffffffff);
     expect(inspect(p)).to(eq("0xffffffff"));
   });
 
