@@ -110,29 +110,5 @@ string inspect(const string& s) {
   return s;
 }
 
-string inspect(std::streambuf* sb) {
-  ostringstream ss;
-  ss << sb;
-  return ss.str();
-}
-
-string inspect(std::ostream& (*pf)(std::ostream&)) {
-  ostringstream ss;
-  ss << pf;
-  return ss.str();
-}
-
-string inspect(std::ios& (*pf)(std::ios&)) {
-  ostringstream ss;
-  ss << pf;
-  return ss.str();
-}
-
-string inspect(std::ios_base& (*pf)(std::ios_base&)) {
-  ostringstream ss;
-  ss << pf;
-  return ss.str();
-}
-
 }  // namespace support
 }  // namespace ccspec

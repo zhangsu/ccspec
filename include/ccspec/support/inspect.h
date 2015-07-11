@@ -33,10 +33,6 @@ std::string inspect(long double val);
 std::string inspect(void* val);
 std::string inspect(const char* s);
 std::string inspect(const std::string& s);
-std::string inspect(std::streambuf* sb);
-std::string inspect(std::ostream& (*pf)(std::ostream&));
-std::string inspect(std::ios& (*pf)(std::ios&));
-std::string inspect(std::ios_base& (*pf)(std::ios_base&));
 
 template <typename T>
 std::string inspect(const T&);
