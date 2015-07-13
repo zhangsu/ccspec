@@ -4,15 +4,26 @@ compiler:
   - clang
   - gcc
 
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - kalakris-cmake
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-precise-3.6
+    packages:
+      - cmake
+      - clang-3.6
+      - g++-5
+
 before_install:
-  # TODO: remove the following when Travis has CMake newer than 2.8.11.
-  - sudo -E script/update_cmake.bash
-  # TODO: remove the following when Travis has C++11-feature-complete G++ and clang.
-  - sudo -E script/update_compilers.bash
   - if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
 
 script:
   - cd build && cmake .. && make && spec/ccspec_spec
+
+cache: ccache
 
 os:
   - linux
