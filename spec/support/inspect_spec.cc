@@ -12,6 +12,7 @@ using std::string;
 using ccspec::core::describe;
 using ccspec::core::it;
 using ccspec::expect;
+using ccspec::matchers::contain;
 using ccspec::matchers::eq;
 using ccspec::support::inspect;
 
@@ -101,7 +102,12 @@ auto inspect_spec = describe(".inspect", [] {
     expect(inspect(s)).to(eq("你好, world!"));
   });
 
-  // TODO(zhangsu): add spec for the rest of the overloaded inspect function.
+  it("return the type name for arbitrary types", [] {
+    class AbstractUserServiceProviderModule {
+    } abstract_user_service_provider_module;
+    expect(inspect(abstract_user_service_provider_module))
+        .to(contain("AbstractUserServiceProviderModule3"));
+  });
 });
 
 }  // namespace support
