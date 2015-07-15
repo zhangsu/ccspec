@@ -106,7 +106,7 @@ auto inspect_spec = describe(".inspect", [] {
     class AbstractUserServiceProviderModule {
     } abstract_user_service_provider_module;
     expect(inspect(abstract_user_service_provider_module))
-        .to(contain("AbstractUserServiceProviderModule3"));
+        .to(contain("AbstractUserServiceProviderModule"));
   });
 });
 
