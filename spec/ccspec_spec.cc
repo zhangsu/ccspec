@@ -15,6 +15,7 @@ extern ExampleGroup* be_falsey_spec;
 extern ExampleGroup* be_something_spec;
 extern ExampleGroup* be_spec;
 extern ExampleGroup* be_truthy_spec;
+extern ExampleGroup* contain_spec;
 extern ExampleGroup* eq_spec;
 extern ExampleGroup* match_spec;
 
@@ -38,6 +39,7 @@ int main() {
     spec::matchers::be_something_spec,
     spec::matchers::be_spec,
     spec::matchers::be_truthy_spec,
+    spec::matchers::contain_spec,
     spec::matchers::eq_spec,
     spec::matchers::match_spec,
     spec::support::exception_spec,
