@@ -79,6 +79,16 @@ auto contain_spec = describe("Contain", [] {
   it("matches if expected const char* is substring of given string", [] {
     expect(contain("abc")).to(match(string("xyzabcdef")));
   });
+
+  describe("#desc", [] {
+    it("says 'contain $s' when expecting const char*", [] {
+      expect(contain("test").desc()).to(eq("contain test"));
+    });
+
+    it("says 'contain $s' when expecting string", [] {
+      expect(contain(string("test")).desc()).to(eq("contain test"));
+    });
+  });
 });
 
 }  // namespace matchers
