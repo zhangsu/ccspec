@@ -1,4 +1,4 @@
-# CCSpec [![Build Status](https://travis-ci.org/zhangsu/ccspec.svg?branch=travis_exp)](https://travis-ci.org/zhangsu/ccspec)
+# CCSpec [![Build Status](https://travis-ci.org/zhangsu/ccspec.svg?branch=master)](https://travis-ci.org/zhangsu/ccspec)
 
 ```c++
 describe("CCSpec", [] {
