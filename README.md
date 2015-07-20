@@ -86,7 +86,8 @@ describe("Duck", [] {
 });
 ```
 
-These hooks can be nested as deep as needed and only apply to the immediate enclosing example group:
+Example groups can be nested as deep as needed. Before and after hooks can also be used in the nested example groups to only apply to the immediate enclosing example group:
+
 ```c++
 class Student {
  public:
