@@ -18,7 +18,7 @@ CCSpec is simply an attempt to port RSpec from Ruby to C++ as much as possible.
 ```
 
 ## Getting Started
-CCSpec contains hierarchical structures of example groups and examples. Each
+CCSpec contains hierarchical structures of *example group*s and *example*s. Each
 example group is a collection of descriptions of related behavioral examples.
 The `describe` function returns an example group, which can contain multiple
 examples specified by the `example`, `specify` or `it`.
@@ -66,7 +66,7 @@ describe("Student", [] {
 `example`, `specify` and `it` are all synonymous. They are used in different
 contexts to make the specs more readable.
 
-It's also possible to do initialization and cleanup before each test case similar to the magical 'setup' and 'teardown' functions in traditional unit testing frameworks. In CCSpec, these are known as before and after hooks.
+It's also possible to do initialization and cleanup before each test case similar to the magical 'setup' and 'teardown' functions in traditional unit testing frameworks. In CCSpec, these are known as *before* and *after* hooks.
 
 ```c++
 describe("Duck", [] {
