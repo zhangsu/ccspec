@@ -70,14 +70,14 @@ It's also possible to do initialization and cleanup before each test case simila
 
 ```c++
 describe("Duck", [] {
-  Duck* duck;
+  shared_ptr<Duck> duck = std::make_shared<Duck>();
   
-  before("each", [duck] {
-    duck = new Duck();
+  before("each", [duck]() mutable {
+    duck.reset(new Duck());
   });
   
-  after("each", [duck] {
-    delete duck;
+  after("each", [] {
+    // Do some finalization after each example.
   });
 
   it("quacks", [duck] {
