@@ -66,7 +66,10 @@ describe("Student", [] {
 `example`, `specify` and `it` are all synonymous. They are used in different
 contexts to make the specs more readable.
 
-It's also possible to do initialization and cleanup before each test case similar to the magical 'setup' and 'teardown' functions in traditional unit testing frameworks. In CCSpec, these are known as *before* and *after* hooks.
+It's also possible to do initialization and cleanup before each test case
+similar to the magical 'setup' and 'teardown' functions in traditional unit
+testing frameworks. In CCSpec, these are known as *before each* and *after
+each* hooks.
 
 ```c++
 describe("Duck", [] {
@@ -86,7 +89,9 @@ describe("Duck", [] {
 });
 ```
 
-Example groups can be nested as deep as needed. Before and after hooks can also be used in the nested example groups to only apply to the immediate enclosing example group:
+Example groups can be nested as deep as needed. Before and after hooks can also
+be used in the nested example groups to only apply to the immediate enclosing
+example group:
 
 ```c++
 class Student {
