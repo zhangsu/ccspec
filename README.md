@@ -126,7 +126,7 @@ class Student {
 describe("Student", [] {
   Student* student = new Student();
   
-  before("each", [student] {
+  before("all", [student] {
     student->setName("Joe");
   });
   
