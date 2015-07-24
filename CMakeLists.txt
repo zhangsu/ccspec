@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 2.8.11)
 
+if(BIICODE)
+   include("biicode.cmake")
+   return()
+endif()
+
 if(APPLE)
   set(CMAKE_MACOSX_RPATH ON)
 endif()
