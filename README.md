@@ -156,6 +156,12 @@ describe("Student", [] {
 });
 ```
 
+Note that the above snippet introduces another kind of before and after hook --
+*before all* hook and *after all* hook. Before all hook is executed before
+executing all examples and before each hooks in the enclosing example group.
+After all hook is executed after all examples and after each hooks in the
+enclosing example group.
+
 ## Try It Out
 ```Bash
 git clone git@github.com:zhangsu/ccspec.git
