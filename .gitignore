@@ -3,5 +3,6 @@
 *.swo
 *.o
 *.d
+bii/
 bin/
 lib/
