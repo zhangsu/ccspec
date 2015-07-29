@@ -1,4 +1,4 @@
-# CCSpec [![Build Status](https://travis-ci.org/zhangsu/ccspec.svg?branch=master)](https://travis-ci.org/zhangsu/ccspec)
+# CCSpec [![Build Status](https://travis-ci.org/zhangsu/ccspec.svg?branch=master)](https://travis-ci.org/zhangsu/ccspec) [![Biicode](https://webapi.biicode.com/v1/badges/zhangsu/zhangsu/ccspec/master)](https://www.biicode.com/zhangsu/ccspec)
 
 ```c++
 describe("CCSpec", [] {
