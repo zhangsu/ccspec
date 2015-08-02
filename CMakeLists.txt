@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 2.8.11)
 
 if(BIICODE)
-   include("biicode.cmake")
-   return()
+  include("biicode.cmake")
+  return()
 endif()
 
 if(APPLE)
