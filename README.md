@@ -48,3 +48,10 @@ describe("the integer one", [] {
 
 `example`, `specify` and `it` are all synonymous. They are used in different
 contexts to make the specs more readable.
+
+## Try it out
+```
+git clone git@github.com:zhangsu/ccspec.git
+cd ccspec
+cd build && cmake .. && make && spec/ccspec_spec
+```
