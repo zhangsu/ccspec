@@ -25,13 +25,13 @@ examples specified by the `example`, `specify` or `it`.
 
 ```c++
 describe("elementary school arithmetics", [] {
-    example("one plus one equals two", [] {
-        expect(1 + 1).to(eq(2));
-    });
+  example("one plus one equals two", [] {
+    expect(1 + 1).to(eq(2));
+  });
 
-    specify("three minus four is less than or equal to zero", [] {
-        expect(3 - 4).to(be <= 0);
-    });
+  specify("three minus four is less than or equal to zero", [] {
+    expect(3 - 4).to(be <= 0);
+  });
 });
 ```
 
@@ -40,9 +40,9 @@ with the subject "it". It just reads better.
 
 ```c++
 describe("the integer one", [] {
-    it("is 3 less than 4", [] {
-        expect(1).to(eq(4 - 3));
-    });
+  it("is 3 less than 4", [] {
+    expect(1).to(eq(4 - 3));
+  });
 });
 ```
 
