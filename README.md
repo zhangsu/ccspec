@@ -80,7 +80,7 @@ describe("Duck", [] {
     delete duck;
   });
 
-  it("quacks", [subject] {
+  it("quacks", [] {
     expect(duck->respondTo('quack')).to(be_truthy);
   });
 });
