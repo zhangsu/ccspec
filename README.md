@@ -72,15 +72,15 @@ It's also possible to do initialization and cleanup before each test case simila
 describe("Duck", [] {
   Duck* duck;
   
-  before("each", [] {
+  before("each", [duck] {
     duck = new Duck();
   });
   
-  after("each", [] {
+  after("each", [duck] {
     delete duck;
   });
 
-  it("quacks", [] {
+  it("quacks", [duck] {
     expect(duck->respondTo('quack')).to(be_truthy);
   });
 });
