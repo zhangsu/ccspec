@@ -66,6 +66,26 @@ describe("Student", [] {
 `example`, `specify` and `it` are all synonymous. They are used in different
 contexts to make the specs more readable.
 
+It's also possible to do initialization and cleanup before each test case similar to the magical 'setup' and 'teardown' functions in traditional unit testing frameworks. In CCSpec, these are known as before and after hooks.
+
+```c++
+describe("Duck", [] {
+  Duck* duck;
+  
+  before("each", [] {
+    duck = new Duck();
+  });
+  
+  after("each", [] {
+    delete duck;
+  });
+
+  it("quacks", [subject] {
+    expect(duck->respondTo('quack')).to(be_truthy);
+  });
+});
+```
+
 ## Try it out
 ```
 git clone git@github.com:zhangsu/ccspec.git
