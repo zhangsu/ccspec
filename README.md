@@ -25,8 +25,8 @@ the Biicode way or the regular CMake way.
 ### Automatic linkage with Biicode
 
 The easiest way to use CCSpec in your project is by using
-[Biicode](https://www.biicode.com://www.biicode.com/). Biicode is a C and C++
-dependency manager, resembling RubyGems for Ruby and NPM for Node.js.
+[Biicode](https://www.biicode.com). Biicode is a C and C++ dependency manager,
+resembling RubyGems for Ruby and NPM for Node.js.
 
 If your project already uses Biicode, great! You can skip to the
 [Configure Biicode](#configure-biicode)
