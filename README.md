@@ -158,7 +158,7 @@ CCSpec to test a simple binary search tree, using Biicode to manage the dependen
 ### Linkage with CMake
 CCSpec can also be compiled from source and linked to your project through
 regular CMake workflow.
-```Bash
+```Zsh
 git clone git@github.com:zhangsu/ccspec.git
 cd ccspec
 cd build
@@ -319,7 +319,7 @@ After all hook is executed after all examples and after each hooks in the
 enclosing example group.
 
 ## Run tests for CCSpec written in CCSpec!
-```Bash
+```Zsh
 git clone git@github.com:zhangsu/ccspec.git
 cd ccspec
 cd build
