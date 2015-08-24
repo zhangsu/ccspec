@@ -180,7 +180,7 @@ The `describe` function returns an example group, which can contain multiple
 examples specified by the `example`, `specify` or `it`.
 
 ```c++
-describe("elementary school arithmetics", [] {
+auto arithmetics_spec = describe("elementary school arithmetics", [] {
   example("one plus one equals two", [] {
     expect(1 + 1).to(eq(2));
   });
@@ -190,6 +190,11 @@ describe("elementary school arithmetics", [] {
   });
 });
 ```
+Note that the above root example group is saved in a global variable
+`arithmetics_spec`, which can be referenced later in the `main` function to
+be actually executed. You can also write example groups in a function scope, but
+then everything needs to be indented by one more level so its less
+width-efficient.
 
 In case of describing an object, it is more natural to start the description
 with the subject "it". It just reads better.
@@ -230,7 +235,7 @@ each* hooks.
 ```c++
 Duck* duck;
 
-describe("Duck", [] {
+auto duck_spec = describe("Duck", [] {
   before("each", [] {
     duck = new Duck();
   });
@@ -279,7 +284,7 @@ class Student {
   int mark;
 };
 
-describe("Student", [] {
+auto student_spec = describe("Student", [] {
   Student* student = new Student();
   
   before("all", [student] {
