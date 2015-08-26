@@ -23,7 +23,7 @@ CCSpec is simply an attempt to port RSpec from Ruby to C++ as much as possible.
     - [Configure Biicode](#configure-biicode)
       - [CMake](#cmake)
     - [Example project](#example-project)
-  - [linkage with CMake](#linkage-with-cmake)
+  - [Linkage with CMake](#linkage-with-cmake)
 - [Detailed usage](#detailed-usage)
 
 ## Getting Started
