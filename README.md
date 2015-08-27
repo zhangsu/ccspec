@@ -25,6 +25,8 @@ CCSpec is simply an attempt to port RSpec from Ruby to C++ as much as possible.
     - [Example project](#example-project)
   - [Linkage with CMake](#linkage-with-cmake)
 - [Detailed usage](#detailed-usage)
+  - [Example groups and examples](#example-groups-and-examples)
+  - [Before and after hooks](#before-and-after-hooks)
 
 ## Getting Started
 
@@ -183,6 +185,8 @@ by running `make install`.
 
 ## Detailed Usage
 
+### Example groups and examples
+
 CCSpec contains hierarchical structures of *example group*s and *example*s. Each
 example group is a collection of descriptions of related behavioral examples.
 The `describe` function returns an example group, which can contain multiple
@@ -199,6 +203,7 @@ auto arithmetics_spec = describe("elementary school arithmetics", [] {
   });
 });
 ```
+
 Note that the above root example group is saved in a global variable
 `arithmetics_spec`, which can be referenced later in the `main` function to
 be actually executed. You can also write example groups in a function scope, but
@@ -235,6 +240,8 @@ describe("Student", [] {
 
 `example`, `specify` and `it` are all synonymous. They are used in different
 contexts to make the specs more readable.
+
+### Before and after hooks
 
 It's also possible to do initialization and cleanup before each test case
 similar to the magical 'setup' and 'teardown' functions in traditional unit
