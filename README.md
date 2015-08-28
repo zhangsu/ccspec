@@ -225,7 +225,7 @@ class Student {
   }
 };
 
-describe("Student", [] {
+auto student_spec = describe("Student", [] {
   Student subject;
 
   it("has published papers", [subject] {
