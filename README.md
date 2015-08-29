@@ -241,6 +241,33 @@ auto student_spec = describe("Student", [] {
 `example`, `specify` and `it` are all synonymous. They are used in different
 contexts to make the specs more readable.
 
+Example groups can be nested as deep as needed to divide the examples into
+separate logical groups:
+
+```C++
+auto abs_spec = describe("::abs", [] {
+  context("with positive argument", [] {
+    it("returns the argument itself", [] {
+      expect(abs(1)).to(eq(1));
+    });
+  });
+
+  context("with negative argument", [] {
+    it("returns the negation of the argument", [] {
+      expect(abs(-1)).to(eq(1));
+    });
+  });
+
+  context("with 0 as argument", [] {
+    it("returns 0", [] {
+      expect(abs(0)).to(eq(0));
+    });
+  });
+});
+```
+Here, `context` is synonymous to `describe`. Again, they are used in different
+situations just for readability.
+
 ### Before and after hooks
 
 It's also possible to do initialization and cleanup before each test case
@@ -266,9 +293,8 @@ auto duck_spec = describe("Duck", [] {
 });
 ```
 
-Example groups can be nested as deep as needed. Before and after hooks can also
-be used in the nested example groups to only apply to the immediate enclosing
-example group:
+Before and after hooks can also be used in the nested example groups to only
+apply to the immediate enclosing example group:
 
 ```c++
 class Student {
