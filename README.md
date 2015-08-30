@@ -86,9 +86,15 @@ describe("Duck", [] {
 });
 ```
 
-## Try it out
-```
+## Try It Out
+```Bash
 git clone git@github.com:zhangsu/ccspec.git
 cd ccspec
-cd build && cmake .. && make && spec/ccspec_spec
+cd build && cmake .. && make
+```
+
+### Run tests for CCSpec written in CCSpec!
+```Bash
+# In build directory
+spec/ccspec_spec
 ```
