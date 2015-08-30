@@ -268,7 +268,9 @@ auto abs_spec = describe("::abs", [] {
 Here, `context` is synonymous to `describe`. Again, they are used in different
 situations just for readability.
 
-### Before and after hooks
+### Hooks
+
+#### Before each and after each hooks
 
 It's also possible to do initialization and cleanup before each test case
 similar to the magical 'setup' and 'teardown' functions in traditional unit
@@ -293,8 +295,12 @@ auto duck_spec = describe("Duck", [] {
 });
 ```
 
-Before and after hooks can also be used in the nested example groups to only
-apply to the immediate enclosing example group:
+#### Before and after all hooks
+
+Before all hooks are executed before executing all examples in the enclosing example group.
+After all hook is executed after all examples and after each hooks in the
+enclosing example group.
+
 
 ```c++
 class Student {
@@ -359,11 +365,8 @@ auto student_spec = describe("Student", [] {
 });
 ```
 
-Note that the above snippet introduces another kind of before and after hook --
-*before all* hook and *after all* hook. Before all hook is executed before
-executing all examples and before each hooks in the enclosing example group.
-After all hook is executed after all examples and after each hooks in the
-enclosing example group.
+Before and after hooks can also be used in the nested example groups to only
+apply to the immediate enclosing example group:
 
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
