@@ -295,6 +295,23 @@ auto duck_spec = describe("Duck", [] {
 });
 ```
 
+### Around hooks
+Around hooks are hooks that wrap around the execution of each example, so it can
+be seen as a mix of both before each and after each hook.
+
+```C++
+around("each", [const Example& example] {
+  // Execute anything before executing each example in the enclosing example group.
+  bst = new BinarySearchTree();
+
+  // Execute the example.
+  example->run();
+
+  // Execute anything after executing each example in the enclosing example group.
+  delete bst;
+});
+```
+
 #### Before and after all hooks
 
 Before all hooks are executed before executing all examples in the enclosing example group.
