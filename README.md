@@ -295,7 +295,7 @@ auto duck_spec = describe("Duck", [] {
 });
 ```
 
-### Around hooks
+#### Around hooks
 Around hooks are hooks that wrap around the execution of each example, so it can
 be seen as a mix of both before each and after each hook.
 
