@@ -284,7 +284,7 @@ auto duck_spec = describe("Duck", [] {
   before("each", [] {
     duck = new Duck();
   });
-  
+
   after("each", [] {
     delete duck;
   });
@@ -351,11 +351,11 @@ class Student {
 
 auto student_spec = describe("Student", [] {
   Student* student = new Student();
-  
+
   before("all", [student] {
     student->setName("Joe");
   });
-  
+
   describe("with perfect mark", [student] {
     before("each", [student] {
       student->setMark(100);
