@@ -314,10 +314,9 @@ around("each", [const Example& example] {
 
 #### Before and after all hooks
 
-Before all hooks are executed before executing all examples in the enclosing example group.
-After all hook is executed after all examples and after each hooks in the
-enclosing example group.
-
+Before all hooks are executed before executing all examples in the enclosing
+example group. After all hook is executed after all examples in the enclosing
+example group.
 
 ```c++
 class Student {
@@ -381,9 +380,6 @@ auto student_spec = describe("Student", [] {
   });
 });
 ```
-
-Before and after hooks can also be used in the nested example groups to only
-apply to the immediate enclosing example group:
 
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
