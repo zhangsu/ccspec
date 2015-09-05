@@ -294,6 +294,8 @@ auto duck_spec = describe("Duck", [] {
   });
 });
 ```
+In the above snippet, each example (only one example in this case) in the
+example group gets an unique instance of `Duck`.
 
 #### Around hooks
 Around hooks are hooks that wrap around the execution of each example, so it can
@@ -380,6 +382,7 @@ auto student_spec = describe("Student", [] {
   });
 });
 ```
+In the above snippet, all the examples share one instance of `Student`.
 
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
