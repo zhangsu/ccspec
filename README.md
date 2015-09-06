@@ -318,7 +318,8 @@ around("each", [const Example& example] {
 
 Before all hooks are executed before executing all examples in the enclosing
 example group. After all hook is executed after all examples in the enclosing
-example group.
+example group. Unless "each" hooks, they are executed only once per example
+group.
 
 ```c++
 class Student {
