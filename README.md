@@ -385,6 +385,34 @@ auto student_spec = describe("Student", [] {
 ```
 In the above snippet, all the examples share one instance of `Student`.
 
+#### Scope and execution order
+Hooks are only executed for examples contained in the example group that
+immediately encloses the hooks themselves. This would be useful to do
+initialization and cleanup differently for different (nested) example groups.
+
+The execution order of various hooks is:
+1. Before all hooks
+2. Around each hooks (the part before calling Example#run)
+3. Before each hooks
+4. Execution of the example
+5. After each hooks
+6. Around each hooks (the part after calling Example#run)
+7. After all hooks
+
+Before hooks in a parent example group are always executed **before** those
+of the same type in the child example group.
+
+After hooks in a parent example group are always executed **after** those of the
+same type in the child example group.
+
+Around hooks in a parent example group wrap around around hooks in the child
+example group recursively.
+
+Multiple hooks of the same type are allowed within the same example group. They
+are executed in the order of declaration.
+
+TODO(zhangsu): add example snippet and output to demonstrate the order.
+
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
 git clone git@github.com:zhangsu/ccspec.git
