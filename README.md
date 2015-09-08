@@ -314,7 +314,7 @@ around("each", [const Example& example] {
 });
 ```
 
-#### Before and after all hooks
+#### Before all and after all hooks
 
 Before all hooks are executed before executing all examples in the enclosing
 example group. After all hook is executed after all examples in the enclosing
