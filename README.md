@@ -26,7 +26,11 @@ CCSpec is simply an attempt to port RSpec from Ruby to C++ as much as possible.
   - [Linkage with CMake](#linkage-with-cmake)
 - [Detailed usage](#detailed-usage)
   - [Example groups and examples](#example-groups-and-examples)
-  - [Before and after hooks](#before-and-after-hooks)
+  - [hooks](#hooks)
+    - [Before each and after each hooks](#before-each-and-after-each-hooks)
+    - [Around hooks](#around-hooks)
+    - [Before all and after all hooks](#before-all-and-after-all-hooks)
+    - [Scope and execution order](#scope-and-execution-order)
 
 ## Getting Started
 
