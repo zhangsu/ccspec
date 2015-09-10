@@ -31,6 +31,7 @@ CCSpec is simply an attempt to port RSpec from Ruby to C++ as much as possible.
     - [Around hooks](#around-hooks)
     - [Before all and after all hooks](#before-all-and-after-all-hooks)
     - [Scope and execution order](#scope-and-execution-order)
+  - [Expectations](#expectations)
 
 ## Getting Started
 
@@ -416,6 +417,19 @@ Multiple hooks of the same type are allowed within the same example group. They
 are executed in the order of declaration.
 
 TODO(zhangsu): add example snippet and output to demonstrate the order.
+
+### Expectations
+
+Expectations in CCSpec are known as assertions in other frameworks. They are
+the construct in each example that makes the example pass or fail.
+
+```
+expect(actual_value).to(eq(expected_value));
+expect(actual_value).notTo(be_truthy);
+```
+
+It is important to note that the **`expect` call must be chained with the `to`
+call in one method call expression**, or otherwise the behavior is undefined.
 
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
