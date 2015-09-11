@@ -190,7 +190,20 @@ by running `make install`.
 
 ## Detailed Usage
 
+```C++
+namespace ccspec;
+```
+
+CCSpec defines a domain-specific language (DSL) with a set of tokens. These
+tokens are all protected under the `ccspec` namespace. Each section below states
+the sub-namespace for the tokens illustrated in the section, such as `describe`,
+`it`, `before`, `after`, and `expect`.
+
 ### Example groups and examples
+
+```C++
+namespace ccspec::core;
+```
 
 CCSpec contains hierarchical structures of *example group*s and *example*s. Each
 example group is a collection of descriptions of related behavioral examples.
@@ -274,6 +287,10 @@ Here, `context` is synonymous to `describe`. Again, they are used in different
 situations just for readability.
 
 ### Hooks
+
+```C++
+namespace ccspec::core;
+```
 
 #### Before each and after each hooks
 
@@ -419,6 +436,10 @@ are executed in the order of declaration.
 TODO(zhangsu): add example snippet and output to demonstrate the order.
 
 ### Expectations
+
+```C++
+namespace ccspec;
+```
 
 Expectations in CCSpec are known as assertions in other frameworks. They are
 the construct in each example that makes the example pass or fail.
