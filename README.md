@@ -452,6 +452,34 @@ expect(actual_value).notTo(be_truthy);
 It is important to note that the **`expect` call must be chained with the `to`
 call in one method call expression**, or otherwise the behavior is undefined.
 
+### Matchers
+
+```C++
+namespace ccspec::matchers;
+```
+
+Matchers are what are passed to the `to(...)` call in an expectation. Below is
+a list of built-in matchers in CCSpec:
+```
+// Match object reference (identity).
+expect(actual_obj).to(be(expected_obj));
+// Match numerical binary relations.
+expect(actual_value).to(be < expected_value);
+expect(actual_value).to(be <= expected_value);
+expect(actual_value).to(be == expected_value);
+expect(actual_value).to(be >= expected_value);
+expect(actual_value).to(be > expected_value);
+expect(actual_value).to(be != expected_value);
+// Match falsey values (0, 0.0, 0.0f, false, nullptr)
+expect(actual_value).to(be_falsey);
+// Match truthy values (anything other than the above)
+expect(actual_value).to(be_truthy);
+// Match substring.
+expect(string).to(contain(substring));
+// Match equality.
+expect(actual_value).to(eq(expected_value));
+```
+
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
 git clone git@github.com:zhangsu/ccspec.git
