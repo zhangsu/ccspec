@@ -202,7 +202,10 @@ the sub-namespace for the tokens illustrated in the section, such as `describe`,
 ### Example groups and examples
 
 ```C++
-namespace ccspec::core;
+using ccspec::core::context;
+using ccspec::core::describe;
+using ccspec::core::example;
+using ccspec::core::it;
 ```
 
 CCSpec contains hierarchical structures of *example group*s and *example*s. Each
@@ -289,7 +292,9 @@ situations just for readability.
 ### Hooks
 
 ```C++
-namespace ccspec::core;
+using ccspec::core::after;
+using ccspec::core::around;
+using ccspec::core::before;
 ```
 
 #### Before each and after each hooks
@@ -438,7 +443,7 @@ TODO(zhangsu): add example snippet and output to demonstrate the order.
 ### Expectations
 
 ```C++
-namespace ccspec;
+using ccspec::expect;
 ```
 
 Expectations in CCSpec are known as assertions in other frameworks. They are
@@ -455,7 +460,12 @@ call in one method call expression**, or otherwise the behavior is undefined.
 ### Matchers
 
 ```C++
-namespace ccspec::matchers;
+using ccspec::matchers::be;
+using ccspec::matchers::be_falsey;
+using ccspec::matchers::be_truthy;
+using ccspec::matchers::contain;
+using ccspec::matchers::eq;
+using ccspec::matchers::match;
 ```
 
 Matchers are what are passed to the `to(...)` call in an expectation. Below is
