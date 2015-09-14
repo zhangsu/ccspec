@@ -488,6 +488,8 @@ expect(actual_value).to(be_truthy);
 expect(string).to(contain(substring));
 // Match equality.
 expect(actual_value).to(eq(expected_value));
+// Match using the actual value's `match` method.
+expect(actual_value).to(match(expected_value));
 ```
 
 ## Run tests for CCSpec written in CCSpec!
