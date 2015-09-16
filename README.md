@@ -32,6 +32,7 @@ CCSpec is simply an attempt to port RSpec from Ruby to C++ as much as possible.
     - [Before all and after all hooks](#before-all-and-after-all-hooks)
     - [Scope and execution order](#scope-and-execution-order)
   - [Expectations](#expectations)
+  - [Matchers](#matchers)
 
 ## Getting Started
 
