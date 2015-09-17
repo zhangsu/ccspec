@@ -471,7 +471,7 @@ using ccspec::matchers::match;
 
 Matchers are what are passed to the `to(...)` call in an expectation. Below is
 a list of built-in matchers in CCSpec:
-```
+```C++
 // Match object reference (identity).
 expect(actual_obj).to(be(expected_obj));
 // Match numerical binary relations.
