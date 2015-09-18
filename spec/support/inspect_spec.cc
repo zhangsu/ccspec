@@ -16,7 +16,7 @@ using ccspec::matchers::contain;
 using ccspec::matchers::eq;
 using ccspec::support::inspect;
 
-auto inspect_spec = describe(".inspect", [] {
+auto inspect_spec = describe("::inspect", [] {
   it("returns the string value for char", [] {
     char c = 'x';
     expect(inspect(c)).to(eq("x"));
