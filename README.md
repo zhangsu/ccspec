@@ -493,6 +493,39 @@ expect(actual_value).to(eq(expected_value));
 expect(actual_value).to(match(expected_value));
 ```
 
+### Entry point
+The [\[Example groups and examples\]](#example-groups-and-examples) section
+shows how the root example group can be saved in a global variable. Now we need
+to actually execute the example group tree in the `main` function.
+
+To do that, we will need to call the `run` method on the example group. However,
+The `run` method needs to know *how* and *where* to report the test execution
+progress and results, so we need to pass a reporter object. The reporter object
+takes a formatter object which knows *how* to format the test execution output.
+Finally, the formatter object takes a `std::ostream&` so that it know *where* to
+output to.
+```
+#include "ccspec/core.h"
+
+using ccspec::core::Reporter;
+using ccspec::core::formatters::DocumentationFormatter;
+
+auto spec = describe("...", [] {
+  // ...
+});
+
+int main() {
+  DocumentationFormatter formatter(cout);
+  Reporter reporter(&formatter);
+  bool succeeded = spec->run(reporter);
+  delete addition_spec;
+  return !succeeded;
+}
+```
+The `run` method returns whether all tests pass, so we can let `main` return the
+negation of it to indicate the process exit value so that tools calling the test
+executables such as Travis CI know whether the tests pass or not.
+
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
 git clone git@github.com:zhangsu/ccspec.git
