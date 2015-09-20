@@ -504,7 +504,8 @@ progress and results, so we need to pass a reporter object. The reporter object
 takes a formatter object which knows *how* to format the test execution output.
 Finally, the formatter object takes a `std::ostream&` so that it know *where* to
 output to.
-```
+
+```C++
 #include "ccspec/core.h"
 
 using ccspec::core::Reporter;
