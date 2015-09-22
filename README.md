@@ -524,9 +524,26 @@ int main() {
   return !succeeded;
 }
 ```
+
 The `run` method returns whether all tests pass, so we can let `main` return the
 negation of it to indicate the process exit value so that tools calling the test
 executables such as Travis CI know whether the tests pass or not.
+
+#### One `main` or multiple `main`s?
+You have two choices when it comes to management of multiple spec files:
+
+##### Have only one `main` function
+  In this approach, you write CCSpec specs in many different specs files, and
+none of them contain a `main` function. Then, in another file, you write a
+`main` function in which you reference and run all the global variables defined
+in these spec files. At the end, only one test executable is generated and your
+continuous integration tool only needs to execute this one executable. The
+[specs for CCSpec itself](spec/) uses this approach.
+
+##### Have one `main` function per spec file
+  In this approach, every spec file has a separate `main` function, so each spec
+is a separate entry point. Your continuous integration tool needs to execute all
+the executables generated from these specs.
 
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
