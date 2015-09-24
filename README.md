@@ -545,6 +545,47 @@ continuous integration tool only needs to execute this one executable. The
 is a separate entry point. Your continuous integration tool needs to execute all
 the executables generated from these specs.
 
+### Shared objects between examples
+
+It is often useful to declare a variable in scope of multiple examples (e.g, in
+the enclosing example group lambda so that all enclosed examples can see it) and
+initialize it and clean it up in before each and after each hooks so that each
+example doesn't have to repeat the setup and teardown.
+
+However, unlike other garbage-collected language, when capturing variables in
+the context by reference, C++ lambda functions do not extend the lifetime of the
+captured variable. The following CCSpec code will likely generate a segfault:
+
+```C++
+describe("Foo", [] {
+  Foo foo;
+
+  before("each", [&foo] {
+    foo = Foo("bar");  // segfault!
+  })
+});
+```
+
+This is because `describe`'s lambda function is executed at "parse" time, i.e.,
+when the example group tree is being constructed, whereas the the before hook
+(in fact any kind of hook and also examples) is executed at "run" time, i.e.,
+when the `run` method is called on an example group tree. By the time the before
+hook is executed, `describe`'s lambda function has already finished execution
+and the scope of `foo` is also destroyed. Referencing `foo` in the hook would be
+an undefined behavior.
+
+This is also true when you use pointers:
+
+```C++
+describe("Foo", [] {
+  Foo* foo;
+
+  before("each", [&foo] {
+    foo = new Foo();  // segfault!
+  })
+});
+```
+
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
 git clone git@github.com:zhangsu/ccspec.git
