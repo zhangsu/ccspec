@@ -562,7 +562,7 @@ describe("Foo", [] {
 
   before("each", [&foo] {
     foo = Foo("bar");  // segfault!
-  })
+  });
 });
 ```
 
@@ -582,7 +582,7 @@ describe("Foo", [] {
 
   before("each", [&foo] {
     foo = new Foo();  // segfault!
-  })
+  });
 });
 ```
 
