@@ -586,6 +586,31 @@ describe("Foo", [] {
 });
 ```
 
+#### Solutions
+You can extend the lifetime of the object in other ways.
+
+You can put the object in a global variable so that the lifetime of the object
+is extended to the lifetime of the process. You also don't have to capture the
+variable in this case.
+
+```C++
+Foo* foo;
+
+auto foo_spec = describe("Foo", [] {
+  before("each", [] {
+    foo = new Foo();
+  });
+
+  after("each", [] {
+    delete foo;
+  });
+
+  it("can bar", [] {
+    expect(foo->canBar()).to(be_truthy);
+  });
+});
+```
+
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
 git clone git@github.com:zhangsu/ccspec.git
