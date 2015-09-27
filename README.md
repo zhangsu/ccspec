@@ -611,6 +611,31 @@ auto foo_spec = describe("Foo", [] {
 });
 ```
 
+Or, you can allocate the pointer dynamically and capture a copy of the pointer
+to the pointer:
+
+```C++
+describe("Foo", [] {
+  Foo** foo = new Foo*;
+
+  after("all", [foo] {
+    delete foo;
+  });
+
+  before("each", [foo] {
+    *foo = new Foo();
+  });
+
+  after("each", [foo] {
+    delete *foo;
+  });
+
+  it("can bar", [foo] {
+    expect((*foo)->canBar()).to(be_truthy);
+  });
+});
+```
+
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
 git clone git@github.com:zhangsu/ccspec.git
