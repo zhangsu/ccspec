@@ -636,6 +636,26 @@ describe("Foo", [] {
 });
 ```
 
+Or use a `shared_ptr` so you don't need an after all hook:
+
+```C++
+describe("Foo", [] {
+  std::shared_ptr<Foo*> foo = std::make_shared<Foo*>();
+
+  before("each", [foo] {
+    *foo = new Foo();
+  });
+
+  after("each", [foo] {
+    delete *foo;
+  });
+
+  it("can bar", [foo] {
+    expect((*foo)->canBar()).to(be_truthy);
+  });
+});
+```
+
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
 git clone git@github.com:zhangsu/ccspec.git
