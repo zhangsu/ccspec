@@ -656,6 +656,22 @@ describe("Foo", [] {
 });
 ```
 
+Or shared the same instance across examples:
+
+```C++
+describe("Foo", [] {
+  Foo* foo = new Foo();
+
+  after("all", [foo] {
+    delete foo;
+  });
+
+  it("can bar", [foo] {
+    expect(foo->canBar()).to(be_truthy);
+  });
+});
+```
+
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
 git clone git@github.com:zhangsu/ccspec.git
