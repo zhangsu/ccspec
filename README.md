@@ -672,6 +672,18 @@ describe("Foo", [] {
 });
 ```
 
+Or use copies everyhwere if you don't care about running the
+initialization/cleanup before and after the execution of every example:
+```C++
+describe("Foo", [] {
+  Foo foo("baz");
+
+  it("can bar", [foo] {
+    expect(foo.canBar()).to(be_truthy);
+  });
+});
+```
+
 ## Run tests for CCSpec written in CCSpec!
 ```Zsh
 git clone git@github.com:zhangsu/ccspec.git
