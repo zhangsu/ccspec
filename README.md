@@ -34,6 +34,9 @@ CCSpec is simply an attempt to port RSpec from Ruby to C++ as much as possible.
   - [Expectations](#expectations)
   - [Matchers](#matchers)
   - [Entry point](#entry-point)
+    - [One `main` or multiple `main`s?](#one-main-or-multiple-mains)
+  - [Shared objects between examples](#shared-objects-between-examples)
+    - [Solutions](#solutions)
 
 ## Getting Started
 
