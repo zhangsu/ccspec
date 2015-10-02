@@ -16,24 +16,57 @@
 namespace ccspec {
 namespace support {
 
+// Returns the string representation of a char type.
 std::string inspect(char val);
+
+// Returns the string representation of an unsigned char type.
 std::string inspect(unsigned char val);
+
+// Returns the string representation of a bool type.
 std::string inspect(bool val);
+
+// Returns the string representation of a short type.
 std::string inspect(short val);
+
+// Returns the string representation of an unsigned short type.
 std::string inspect(unsigned short val);
+
+// Returns the string representation of an int type.
 std::string inspect(int val);
+
+// Returns the string representation of an unsigned int type.
 std::string inspect(unsigned int val);
+
+// Returns the string representation of an long type.
 std::string inspect(long val);
+
+// Returns the string representation of an unsigned long type.
 std::string inspect(unsigned long val);
+
+// Returns the string representation of a long long type.
 std::string inspect(long long val);
+
+// Returns the string representation of an unsigned long long type.
 std::string inspect(unsigned long long val);
+
+// Returns the string representation of a float type.
 std::string inspect(float val);
+
+// Returns the string representation of a double type.
 std::string inspect(double val);
+// Returns the string representation of a long double type.
 std::string inspect(long double val);
+
+// Returns the string representation of a pointer.
 std::string inspect(void* val);
+
+// Returns the string representation of a null-terminated string.
 std::string inspect(const char* s);
+
+// Returns the string representation of a standard string.
 std::string inspect(const std::string& s);
 
+// Returns a platform-dependent string representation of an arbitrary type.
 template <typename T>
 std::string inspect(const T&);
 
