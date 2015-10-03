@@ -81,8 +81,12 @@ namespace support {
 template <typename T>
 std::string inspect(const T& object) {
 #ifndef _MSC_VER
+  char* no_output_buffer = nullptr;
+  size_t* no_length = nullptr;
+  int* no_status = nullptr;
   std::unique_ptr<char, void(*)(void*)> type_name(
-      abi::__cxa_demangle(typeid(object).name(), nullptr, nullptr, nullptr),
+      abi::__cxa_demangle(
+          typeid(object).name(), no_output_buffer, no_length, no_status),
       std::free);
   return type_name.get();
 #else
