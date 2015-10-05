@@ -8,6 +8,12 @@ using ccspec::core::ExampleGroup;
 using ccspec::core::Reporter;
 
 namespace spec {
+namespace expectation {
+
+extern ExampleGroup* mismatch_spec;
+
+}  // namespace expectation
+
 namespace matchers {
 
 extern ExampleGroup* be_compared_to_spec;
@@ -34,6 +40,7 @@ int main() {
   Reporter reporter(&formatter);
 
   ExampleGroup* example_groups[] = {
+    spec::expectation::mismatch_spec,
     spec::matchers::be_compared_to_spec,
     spec::matchers::be_falsey_spec,
     spec::matchers::be_something_spec,
