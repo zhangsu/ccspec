@@ -13,9 +13,14 @@
 namespace ccspec {
 namespace expectation {
 
+// Signifies matcher mismatch in CCSpec examples. When this exception is thrown
+// by CCSpec, it means that an expectation in an example failed because the
+// matcher doesn't match.
 template <typename T, typename ConcreteMatcher>
 class Mismatch : public ccspec::support::Exception {
  public:
+  // Constructs a Mismatch exception with the given actual value and matcher
+  // from which an exception description can be derived.
   Mismatch(const T& actual_value, const Matcher<ConcreteMatcher>&);
 
  private:
