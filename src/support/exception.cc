@@ -8,11 +8,7 @@ using std::string;
 // Public methods.
 
 const char* Exception::what() const noexcept {
-  return desc().c_str();
-}
-
-const string& Exception::desc() const {
-  return desc_;
+  return desc_.c_str();
 }
 
 // Protected methods.

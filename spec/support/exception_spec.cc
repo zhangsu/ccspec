@@ -27,13 +27,6 @@ auto exception_spec = describe("Exception", [] {
       expect(strcmp(e.what(), "foo")).to(eq(0));
     });
   });
-
-  describe("#desc", [] {
-    it("returns the exception description", [] {
-      Exception e("foo");
-      expect(e.desc()).to(eq("foo"));
-    });
-  });
 });
 
 }  // namespace support
