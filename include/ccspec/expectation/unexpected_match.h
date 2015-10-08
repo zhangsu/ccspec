@@ -13,9 +13,14 @@
 namespace ccspec {
 namespace expectation {
 
+// Signifies unexpected matcher match in CCSpec examples. When this exception is
+// thrown by CCSpec, it means that an expectation in an example failed because
+// the matcher unexpectedly matched.
 template <typename T, typename ConcreteMatcher>
 class UnexpectedMatch : public ccspec::support::Exception {
  public:
+  // Constructs an UnexpectedMatch exception with the given actual value and
+  // matcher from which an exception description can be derived.
   UnexpectedMatch(const T& actual_value, const Matcher<ConcreteMatcher>&);
 
  private:
