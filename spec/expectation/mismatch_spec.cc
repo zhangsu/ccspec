@@ -33,4 +33,3 @@ auto mismatch_spec = describe("Mismatch", [] {
 
 }  // namespace expectation
 }  // namespace spec
-
