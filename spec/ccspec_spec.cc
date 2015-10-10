@@ -11,6 +11,7 @@ namespace spec {
 namespace expectation {
 
 extern ExampleGroup* mismatch_spec;
+extern ExampleGroup* unexpected_match_spec;
 
 }  // namespace expectation
 
@@ -41,6 +42,7 @@ int main() {
 
   ExampleGroup* example_groups[] = {
     spec::expectation::mismatch_spec,
+    spec::expectation::unexpected_match_spec,
     spec::matchers::be_compared_to_spec,
     spec::matchers::be_falsey_spec,
     spec::matchers::be_something_spec,
