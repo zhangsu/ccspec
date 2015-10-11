@@ -54,6 +54,7 @@ std::string inspect(float val);
 
 // Returns the string representation of a double type.
 std::string inspect(double val);
+
 // Returns the string representation of a long double type.
 std::string inspect(long double val);
 
