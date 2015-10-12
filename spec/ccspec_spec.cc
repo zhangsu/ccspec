@@ -8,6 +8,12 @@ using ccspec::core::ExampleGroup;
 using ccspec::core::Reporter;
 
 namespace spec {
+namespace core {
+
+extern ExampleGroup* unexpected_throw_spec;
+
+}  // namespace core
+
 namespace expectation {
 
 extern ExampleGroup* mismatch_spec;
@@ -41,6 +47,7 @@ int main() {
   Reporter reporter(&formatter);
 
   ExampleGroup* example_groups[] = {
+    spec::core::unexpected_throw_spec,
     spec::expectation::mismatch_spec,
     spec::expectation::unexpected_match_spec,
     spec::matchers::be_compared_to_spec,
