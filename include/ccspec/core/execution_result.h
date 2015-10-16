@@ -6,10 +6,12 @@
 namespace ccspec {
 namespace core {
 
+// Stores the execution result of an example.
 class ExecutionResult {
  public:
   ExecutionResult();
 
+  // A pointer to an exceptional execution result or the nullptr otherwise.
   std::exception_ptr exception() const;
   void set_exception(std::exception_ptr);
 
