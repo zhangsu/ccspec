@@ -10,6 +10,7 @@ using ccspec::core::Reporter;
 namespace spec {
 namespace core {
 
+extern ExampleGroup* execution_result_spec;
 extern ExampleGroup* unexpected_throw_spec;
 
 }  // namespace core
@@ -47,6 +48,7 @@ int main() {
   Reporter reporter(&formatter);
 
   ExampleGroup* example_groups[] = {
+    spec::core::execution_result_spec,
     spec::core::unexpected_throw_spec,
     spec::expectation::mismatch_spec,
     spec::expectation::unexpected_match_spec,
