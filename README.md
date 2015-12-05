@@ -86,6 +86,70 @@ describe("Duck", [] {
 });
 ```
 
+These hooks can be nested as deep as needed and only apply to the immediate enclosing example group:
+```c++
+class Student {
+ public:
+  void setName(string name) {
+    this->name = name;
+  }
+
+  void setMark(int mark) {
+    this->mark = mark;
+  }
+
+  string getEvaluation() const {
+    if (mark > 90) {
+      return name + " is superb!";
+    } else if (mark > 80) {
+      return name + " is excellent!";
+    } else if (mark > 70) {
+      return name + " is good!";
+    } else if (mark > 60) {
+      return name + " is okay.";
+    } else {
+      return name + " needs improvement";
+    }
+  }
+
+ private:
+  string name;
+  int mark;
+};
+
+describe("Student", [] {
+  Student* student = new Student();
+  
+  before("each", [student] {
+    student->setName("Joe");
+  });
+  
+  describe("with perfect mark", [student] {
+    before("each", [student] {
+      student->setMark(100);
+    });
+
+    it("gets superb evaluation", [student] {
+      expect(student->getEvaluation()).to(contain("superb"));
+    });
+  });
+
+  describe("with failing mark", [student] {
+    before("each", [student] {
+      student->setMark(49);
+    });
+
+    it("gets 'needs improvement' evaluation", [student] {
+      expect(student->getEvaluation()).to(contain("needs improvement"));
+    });
+  });
+
+  after("all", [student] {
+    delete student;
+  });
+});
+```
+
 ## Try It Out
 ```Bash
 git clone git@github.com:zhangsu/ccspec.git
