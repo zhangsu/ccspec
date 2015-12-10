@@ -72,15 +72,15 @@ testing frameworks. In CCSpec, these are known as *before each* and *after
 each* hooks.
 
 ```c++
+Duck* duck;
+
 describe("Duck", [] {
-  shared_ptr<Duck> duck = std::make_shared<Duck>();
-  
-  before("each", [duck]() mutable {
-    duck.reset(new Duck());
+  before("each", [] {
+    duck = new Duck();
   });
   
   after("each", [] {
-    // Do some finalization after each example.
+    delete duck;
   });
 
   it("quacks", [duck] {
