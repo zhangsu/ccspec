@@ -18,6 +18,162 @@ CCSpec is simply an attempt to port RSpec from Ruby to C++ as much as possible.
 ```
 
 ## Getting Started
+
+There are two ways to link the CCSpec library to your test executable(s):
+the Biicode way or the regular CMake way.
+
+### Automatic linkage with Biicode
+
+The easiest way to use CCSpec in your project is by using
+[Biicode](https://www.biicode.com://www.biicode.com/). Biicode is a C and C++
+dependency manager, resembling RubyGems for Ruby and NPM for Node.js.
+
+If your project already uses Biicode, great! You can skip to the
+[Configure Biicode](#configure-biicode)
+section.
+
+#### Download and install Biicode
+
+You can follow the official instructions at Biicode's
+[installation page](http://docs.biicode.com/c++/installation.html).
+
+Alternatively, you can install Biicode through your native package manager if
+Biicode is in the repositories. For example, Arch Linux users maintain a Biicode
+package in the [AUR](https://aur.archlinux.org/packages/biicode/). For OS X
+users, Homebrew Cask also has an
+[entry](https://github.com/caskroom/homebrew-cask/blob/master/Casks/biicode.rb).
+
+#### Adapt your project as a Biicode project
+
+Take a look at Biicode's
+[Adapt your library guide](http://docs.biicode.com/c++/adapt_library_guide.html)
+for how to use Biicode for your existing project.
+
+```Zsh
+cd <your_project_root_directory>
+bii init -L
+```
+
+#### Configure Biicode
+
+Add the following config to your `biicode.conf` under the root directory of your
+project:
+
+```
+[requirements]
+  zhangsu/ccspec: 0
+
+[includes]
+  ccspec/*.h: zhangsu/ccspec/include/
+```
+
+the [requirements] section declares to have your project depend on
+ `zhangsu/ccspec`, which is the
+[official published Biicode block for CCSpec](https://www.biicode.com/zhangsu/ccspec).
+The number `0` indicates which CCSpec version to use, and currently there is only
+the development version which is `0`. The [includes] section defines a short form
+for the include path so that, instead of using the fully-qualified Biicode path:
+
+```C++
+#include "zhangsu/ccspec/include/ccspec/*.h"
+```
+
+You can just do
+
+```C++
+#include "ccspec/*.h"
+```
+
+Note that you may still need
+[other config sections](http://docs.biicode.com/c++/reference/biicode-conf.html)
+in your biicode.conf for your project, but the above two are crucial for using
+CCSpec. Most likely you will need a
+[\[tests\]](http://docs.biicode.com/c++/reference/biicode-conf.html#tests) section
+to specify the CCSpec spec files of your project so that they are not linked to
+your project's production libraries or executables:
+
+```
+[tests]
+  spec/*
+```
+
+This specifies that files under the `spec/` directory are test files. To test this,
+put a simple spec file under the `spec/` directory:
+
+```C++
+#include "ccspec/core.h"
+#include "ccspec/expectation.h"
+#include "ccspec/matchers.h"
+
+using std::cout;
+using std::ostringstream;
+using ccspec::core::Reporter;
+using ccspec::core::describe;
+using ccspec::core::example;
+using ccspec::core::formatters::DocumentationFormatter;
+using ccspec::matchers::eq;
+using ccspec::expect;
+
+auto addition_spec = describe("Addition", [] {
+  example("1 + 1 = 2", [] {
+    expect(1 + 1).to(eq(2));
+  });
+});
+
+int main() {
+  DocumentationFormatter formatter(cout);
+  Reporter reporter(&formatter);
+  bool succeeded = addition_spec->run(reporter);
+  delete addition_spec;
+  return !succeeded;
+}
+```
+
+At this point, you should be able to run `bii find` to download all the dependencies
+including CCSpec.
+
+##### CMake
+In your main Biicode CMake file, add
+
+```
+IF(APPLE)
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
+ELSEIF (WIN32 OR UNIX)
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+ENDIF(APPLE)
+```
+before your `ADD_BII_TARGETS()` call. This is to turn on C++11 support so that
+CCSpec header can actually be compiled.
+
+Then, to test if everything works:
+```Zsh
+bii build # build your main libraries and executables
+bii test  # run your CCSpec specs
+```
+
+#### Example project
+Here's an [example project](https://github.com/zhangsu/ccspec-example/) that uses
+CCSpec to test a simple binary search tree, using Biicode to manage the dependency.
+
+### Linkage with CMake
+CCSpec can also be compiled from source and linked to your project through
+regular CMake workflow.
+```Bash
+git clone git@github.com:zhangsu/ccspec.git
+cd ccspec
+cd build
+cmake ..
+make
+```
+Then a shared library will be generated under `build/src/`. For example, on Linux
+`libccspec.so` is generated. On OS X `libccspec.dylib` is generated. Headers are
+under `include/`.
+
+You may also choose to install the headers and library file to your system directory
+by running `make install`.
+
+## Detailed Usage
+
 CCSpec contains hierarchical structures of *example group*s and *example*s. Each
 example group is a collection of descriptions of related behavioral examples.
 The `describe` function returns an example group, which can contain multiple
