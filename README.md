@@ -162,15 +162,12 @@ executing all examples and before each hooks in the enclosing example group.
 After all hook is executed after all examples and after each hooks in the
 enclosing example group.
 
-## Try It Out
+## Run tests for CCSpec written in CCSpec!
 ```Bash
 git clone git@github.com:zhangsu/ccspec.git
 cd ccspec
-cd build && cmake .. && make
-```
-
-### Run tests for CCSpec written in CCSpec!
-```Bash
-# In build directory
+cd build
+cmake ..
+make
 spec/ccspec_spec
 ```
