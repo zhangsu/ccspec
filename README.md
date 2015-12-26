@@ -555,7 +555,7 @@ the enclosing example group lambda so that all enclosed examples can see it) and
 initialize it and clean it up in before each and after each hooks so that each
 example doesn't have to repeat the setup and teardown.
 
-However, unlike other garbage-collected language, when capturing variables in
+However, unlike other garbage-collected languages, when capturing variables in
 the context by reference, C++ lambda functions do not extend the lifetime of the
 captured variable. The following CCSpec code will likely generate a segfault:
 
