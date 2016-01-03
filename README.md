@@ -5,7 +5,7 @@ describe("CCSpec", [] {
 ```
 
 CCSpec is a BDD-style testing framework for C++, specifially, C++11. You write
-tests (or specs in CCSpec context) using a semi-natural language that is
+tests (or specs in CCSpec context) using a semi-natural domain-specific language that is
 perfectly valid C++ code, effectively making your specs executable
 documentation. Ideally, reading the spec code as well as the documentation
 output out loud should just sound like speaking English.
