@@ -423,13 +423,13 @@ immediately encloses the hooks themselves. This would be useful to do
 initialization and cleanup differently for different (nested) example groups.
 
 The execution order of various hooks is:
-1. Before all hooks
-2. Around each hooks (the part before calling Example#run)
-3. Before each hooks
-4. Execution of the example
-5. After each hooks
-6. Around each hooks (the part after calling Example#run)
-7. After all hooks
+  1. Before all hooks
+  2. Around each hooks (the part before calling Example#run)
+  3. Before each hooks
+  4. Execution of the example
+  5. After each hooks
+  6. Around each hooks (the part after calling Example#run)
+  7. After all hooks
 
 Before hooks in a parent example group are always executed **before** those
 of the same type in the child example group.
