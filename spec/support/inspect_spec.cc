@@ -102,7 +102,7 @@ auto inspect_spec = describe("::inspect", [] {
     expect(inspect(s)).to(eq("你好, world!"));
   });
 
-  it("return the type name for arbitrary types", [] {
+  it("returns the type name for arbitrary types", [] {
     class AbstractUserServiceProviderModule {
     } abstract_user_service_provider_module;
     expect(inspect(abstract_user_service_provider_module))
